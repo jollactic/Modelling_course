@@ -25,7 +25,7 @@ html:
   use_edit_page_button      : true      # button for users to edit page and submit a PR.
   use_issues_button         : true      # button for users to submit a GitHub issue
   use_repository_button     : true      # button for users to look at the source code in GitHub repo
-  favicon                   : "mi_favicon.png"      # the icon in the browser tab
+  #favicon                   : "mi_favicon.png"      # the icon in the browser tab
   baseurl                   : https://jollactic.github.io/Modelling_course/   # The base URL where the book is hosted
   #google_analytics_id       : XXX
   comments:
