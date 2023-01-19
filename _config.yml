@@ -2,7 +2,7 @@
 title                       : Electronic and atomistic modelling
 author                      : Jolla Kullgren
 copyright                   : "2023"
-logo                        : mi_logo.png     # logo in top-left corner
+#logo                        : mi_logo.png     # logo in top-left corner
 only_build_toc_files        : true           # whether to ignore the extra files
 exclude_patterns            : ["README.md", "LICENSE.md", "**_master.ipynb"]
 
