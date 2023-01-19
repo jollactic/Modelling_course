@@ -46,7 +46,7 @@ launch_buttons:
 repository:
   url                       : https://jollactic.github.io/Modelling_course
   path_to_book              : ""
-  branch                    : master  # source branch
+  branch                    : main  # source branch
 
 
 
