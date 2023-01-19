@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+- file                  : intro
+
+- part                  : HF
+  numbered              : 3
+  chapters:
+    - file              : HF/overview
+      title             : Hartree-Fock
+    - file              : HF/overview
