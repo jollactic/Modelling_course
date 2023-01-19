@@ -1,0 +1,92 @@
+# Book settings. Learn more at https://jupyterbook.org/customize/config.html
+title                       : Electronic and atomistic modelling
+author                      : Jolla Kullgren
+copyright                   : "2023"
+logo                        : mi_logo.png     # logo in top-left corner
+only_build_toc_files        : true           # whether to ignore the extra files
+exclude_patterns            : ["README.md", "LICENSE.md", "**_master.ipynb"]
+
+
+
+#######################################################################################
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks         : cache      # 'auto,' 'cache,' or 'force'
+  timeout                   : 300       # max seconds for notebook to execute
+  allow_errors              : true      # whether to allow and show errors
+
+
+
+#######################################################################################
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_edit_page_button      : true      # button for users to edit page and submit a PR.
+  use_issues_button         : true      # button for users to submit a GitHub issue
+  use_repository_button     : true      # button for users to look at the source code in GitHub repo
+  favicon                   : "mi_favicon.png"      # the icon in the browser tab
+  baseurl                   : https://jollactic.github.io/Modelling_course/   # The base URL where the book is hosted
+  #google_analytics_id       : XXX
+  comments:
+    hypothesis              : false
+
+
+
+#######################################################################################
+# Launch button settings
+launch_buttons:
+  notebook_interface        : classic
+  binderhub_url             : ""
+  colab_url                 : https://colab.research.google.com
+  #jupyterhub_url            :
+  thebe                     : false
+
+# Information about where the book exists on the web
+repository:
+  url                       : https://jollactic.github.io/Modelling_course
+  path_to_book              : ""
+  branch                    : master  # source branch
+
+
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions:   # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath               # LaTeX math
+    - colon_fence           # cleaner directives
+    - dollarmath            # in-line LaTeX
+    - html_image            # parse raw HTML image syntax
+    - linkify               # auto-detect HTML-like links
+    - replacements          # replace certain character sequences
+    - smartquotes           # transforms quotes and dashes
+    - substitution          # allows variable/dictionary substitution
+
+  myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
+  myst_substitutions:       # key: value
+ 
+
+
+
+#######################################################################################
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_engine              : pdflatex
+  latex_documents:
+    targetname              : book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles             : ["references.bib"]
+bibtex_reference_style      : author_year    # requires sphinxcontrib-bibtex 2.2.0
+
+
+
+#######################################################################################
+# Advanced and power-user settings
+sphinx:
+  config:
+    language                : en   # include explicitly for accessibility
+    #mathjax_path            : https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # faster by 60-80%
+    #html_extra_path         : ["assets"]
+    #html_js_files           : https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
