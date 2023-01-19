@@ -1,2 +1,1 @@
-# Modelling course
-Electronic and atomistic modelling of materials
+# Electronic and atomistic modelling of materials
