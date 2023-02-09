@@ -374,7 +374,7 @@ $$
 \\
 $$
 
-these integrals are condensly written: $\left ( ab|cd \right )$. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry and used in our notebook example. Physisist prefer plane-waves which are more suited for periodic systems such a metals. 
+these integrals are condensly written: $\left ( ab|cd \right )$. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry. Physisist prefer plane-waves which are more suited for periodic systems such a metals. 
 
 We can simply a our exression by defining a new matrix $\mathbf{K}$ called density matrix which is defined as:
 
@@ -421,7 +421,7 @@ $$
 
 The matrix $\mathbf{S}^{-\frac{1}{2}}$ is the diagonal matrix form from the inverse square root of eigenvalus of $\mathbf{S}$ (it sound hooribly complicated but it is simple task for a computer as we will see in our jupyter notebook example.)
 
-The final numerical procedure is as follows:
+The numerical procedure is as follows:
 
 1. Guess $\mathbf{C}$
 2. Calculate $\mathbf{F}$ from $\mathbf{C}$
