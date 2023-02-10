@@ -6,7 +6,7 @@ The Hartree-Fock method (HF) is a brute force way of solving the many-body elect
 
 $$
 \\
-\widehat{H} \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_\textup{N_{el}}) = E \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})
+\widehat{H} \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_\textup{N}) = E \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})
 \\
 $$
 
@@ -281,7 +281,7 @@ Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should
 Self Consistent Field (SCF) is used to describe the whole approach given in list above.
 ```
 
-### Numerical solution (Rpothan-Hall equations)
+### Numerical solution (Roothan-Hall equations)
 
 The SCF approach is a large step on the way of finding an approximatio to the many electron wavefunction. However, solving equation involving both integrals and gradients it too though to be genreally applicable. We therefor proceed with a numerical approach. We limite our chioce for the unknown $\chi$ to functions that can be described as linear combinations of known functions. A reasonable choice is to use atomic orbitals (solutions to the Schrödinger equation where we only have of electron and a single nuclie). This approach is very intutive to a chemist and is the basis for molecular orbital theory. Thus we make the anzats:
 
@@ -391,7 +391,7 @@ $$
 $$
 
 There are two small complication allowing us to readily solve the linear equation system. (i) the equation is not a proper eigenvalue problem $\mathbf{A}\mathbf{x}=\lambda\mathbf{x}$, and (ii) \mathbf{F}
-depend on the unknown coeffecients \mathbf{C}. The first of these problem can be tackeled using pure mathematics (a linear transormation) and second problem can be addessed using the SCF approach, i.e. guess $\mathbf{C}$ calculate $\mathbf{C}$ find new $\mathbf{C}$ calculate new $\mathbf{F}$ repeat.  
+depend on the unknown coeffecients $\mathbf{C}$. The first of these problem can be tackeled using pure mathematics (a linear transormation) and second problem can be addessed using the SCF approach, i.e. guess $\mathbf{C}$ calculate $\mathbf{C}$ find new $\mathbf{C}$ calculate new $\mathbf{F}$ repeat.  
 
 How do we make the transformation? 
 
@@ -433,4 +433,7 @@ The final numerical procedure is as follows:
 
 Now let's build our own code!
 
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/HF/HF_skeleton.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 

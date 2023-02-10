@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/HF/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Geometry optimization" href="../Mechanical/overview.html" />
     <link rel="prev" title="&lt;no title&gt;" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -114,6 +115,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Hartree-Fock
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mechanical/overview.html">
+   Geometry optimization
   </a>
  </li>
 </ul>
@@ -343,8 +349,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerical-solution-rpothan-hall-equations">
-     Numerical solution (Rpothan-Hall equations)
+    <a class="reference internal nav-link" href="#numerical-solution-roothan-hall-equations">
+     Numerical solution (Roothan-Hall equations)
     </a>
    </li>
   </ul>
@@ -401,8 +407,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerical-solution-rpothan-hall-equations">
-     Numerical solution (Rpothan-Hall equations)
+    <a class="reference internal nav-link" href="#numerical-solution-roothan-hall-equations">
+     Numerical solution (Roothan-Hall equations)
     </a>
    </li>
   </ul>
@@ -424,7 +430,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-\widehat{H} \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_\textup{N_{el}}) = E \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})
+\widehat{H} \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_\textup{N}) = E \Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})
 \\
 \end{split}\]</div>
 <p>by performing a number of approximations/simplifications. In the following we will go through all steps in this simplification process. But first we have a look at the Schrödinger equation (SE) itself in a bit more detail.</p>
@@ -669,8 +675,8 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1}^{N} \left [  \textbf{J}_j(\textbf{r}_\t
 <p>Self Consistent Field (SCF) is used to describe the whole approach given in list above.</p>
 </div>
 </section>
-<section id="numerical-solution-rpothan-hall-equations">
-<h3>Numerical solution (Rpothan-Hall equations)<a class="headerlink" href="#numerical-solution-rpothan-hall-equations" title="Permalink to this headline">#</a></h3>
+<section id="numerical-solution-roothan-hall-equations">
+<h3>Numerical solution (Roothan-Hall equations)<a class="headerlink" href="#numerical-solution-roothan-hall-equations" title="Permalink to this headline">#</a></h3>
 <p>The SCF approach is a large step on the way of finding an approximatio to the many electron wavefunction. However, solving equation involving both integrals and gradients it too though to be genreally applicable. We therefor proceed with a numerical approach. We limite our chioce for the unknown <span class="math notranslate nohighlight">\(\chi\)</span> to functions that can be described as linear combinations of known functions. A reasonable choice is to use atomic orbitals (solutions to the Schrödinger equation where we only have of electron and a single nuclie). This approach is very intutive to a chemist and is the basis for molecular orbital theory. Thus we make the anzats:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -749,7 +755,7 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1}^{N} \left [  \textbf{J}_j(\textbf{r}_\t
 \mathbf{K}_{abcd}= \int \int \phi_a(\textbf{r}_1)\phi_c(\textbf{r}_1) r_{12}^{-1} \phi_b(\textbf{r}_2)\phi_d(\textbf{r}_2) d\textbf{r}_1d\textbf{r}_2
 \\
 \end{split}\]</div>
-<p>these integrals are condensly written: <span class="math notranslate nohighlight">\(\left ( ab|cd \right )\)</span>. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry. Physisist prefer plane-waves which are more suited for periodic systems such a metals.</p>
+<p>these integrals are condensly written: <span class="math notranslate nohighlight">\(\left ( ab|cd \right )\)</span>. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry and used in our notebook example. Physisist prefer plane-waves which are more suited for periodic systems such a metals.</p>
 <p>We can simply a our exression by defining a new matrix <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> called density matrix which is defined as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -764,7 +770,7 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1}^{N} \left [  \textbf{J}_j(\textbf{r}_\t
 \\
 \end{split}\]</div>
 <p>There are two small complication allowing us to readily solve the linear equation system. (i) the equation is not a proper eigenvalue problem <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\lambda\mathbf{x}\)</span>, and (ii) \mathbf{F}
-depend on the unknown coeffecients \mathbf{C}. The first of these problem can be tackeled using pure mathematics (a linear transormation) and second problem can be addessed using the SCF approach, i.e. guess <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> calculate <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> find new <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> calculate new <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> repeat.</p>
+depend on the unknown coeffecients <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>. The first of these problem can be tackeled using pure mathematics (a linear transormation) and second problem can be addessed using the SCF approach, i.e. guess <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> calculate <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> find new <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> calculate new <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> repeat.</p>
 <p>How do we make the transformation?</p>
 <p>We would like to write our problem as:</p>
 <div class="math notranslate nohighlight">
@@ -788,7 +794,7 @@ depend on the unknown coeffecients \mathbf{C}. The first of these problem can be
 \\
 \end{split}\]</div>
 <p>The matrix <span class="math notranslate nohighlight">\(\mathbf{S}^{-\frac{1}{2}}\)</span> is the diagonal matrix form from the inverse square root of eigenvalus of <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> (it sound hooribly complicated but it is simple task for a computer as we will see in our jupyter notebook example.)</p>
-<p>The numerical procedure is as follows:</p>
+<p>The final numerical procedure is as follows:</p>
 <ol class="simple">
 <li><p>Guess <span class="math notranslate nohighlight">\(\mathbf{C}\)</span></p></li>
 <li><p>Calculate <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> from <span class="math notranslate nohighlight">\(\mathbf{C}\)</span></p></li>
@@ -799,6 +805,9 @@ depend on the unknown coeffecients \mathbf{C}. The first of these problem can be
 <li><p>Repeat steps 3-6 until we reach a self consistent field, i.e when <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> does not change anymore.</p></li>
 </ol>
 <p>Now let’s build our own code!</p>
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/HF/HF_skeleton.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 </section>
 </section>
 </section>
@@ -836,6 +845,13 @@ depend on the unknown coeffecients \mathbf{C}. The first of these problem can be
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">&lt;no title&gt;</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Mechanical/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Geometry optimization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
