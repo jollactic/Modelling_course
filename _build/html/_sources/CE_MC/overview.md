@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
 # Define lattice dimensions
-nx, ny = 10, 10
+nx, ny = 5, 5
 
 # Define clusters and their coefficients
 clusters = [    [[[0, 0], [1, 0]], 0.1],
@@ -97,11 +97,15 @@ for i, (cluster, coefficient) in enumerate(clusters):
     ax.set_ylim(0, ny)
     ax.set_title("Cluster {} (coefficient {})".format(i+1, coefficient))
     plt.show()
+print("The energy of the system is defined by the number of \n cluster of each type that you can fit over black pathes of the alloy.")
+
+E_guess = input("What is the expected energy of the system?")
+
 
 # Print total energy and cluster energies
-print("Total energy: ", total_energy)
+print("True total energy: ", total_energy," Your guess?",E_guess)
 for i, energy in enumerate(cluster_energies):
-    print("Cluster {} energy: {}".format(i+1, energy))
+    print("Contribtion from cluster {} is {}".format(i+1, energy))
 ```
 
 

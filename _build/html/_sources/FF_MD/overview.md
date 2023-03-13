@@ -147,6 +147,10 @@ To calculate the diffusion constant from an MD trajectory, one typically follows
 
 The diffusion constant can be used to characterize the mobility of particles in a system, and can be used to predict the transport properties of materials.
 
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/FF_MD/Tutorial.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
