@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/HF/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Geometry optimization" href="../Mechanical/overview.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../intro.html" />
+    <link rel="next" title="DFT" href="../DFT/overview.html" />
+    <link rel="prev" title="Atomistic represenation" href="../SYSTEMS/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -107,19 +107,49 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Hartree-Fock
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Geometry optimization
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ES/overview.html">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FF_MD/overview.html">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ML/overview.html">
+   Machine learning models
   </a>
  </li>
 </ul>
@@ -355,6 +385,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-mulliken-population">
+   Appendix: Mulliken population
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -412,6 +447,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-mulliken-population">
+   Appendix: Mulliken population
+  </a>
  </li>
 </ul>
 
@@ -808,7 +848,38 @@ depend on the unknown coeffecients <span class="math notranslate nohighlight">\(
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/HF/HF_skeleton.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+Complete the code in the Jupyter note-book link provided above and return a commented version of the code or make a short recorded tutorial. You are free to explore as complicated molecules as you like but you should at-least consider the hydrogen atom.
+<p style='margin-left:1em;'>
+Tip 1 (Basic level): Consider the H-He<sup>+</sup> molecule which is a popular toy model in the literature. 
+<p style='margin-left:1em;'>
+Tip 2 (Advanced level) You can also explore H-Li<sup>2+</sup> and H-Be<sup>3+</sup> and consider both how your basis-set should be modified and degree of ioniziity in the binding. It is rather simple to compute the so-called Mulliken charges (see the appendix in this chapter) of the atoms which can tell how much electron transfer their is in the system.
+</p></span>
+</div>
 </section>
+</section>
+<section id="appendix-mulliken-population">
+<h2>Appendix: Mulliken population<a class="headerlink" href="#appendix-mulliken-population" title="Permalink to this headline">#</a></h2>
+<p>The Mulliken population analysis is a method used to partition the electron density of a molecule into individual atomic contributions. It provides a way to determine how many electrons are associated with each atom in the molecule. The Mulliken population of an atom <span class="math notranslate nohighlight">\(i\)</span> is defined as the sum of the electron density matrix elements between the atomic orbitals centered on atom <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+M_i = \sum_{a \in i} \sum_{b} \mathbf{P}_{ab} \mathbf{S}_{ab}
+\\
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{P}_{ab}\)</span> is the density matrix element between atomic orbitals <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{S}_{ab}\)</span> is the overlap matrix element between the same orbitals, as defined above. The summation over <span class="math notranslate nohighlight">\(a\)</span> includes all atomic orbitals centered on atom <span class="math notranslate nohighlight">\(i\)</span>, and the summation over <span class="math notranslate nohighlight">\(b\)</span> includes all atomic orbitals in the molecule.</p>
+<p>The Mulliken charge of an atom <span class="math notranslate nohighlight">\(i\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+q_i = Z_i - M_i
+\\
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(Z_i\)</span> is the number of electrons in the isolated atom <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(M_i\)</span> is the Mulliken population of atom <span class="math notranslate nohighlight">\(i\)</span> in the molecule. The Mulliken charge <span class="math notranslate nohighlight">\(q_i\)</span> represents the deviation of the actual electron density around atom <span class="math notranslate nohighlight">\(i\)</span> from that of an isolated atom with the same nuclear charge <span class="math notranslate nohighlight">\(Z_i\)</span>, and can be used to determine the charge distribution in the molecular system. If <span class="math notranslate nohighlight">\(q_i\)</span> is positive, atom <span class="math notranslate nohighlight">\(i\)</span> has lost electrons compared to its isolated state and has a net positive charge; if <span class="math notranslate nohighlight">\(q_i\)</span> is negative, atom <span class="math notranslate nohighlight">\(i\)</span> has gained electrons and has a net negative charge.</p>
 </section>
 </section>
 
@@ -839,17 +910,17 @@ depend on the unknown coeffecients <span class="math notranslate nohighlight">\(
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../SYSTEMS/overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title">Atomistic represenation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../Mechanical/overview.html" title="next page">
+    <a class='right-next' id="next-link" href="../DFT/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Geometry optimization</p>
+        <p class="prev-next-title">DFT</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

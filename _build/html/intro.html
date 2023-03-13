@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Electronic and atomistic modelling</title>
+    <title>Introduction &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/intro.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hartree-Fock" href="HF/overview.html" />
+    <link rel="next" title="Atomistic represenation" href="SYSTEMS/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -104,19 +104,49 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="HF/overview.html">
    Hartree-Fock
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="DFT/overview.html">
+   DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Mechanical/overview.html">
-   Geometry optimization
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ES/overview.html">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FF_MD/overview.html">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ML/overview.html">
+   Machine learning models
   </a>
  </li>
 </ul>
@@ -291,23 +321,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Introduction</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -315,9 +382,18 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>We are starting simple.<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<p>Multi-scale modeling is a powerful approach to investigate materials at different length and time scales, from the atomic and molecular level up to the mesoscale and macroscale. It is used to understand the complex behavior of materials and predict their properties and performance, as well as to guide the design and optimization of new materials with tailored properties. Within material science, multi-scale modeling encompasses a variety of methods and techniques, including electronic and atomistic simulations.</p>
+<p>Electronic simulations, such as density functional theory (DFT) and other ab initio methods, are used to study the electronic structure and properties of materials at the atomic scale. DFT is a quantum mechanical approach that allows the calculation of electronic energies and densities of materials from first principles, without any empirical parameters. It can provide insights into the electronic structure, bonding, and reactivity of materials, as well as their optical, magnetic, and transport properties. DFT is widely used to design and optimize new materials for energy storage, catalysis, electronics, and other applications.</p>
+<p>Atomistic simulations, such as molecular dynamics (MD) and Monte Carlo (MC) simulations, are used to investigate the structural and dynamical properties of materials at the atomic and molecular scale. MD is a classical simulation method that uses Newton’s equations of motion to calculate the trajectories of atoms or molecules over time. It can provide information on the thermodynamic and mechanical properties of materials, such as the equation of state, melting temperature, and elastic constants. MC simulations, on the other hand, are used to study the statistical behavior of materials, such as their phase transitions, diffusion, and adsorption.</p>
+<p>In this book we will cover the basics of such electronic and atomistic simulations techniques and provide some examples of theier use by means of a number of jupyter notebook tutorials. Each of the chapters in the book introduces a specific topic and each provide an assignments that your required complete in order to get a pass on the course.</p>
+</section>
+<div class="toctree-wrapper compound">
 </div>
-</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -346,10 +422,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="HF/overview.html" title="next page">
+    <a class='right-next' id="next-link" href="SYSTEMS/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hartree-Fock</p>
+        <p class="prev-next-title">Atomistic represenation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,1 +1,10 @@
-We are starting simple.
+# Introduction
+
+## Background
+Multi-scale modeling is a powerful approach to investigate materials at different length and time scales, from the atomic and molecular level up to the mesoscale and macroscale. It is used to understand the complex behavior of materials and predict their properties and performance, as well as to guide the design and optimization of new materials with tailored properties. Within material science, multi-scale modeling encompasses a variety of methods and techniques, including electronic and atomistic simulations.
+
+Electronic simulations, such as density functional theory (DFT) and other ab initio methods, are used to study the electronic structure and properties of materials at the atomic scale. DFT is a quantum mechanical approach that allows the calculation of electronic energies and densities of materials from first principles, without any empirical parameters. It can provide insights into the electronic structure, bonding, and reactivity of materials, as well as their optical, magnetic, and transport properties. DFT is widely used to design and optimize new materials for energy storage, catalysis, electronics, and other applications.
+
+Atomistic simulations, such as molecular dynamics (MD) and Monte Carlo (MC) simulations, are used to investigate the structural and dynamical properties of materials at the atomic and molecular scale. MD is a classical simulation method that uses Newton's equations of motion to calculate the trajectories of atoms or molecules over time. It can provide information on the thermodynamic and mechanical properties of materials, such as the equation of state, melting temperature, and elastic constants. MC simulations, on the other hand, are used to study the statistical behavior of materials, such as their phase transitions, diffusion, and adsorption.
+
+In this book we will cover the basics of such electronic and atomistic simulations techniques and provide some examples of theier use by means of a number of jupyter notebook tutorials. Each of the chapters in the book introduces a specific topic and each provide an assignments that your required complete in order to get a pass on the course. 

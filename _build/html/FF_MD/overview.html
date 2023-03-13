@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics &#8212; Electronic and atomistic modelling</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://github.com/jollactic/Modelling_course/FF_MD/overview.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling" href="../CE_MC/overview.html" />
+    <link rel="prev" title="Calculating electronic properties" href="../ES/overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Electronic and atomistic modelling</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   Hartree-Fock
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mechanical/overview.html">
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ES/overview.html">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ML/overview.html">
+   Machine learning models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course/issues/new?title=Issue%20on%20page%20%2FFF_MD/overview.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jollactic.github.io/Modelling_course/edit/main/FF_MD/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/FF_MD/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interatomic-potentials">
+   Interatomic potentials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energy-of-a-pair-potential">
+     Energy of a pair-potential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#molecular-dynamics">
+   Molecular dynamics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-md-workflow">
+   The MD workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-equations">
+   Key equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-properties">
+   Analysis - properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rdf">
+     RDF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diffusion">
+     Diffusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interatomic-potentials">
+   Interatomic potentials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energy-of-a-pair-potential">
+     Energy of a pair-potential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#molecular-dynamics">
+   Molecular dynamics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-md-workflow">
+   The MD workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-equations">
+   Key equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-properties">
+   Analysis - properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rdf">
+     RDF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diffusion">
+     Diffusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="dealing-with-larges-systems-and-dynamics-interatomic-potentials-and-molecular-dynamics">
+<h1>Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics<a class="headerlink" href="#dealing-with-larges-systems-and-dynamics-interatomic-potentials-and-molecular-dynamics" title="Permalink to this headline">#</a></h1>
+<section id="interatomic-potentials">
+<h2>Interatomic potentials<a class="headerlink" href="#interatomic-potentials" title="Permalink to this headline">#</a></h2>
+<p>Interatomic potentials, also known as force fields or molecular mechanics potentials, are mathematical models used to describe the interactions between atoms in a material. They are an important tool in computational materials science, providing a means to simulate the behavior of materials on the atomic scale.</p>
+<p>Interatomic potentials are typically developed based on empirical or semi-empirical methods, using experimental data or quantum mechanical calculations as a basis. The most common types of interatomic potentials include:</p>
+<ol class="simple">
+<li><p>Pair potentials: These potentials describe the interactions between pairs of atoms and are typically expressed as a function of the distance between the atoms. Examples of pair potentials include the Lennard-Jones potential, the Morse potential, and the Buckingham potential.</p></li>
+<li><p>Embedded atom method (EAM) potentials: These potentials account for the interactions between an atom and its neighboring atoms, as well as the interactions between the atoms and the underlying lattice. EAM potentials are often used for metallic materials and are based on the assumption that the energy of an atom is a function of the electron density around it.</p></li>
+</ol>
+<p>Interatomic potentials are typically parameterized using experimental data or high-level quantum mechanical calculations. The parameters in the potential function are adjusted until the predicted properties of the material match the experimental data or quantum mechanical calculations. Once the potential has been parameterized, it can be used to simulate the behavior of the material under different conditions, such as temperature, pressure, and deformation.</p>
+<p>Interatomic potentials are widely used in computational materials science for a variety of applications, including the prediction of the mechanical, thermal, and electrical properties of materials, the study of defect behavior and diffusion in materials, and the design of new materials with tailored properties. However, it is important to note that interatomic potentials are not always accurate and may have limitations, particularly in cases where the material being studied has complex bonding interactions or exhibits strong quantum mechanical effects. As such, it is important to validate the accuracy of any interatomic potential before using it for simulations.</p>
+<p>The Wikipedia-page provide a rather good an comprehensive summary as well, <a class="reference external" href="https://en.wikipedia.org/wiki/Interatomic_potential">follow this link if you are interested</a>.</p>
+<section id="energy-of-a-pair-potential">
+<h3>Energy of a pair-potential<a class="headerlink" href="#energy-of-a-pair-potential" title="Permalink to this headline">#</a></h3>
+<p>In a pair potential model, the total energy of a system is calculated as the sum of the pairwise interaction energies between all pairs of atoms in the system. The pairwise interaction energy between two atoms i and j is given by the potential energy function <span class="math notranslate nohighlight">\(V(r_{ij})\)</span>, where <span class="math notranslate nohighlight">\(r_{ij}\)</span> is the distance between the two atoms.</p>
+<p>The total potential energy of the system, U, is then given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+U = \sum_{i&lt;j} V(r_{ij})
+\\
+\end{split}\]</div>
+<p>where the sum is taken over all unique pairs of atoms in the system.</p>
+<p>At finite temoeratures, in addition to the potential energy, the total energy of the system also includes contributions from the kinetic energy of the atoms. Note that static DFT or HF calculations typically neglects these contributions to the energy. The kinetic energy of an atom i with mass <span class="math notranslate nohighlight">\(m_i\)</span> and velocity <span class="math notranslate nohighlight">\(v_i\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+T_i = \frac{1}{2} m_i v_i^2
+\\
+\end{split}\]</div>
+<p>The total kinetic energy of the system, <span class="math notranslate nohighlight">\(T\)</span>, is then given by the sum of the kinetic energies of all atoms in the system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+T = \sum_{i=1}^{N} T_i = \sum_{i=1}^{N} \frac{1}{2} m_i v_i^2
+\\
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the total number of atoms in the system.</p>
+<p>The total energy of the system, <span class="math notranslate nohighlight">\(E\)</span>, is then given by the sum of the potential and kinetic energies:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+E = U + K
+\\
+\end{split}\]</div>
+<p>In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function <span class="math notranslate nohighlight">\(V(r_{ij})\)</span>.</p>
+</section>
+</section>
+<section id="molecular-dynamics">
+<h2>Molecular dynamics<a class="headerlink" href="#molecular-dynamics" title="Permalink to this headline">#</a></h2>
+<p>Molecular dynamics (MD) is a powerful computational technique used in materials science, chemistry, physics, and biology to simulate the behavior of complex systems at the atomic or molecular level. It involves the numerical integration of Newton’s equations of motion to track the positions and velocities of individual atoms or molecules in a system over time, allowing researchers to study the behavior of the system under different conditions.</p>
+<p>The basic principles of molecular dynamics involve defining an initial configuration of the system, specifying the interactions between the atoms or molecules in the system (usually through the use of an interatomic potential), and then numerically integrating the equations of motion to evolve the system over time. The equations of motion are typically solved using numerical algorithms such as Verlet or leapfrog integration.</p>
+<p>MD simulations can be used to study a wide range of phenomena, including the behavior of materials under extreme conditions, such as high temperature or pressure, the formation and properties of chemical reactions, and the dynamics of biological molecules such as proteins and nucleic acids. By varying the parameters of the simulation, such as temperature, pressure, or composition, researchers can gain insights into the fundamental physical and chemical properties of the system.</p>
+<p>One of the key advantages of MD simulations is that they allow researchers to study phenomena that are difficult or impossible to study experimentally. For example, MD simulations can be used to study the behavior of materials at extreme temperatures or pressures, or to study the formation and behavior of short-lived intermediates in chemical reactions. MD simulations can also provide detailed information about the behavior of individual atoms or molecules in a system, allowing researchers to gain insights into the fundamental physics and chemistry of the system.</p>
+<p>However, MD simulations also have limitations. In particular, the accuracy of the simulation depends on the quality of the interatomic potential used to describe the interactions between atoms or molecules in the system. Or restrictions to small systems and short time scales in the case of so-called Ab-Inito MD where energies and forces are computed at the DFT or HF level of theory. While many interatomic potentials have been developed and validated against experimental data, there are still many materials and systems for which accurate potentials have not yet been developed. Additionally, MD simulations can be computationally expensive, particularly for large systems or long simulation times, which limits the scope and duration of simulations that can be performed.</p>
+<p>Despite these limitations, MD simulations have become an important tool in materials science, chemistry, physics, and biology, providing insights into the behavior of complex systems and informing the design of new materials and compounds with tailored properties.</p>
+</section>
+<section id="the-md-workflow">
+<h2>The MD workflow<a class="headerlink" href="#the-md-workflow" title="Permalink to this headline">#</a></h2>
+<p>A typical MD workflow based on a pair-potential involves several steps:</p>
+<ol class="simple">
+<li><p>Initialization: The first step is to set up the initial configuration of the system, which typically involves randomly placing atoms or molecules in a simulation box. The size and shape of the box is chosen to accommodate the desired system size and any boundary conditions that are needed for the simulation.</p></li>
+<li><p>Pair-potential definition: The pairwise interatomic potential is defined, typically through the selection of a functional form (such as Lennard-Jones or Morse potential) and the specification of parameters for the potential (such as the well depth and interaction range).</p></li>
+<li><p>Equilibration: Before the actual production run of the simulation, the system is equilibrated to the desired temperature and pressure. This typically involves running the simulation for a short period of time with fixed boundary conditions and a thermostat and barostat to control the temperature and pressure of the system.</p></li>
+<li><p>Production run: Once the system has been equilibrated, the production run can begin. The equations of motion are numerically integrated to evolve the system over time, with the positions and velocities of the atoms or molecules being updated at each time step. During the production run, properties of interest such as the temperature, pressure, and potential and kinetic energies of the system are monitored and recorded.</p></li>
+<li><p>Analysis: After the production run has completed, the results are analyzed to extract information about the behavior of the system. This typically involves calculating various properties such as the radial distribution function, diffusion coefficient, or melting temperature of the system, which can then be compared to experimental data or used to gain insights into the underlying physics and chemistry of the system.</p></li>
+</ol>
+</section>
+<section id="key-equations">
+<h2>Key equations<a class="headerlink" href="#key-equations" title="Permalink to this headline">#</a></h2>
+<p>The key equations in molecular dynamics (MD) simulations are the equations of motion, which describe the time evolution of the positions and velocities of the particles in the system. The most commonly used equations of motion are the Newtonian equations:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d^2\mathbf{r}_i}{dt^2} = \frac{\mathbf{F}_i}{m_i}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{r}_i\)</span> is the position of particle <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\mathbf{F}_i\)</span> is the net force acting on particle <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(m_i\)</span> is the mass of particle <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(t\)</span> is time.</p>
+<p>To solve these equations of motion numerically, a finite time step <span class="math notranslate nohighlight">\(\Delta t\)</span> is chosen and the positions and velocities of the particles are updated at each time step using a numerical integration method such as the Verlet algorithm or the leapfrog method. The choice of time step is important, as a time step that is too large can lead to numerical instabilities or inaccuracies in the simulation.</p>
+<p>To maintain the desired temperature of the system in an MD simulation, a thermostat is used to control the amount of energy exchanged between the system and the environment. The most commonly used thermostat is the Nosé-Hoover thermostat, which adds an extra term to the equations of motion:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d^2\mathbf{r}_i}{dt^2} = \frac{\mathbf{F}_i}{m_i} - \zeta\mathbf{v}_i\]</div>
+<p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a thermostat variable and <span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span> is the velocity of particle <span class="math notranslate nohighlight">\(i\)</span>. The value of <span class="math notranslate nohighlight">\(\zeta\)</span> is updated at each time step using an additional set of equations, which depend on the desired temperature of the system and the temperature of the thermostat.</p>
+<p>In summary, the key equations in MD simulations are the equations of motion, which are solved numerically using a finite time step and a numerical integration method. To maintain the desired temperature of the system, a thermostat is used to control the energy exchange between the system and the environment.</p>
+</section>
+<section id="analysis-properties">
+<h2>Analysis - properties<a class="headerlink" href="#analysis-properties" title="Permalink to this headline">#</a></h2>
+<section id="rdf">
+<h3>RDF<a class="headerlink" href="#rdf" title="Permalink to this headline">#</a></h3>
+<p>The radial distribution function (RDF) is a measure of the probability of finding a particle at a distance <span class="math notranslate nohighlight">\(r\)</span> from a reference particle in a system. It is a useful tool for characterizing the structure and ordering of particles in a system.</p>
+<p>To calculate the RDF from a molecular dynamics (MD) trajectory, one typically follows these steps:</p>
+<p>Choose a reference particle in the system.
+Calculate the distances between the reference particle and all other particles in the system at each time step of the MD trajectory.
+Bin the distances into radial bins of width <span class="math notranslate nohighlight">\(\Delta r\)</span>.
+Count the number of particles within each bin at each time step.
+Average the particle counts over all time steps to obtain the radial distribution function <span class="math notranslate nohighlight">\(g(r)\)</span>.
+Mathematically, the RDF can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[g(r) = \frac{1}{4\pi r^2 \rho \Delta r N} \sum_{i=1}^{N} \sum_{j\ne i}^{N} \delta(r - |\mathbf{r}_i - \mathbf{r}_j|)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the number density of particles, <span class="math notranslate nohighlight">\(N\)</span> is the total number of particles, and <span class="math notranslate nohighlight">\(\delta\)</span> is the Dirac delta function. The RDF measures the probability of finding a particle at a distance <span class="math notranslate nohighlight">\(r\)</span> from a reference particle, normalized by the expected number of particles in a shell of thickness <span class="math notranslate nohighlight">\(\Delta r\)</span> and radius <span class="math notranslate nohighlight">\(r\)</span> in a uniform system.</p>
+<p>The RDF is a useful tool for analyzing the structure and ordering of particles in a system. Peaks in the RDF correspond to characteristic distances between particles in different types of ordered structures. The RDF can also be used to estimate the coordination number, which is the average number of nearest neighbors of a particle in the system.</p>
+</section>
+<section id="diffusion">
+<h3>Diffusion<a class="headerlink" href="#diffusion" title="Permalink to this headline">#</a></h3>
+<p>The diffusion constant is a measure of how fast particles move through a medium. In molecular dynamics (MD) simulations, the diffusion constant can be calculated from the mean squared displacement (MSD) of particles using the Einstein equation.</p>
+<p>The mean squared displacement is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\text{MSD}(t) = \langle |\mathbf{r}(t) - \mathbf{r}(0)|^2 \rangle\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{r}(t)\)</span> is the position of a particle at time <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\langle \rangle\)</span> denotes an average over all particles in the system.</p>
+<p>The Einstein equation relates the diffusion constant <span class="math notranslate nohighlight">\(D\)</span> to the MSD:</p>
+<div class="math notranslate nohighlight">
+\[\text{MSD}(t) = 6Dt\]</div>
+<p>This equation assumes that the motion of the particles is random and isotropic, and that the particles are not subject to any external forces.</p>
+<p>To calculate the diffusion constant from an MD trajectory, one typically follows these steps:</p>
+<ol class="simple">
+<li><p>Choose a particle or set of particles to track.</p></li>
+<li><p>Calculate the MSD of the particles as a function of time from the MD trajectory.</p></li>
+<li><p>Fit the MSD curve to a straight line using linear regression.</p></li>
+<li><p>Extract the slope of the line, which is equal to <span class="math notranslate nohighlight">\(6D\)</span>.</p></li>
+<li><p>Divide the slope by 6 to obtain the diffusion constant <span class="math notranslate nohighlight">\(D\)</span>.</p></li>
+</ol>
+<p>The diffusion constant can be used to characterize the mobility of particles in a system, and can be used to predict the transport properties of materials.</p>
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+</p></span>
+</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./FF_MD"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../ES/overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Calculating electronic properties</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../CE_MC/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jolla Kullgren<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

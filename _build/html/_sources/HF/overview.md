@@ -437,3 +437,42 @@ Now let's build our own code!
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+
+
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+Complete the code in the Jupyter note-book link provided above and return a commented version of the code or make a short recorded tutorial. You are free to explore as complicated molecules as you like but you should at-least consider the hydrogen atom.
+
+<p style='margin-left:1em;'>
+Tip 1 (Basic level): Consider the H-He<sup>+</sup> molecule which is a popular toy model in the literature. 
+<p style='margin-left:1em;'>
+Tip 2 (Advanced level) You can also explore H-Li<sup>2+</sup> and H-Be<sup>3+</sup> and consider both how your basis-set should be modified and degree of ioniziity in the binding. It is rather simple to compute the so-called Mulliken charges (see the appendix in this chapter) of the atoms which can tell how much electron transfer their is in the system.
+
+</p></span>
+</div>
+
+
+## Appendix: Mulliken population
+
+ The Mulliken population analysis is a method used to partition the electron density of a molecule into individual atomic contributions. It provides a way to determine how many electrons are associated with each atom in the molecule. The Mulliken population of an atom $i$ is defined as the sum of the electron density matrix elements between the atomic orbitals centered on atom $i$:
+
+$$
+\\
+M_i = \sum_{a \in i} \sum_{b} \mathbf{P}_{ab} \mathbf{S}_{ab}
+\\
+$$
+
+where $\mathbf{P}_{ab}$ is the density matrix element between atomic orbitals $a$ and $b$, and $\mathbf{S}_{ab}$ is the overlap matrix element between the same orbitals, as defined above. The summation over $a$ includes all atomic orbitals centered on atom $i$, and the summation over $b$ includes all atomic orbitals in the molecule.
+
+The Mulliken charge of an atom $i$ is defined as:
+
+$$
+\\
+q_i = Z_i - M_i
+\\
+$$
+
+where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is the Mulliken population of atom $i$ in the molecule. The Mulliken charge $q_i$ represents the deviation of the actual electron density around atom $i$ from that of an isolated atom with the same nuclear charge $Z_i$, and can be used to determine the charge distribution in the molecular system. If $q_i$ is positive, atom $i$ has lost electrons compared to its isolated state and has a net positive charge; if $q_i$ is negative, atom $i$ has gained electrons and has a net negative charge.

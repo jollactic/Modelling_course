@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Geometry optimization &#8212; Electronic and atomistic modelling</title>
+    <title>Calculating mechanical properties &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,7 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/Mechanical/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Hartree-Fock" href="../HF/overview.html" />
+    <link rel="next" title="Calculating electronic properties" href="../ES/overview.html" />
+    <link rel="prev" title="DFT" href="../DFT/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -106,19 +107,49 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../HF/overview.html">
    Hartree-Fock
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   DFT
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Geometry optimization
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ES/overview.html">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FF_MD/overview.html">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ML/overview.html">
+   Machine learning models
   </a>
  </li>
 </ul>
@@ -315,22 +346,22 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometry-optimization">
    Geometry optimization
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-of-state">
    Equation of State
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#surface-energies">
    Surface energies
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#particle-shapes-using-wulff-construction">
      Particle shapes using Wulff construction
     </a>
@@ -346,7 +377,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Geometry optimization</h1>
+                <h1>Calculating mechanical properties</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -356,22 +387,22 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometry-optimization">
    Geometry optimization
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-of-state">
    Equation of State
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#surface-energies">
    Surface energies
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#particle-shapes-using-wulff-construction">
      Particle shapes using Wulff construction
     </a>
@@ -388,9 +419,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>Computation of mechanical properties does not require explicit description of electrons. All methods on the electronic-atomistic ladder can therefore be used here.</p>
-<section class="tex2jax_ignore mathjax_ignore" id="geometry-optimization">
-<h1>Geometry optimization<a class="headerlink" href="#geometry-optimization" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="calculating-mechanical-properties">
+<h1>Calculating mechanical properties<a class="headerlink" href="#calculating-mechanical-properties" title="Permalink to this headline">#</a></h1>
+<p>Computation of mechanical properties does not require explicit description of electrons. All methods on the electronic-atomistic ladder can therefore be used here.</p>
+<section id="geometry-optimization">
+<h2>Geometry optimization<a class="headerlink" href="#geometry-optimization" title="Permalink to this headline">#</a></h2>
 <p>A central concept in chemistry and physics is the so-called potential energy surface (PES). The PES is the continuous surface that specifies the energy of system as a function of the atom coordinates. THe surface typically contains a number of local minima, a single global minima, saddle points and maxima. With geometry optimization we can identify local minima. Thus, given a starting goemetry defining the positions of all atoms in our system and a computational protocol, we search for closest local minima on the potential energy surface. There are numerous techniques availble to us. Conseptually, the simplest is the steepest descent (ro gradient descent) algorithm which will be our leading example.</p>
 <p>The gradient descent algorithm describes an intertive to find local minima in a highdimesional space. Lets say we are at position <span class="math notranslate nohighlight">\(\textbf{r}_{i}^{N}\)</span> in our high-dimesional space where <span class="math notranslate nohighlight">\(\textbf{r}_{i}^{N}\)</span> describes the position (x,y,z coordinates) of ALL nucleous of our system. If we take a sufficiently small step <span class="math notranslate nohighlight">\(\alpha\)</span> along the gradient <span class="math notranslate nohighlight">\(\triangledown E(\textbf{r}_{i}^{N})\)</span> we should en up a point lower in energy. We can write the following recursive formula where we find the minima as <span class="math notranslate nohighlight">\(i\rightarrow \infty\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -408,19 +441,35 @@ title="Print to PDF"
 \end{split}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(F(\textbf{r}_{i}^{N})\)</span> collects the force along x,y,z for ALL nucleus. Thus if we know how to compute forces we can implement a steepest descent algorithm. Forces is a standard output for most computational methods such as HF and DFT.</p>
 <p>Further reading: https://en.wikipedia.org/wiki/Gradient_descent</p>
-<p>Jupyter notebook.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="equation-of-state">
-<h1>Equation of State<a class="headerlink" href="#equation-of-state" title="Permalink to this headline">#</a></h1>
-<p>The equation of state in the context of solids relates volume, energy and pressure. These relations are ideal to explore using computional techniques.</p>
-<p>Jupyter notebook.</p>
+<section id="equation-of-state">
+<h2>Equation of State<a class="headerlink" href="#equation-of-state" title="Permalink to this headline">#</a></h2>
+<p>In condensed matter physics, the equation of state is a mathematical expression that relates the pressure, volume, and temperature of a material. It is an essential tool for understanding the thermodynamic behavior of solids under different conditions. There are several equations of state available for solids, each with its own set of assumptions and limitations. In this answer, we will provide an overview of the Birch-Murnaghan equation of state.</p>
+<p>The Birch-Murnaghan equation of state is a widely used equation of state for solids that was first proposed by J. D. Birch in 1947 and later extended by F. D. Murnaghan in 1944. The equation relates the pressure (P) and volume (V) of a solid to its equilibrium volume (V0), bulk modulus (K0), and its derivative with respect to pressure (K’0). The equation is given by:</p>
+<p>\begin{equation}
+P = \frac{3K_0}{2} \left[\left(\frac{V_0}{V}\right)^{7/3}-\left(\frac{V_0}{V}\right)^{5/3}\right]\left[1+\frac{3}{4}(K_0^{‘}-4)\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right]\right]
+\end{equation}</p>
+<p>where K0 is the bulk modulus at equilibrium volume V0, and K’0 is the first derivative of the bulk modulus with respect to pressure. The equation has two parameters, K0 and K’0, which can be determined experimentally or theoretically.</p>
+<p>The Birch-Murnaghan equation of state has some advantages over other equations of state, such as its ability to accurately describe the behavior of solids over a wide range of pressures and volumes. However, it has some limitations, such as its inability to accurately describe the behavior of solids at extreme pressures and temperatures.</p>
+<p>In summary, the equation of state is an important tool for understanding the thermodynamic behavior of solids. The Birch-Murnaghan equation of state is a widely used equation of state for solids that relates the pressure and volume of a solid to its equilibrium volume, bulk modulus, and its derivative with respect to pressure. The equation has some advantages over other equations of state, but also has some limitations.</p>
+<p>These relations are ideal to explore using computional techniques.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="surface-energies">
-<h1>Surface energies<a class="headerlink" href="#surface-energies" title="Permalink to this headline">#</a></h1>
-<p>Surface energy is another property that lends it self very well for simulations. We can compute surface energies using the so-called slab model</p>
-<p>Jupyter notebook.</p>
+<section id="surface-energies">
+<h2>Surface energies<a class="headerlink" href="#surface-energies" title="Permalink to this headline">#</a></h2>
+<p>Surface energy is a fundamental property of materials that plays a crucial role in a wide range of phenomena, including adhesion, catalysis, and crystal growth. It is defined as the excess energy per unit area of a material’s surface, relative to the energy of the bulk material. The slab model is a widely used computational method for calculating the surface energy of materials.</p>
+<p>The slab model involves constructing a thin slab of the material of interest, with one or more exposed surfaces. The slab is typically modeled as a periodic array of atoms or molecules, with the exposed surfaces parallel to the x-y plane. By computing the total energy of the slab using a computational method such as density functional theory (DFT), one can determine the surface energy of the material.</p>
+<p>The key idea behind the slab model is that the surface energy of a material can be computed as the difference in energy between the slab and the bulk material, per unit surface area. The bulk material is typically modeled as an infinite crystal lattice, with periodic boundary conditions in all directions. By computing the total energy of both the bulk and slab models using the same computational method, one can determine the difference in energy between the two models, which corresponds to the surface energy of the material.</p>
+<p>There are several factors that can affect the accuracy of surface energy calculations using the slab model, including the size and shape of the slab, the choice of computational method, and the treatment of long-range interactions. To minimize these errors, it is important to use large enough slabs to minimize finite-size effects, and to use high-quality computational methods that are capable of accurately describing the electronic and geometric properties of the material.</p>
+<p>In summary, the slab model is a powerful computational method for calculating the surface energy of materials. By constructing a thin slab of the material of interest and computing its total energy using a computational method such as DFT, one can determine the surface energy of the material as the difference in energy between the slab and the bulk material, per unit surface area. Careful attention to the choice of computational method and the treatment of finite-size effects is critical to obtaining accurate results.</p>
+<p>The surface energy of a material can be calculated using the following equation in the slab model:
+$<span class="math notranslate nohighlight">\(
+\\
+\gamma_{\rm{surf}} = \frac{1}{2A} [E_{\rm{slab}} - N_{\rm{atoms}}E_{\rm{bulk}}]
+\\
+\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(\gamma_{\rm{surf}}\)</span> is the surface energy per unit area, <span class="math notranslate nohighlight">\(A\)</span> is the surface area of the slab, <span class="math notranslate nohighlight">\(E_{\rm{slab}}\)</span> is the total energy of the slab with exposed surfaces, <span class="math notranslate nohighlight">\(N_{\rm{atoms}}\)</span> is the number of atoms in the slab, and <span class="math notranslate nohighlight">\(E_{\rm{bulk}}\)</span> is the total energy per atom of the bulk crystal. The factor of 1/2 is included to account for the fact that each atom at the surface contributes to the surface energy, but is shared between two surface areas.</p>
 <section id="particle-shapes-using-wulff-construction">
-<h2>Particle shapes using Wulff construction<a class="headerlink" href="#particle-shapes-using-wulff-construction" title="Permalink to this headline">#</a></h2>
+<h3>Particle shapes using Wulff construction<a class="headerlink" href="#particle-shapes-using-wulff-construction" title="Permalink to this headline">#</a></h3>
 <p>From computed surface energies we can predict particle shapes using the Wulff construction. Forming a surface cost energy solids therefore strive to minimize surface area. However, since different surface terminations may have very different surface energies this area minimization has some constraints. Area should be minimized while at the same time exposing as little as possible of high energy surface terminations. For a given volume of material there is a unique shape such that this condition is met. This is called the Wulff shape and can be obtained from a rather simple algorithm.</p>
 <ol class="simple">
 <li><p>Calcuate the surface energy of relevant surfaces.
@@ -429,7 +478,19 @@ title="Print to PDF"
 <li><p>For each surface termination, place a plane perpendicular to its normal (pointing away from origo) at an distance that is proportional to it’s surface normal.</p></li>
 <li><p>Extract the particle shape from the space encapsulated by the planes placed in step 3.</p></li>
 </ol>
-<p>Jupyter notebook.</p>
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+<ol class="simple">
+<li><p>Complete the code for geometry optimization in the jupyter note-book.</p></li>
+<li><p>Choose of of the metals compatible with <a href="https://wiki.fysik.dtu.dk/ase/ase/calculators/emt.html#ase.calculators.emt.EMT">EMT</a> method and find the equlibrium cell volume and bulk modulus.</p></li>
+<li><p>Use the optimized cell vloume to figure out the optimum lattice constant of your metal. Use this lattice constant to calculate the surface energy for at-least one surface termination. Explore how the surface energy vary with the number of layers, at what point does the energy seem to change insignificantly when adding more layers to the slab?</p></li>
+<li><p>(Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal.</p></li>
+</ol>
+</p></span>
+</div></section>
 </section>
 </section>
 
@@ -460,12 +521,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../HF/overview.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../DFT/overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Hartree-Fock</p>
+            <p class="prev-next-title">DFT</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ES/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Calculating electronic properties</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

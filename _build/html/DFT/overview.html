@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DFT &#8212; Electronic and atomistic modelling</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://github.com/jollactic/Modelling_course/DFT/overview.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calculating mechanical properties" href="../Mechanical/overview.html" />
+    <link rel="prev" title="Hartree-Fock" href="../HF/overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Electronic and atomistic modelling</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   Hartree-Fock
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mechanical/overview.html">
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ES/overview.html">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FF_MD/overview.html">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ML/overview.html">
+   Machine learning models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course/issues/new?title=Issue%20on%20page%20%2FDFT/overview.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jollactic.github.io/Modelling_course/edit/main/DFT/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/DFT/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kohn-sham-dft-ks-dft">
+   Kohn-Sham DFT (KS-DFT)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functionals">
+   Functionals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduced-density-gradient-s">
+   Reduced density gradient (
+   <span class="math notranslate nohighlight">
+    \(s\)
+   </span>
+   )
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expressing-the-pbe-functional-using-s">
+     Expressing the PBE functional using
+     <span class="math notranslate nohighlight">
+      \(s\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading-and-tutorial">
+   Further reading and tutorial
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DFT</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kohn-sham-dft-ks-dft">
+   Kohn-Sham DFT (KS-DFT)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functionals">
+   Functionals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduced-density-gradient-s">
+   Reduced density gradient (
+   <span class="math notranslate nohighlight">
+    \(s\)
+   </span>
+   )
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expressing-the-pbe-functional-using-s">
+     Expressing the PBE functional using
+     <span class="math notranslate nohighlight">
+      \(s\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading-and-tutorial">
+   Further reading and tutorial
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="dft">
+<h1>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">#</a></h1>
+<p>Density Functional Theory (DFT) is a quantum mechanical modeling technique used to calculate the electronic structure of materials. It is based on the concept of the electron density, which is the probability of finding an electron at a particular point in space.</p>
+<p>DFT allows for the calculation of a material’s electronic properties by solving the Schrödinger equation using the electron density instead of the wave function. This greatly simplifies the calculation, making it more computationally efficient than other methods.</p>
+<p>The main idea behind DFT is to approximate the unknown functional dependence of the electron density on the external potential, by using an approximate exchange-correlation functional. This functional accounts for the repulsive interactions between electrons and the attractive interactions between electrons and the positively charged atomic nuclei.</p>
+<p>DFT has become an essential tool in materials science, chemistry, and physics, and has been used to study a wide range of systems, including atoms, molecules, surfaces, and bulk materials.</p>
+<section id="kohn-sham-dft-ks-dft">
+<h2>Kohn-Sham DFT (KS-DFT)<a class="headerlink" href="#kohn-sham-dft-ks-dft" title="Permalink to this headline">#</a></h2>
+<p>Kohn-Sham Density Functional Theory (KS-DFT) is a variant of Density Functional Theory that was developed by Walter Kohn and Pierre Hohenberg in 1964. It is based on the idea of mapping the many-body Schrödinger equation for a system of interacting electrons onto a set of non-interacting electrons in a self-consistent potential.</p>
+<p>In KS-DFT, the total energy of the system is expressed as a functional of the electron density, similar to other DFT methods. However, instead of using a single electron density for the whole system, KS-DFT employs a set of auxiliary non-interacting electrons, known as Kohn-Sham orbitals, that satisfy an auxiliary set of equations. The electron density is then calculated from the Kohn-Sham orbitals.</p>
+<p>KS-DFT has several advantages over the Hartree-Fock (HF) method, another popular method for calculating electronic structures. Firstly, KS-DFT accounts for electron correlation effects, which are not included in the HF method. This makes KS-DFT more accurate for systems with strongly correlated electrons, such as transition metal complexes or systems with strong electron-electron interactions.</p>
+<p>Secondly, KS-DFT is computationally more efficient than HF, as it does not require the calculation of two-electron integrals, which can be very expensive for larger systems. Finally, KS-DFT is capable of accurately describing the properties of a wide range of materials, including metals, insulators, and semiconductors, whereas HF is generally limited to describing non-metallic systems.</p>
+<p>Overall, KS-DFT has become one of the most widely used methods for calculating electronic structures, due to its accuracy and efficiency for a wide range of systems.</p>
+<p>The key equations for Kohn-Sham Density Functional Theory (KS-DFT) are:</p>
+<p>The Kohn-Sham equations:</p>
+<div class="math notranslate nohighlight">
+\[\left[ -\frac{\hbar^2}{2m}\nabla^2 + V_{\text{ext}}(\mathbf{r}) + V_{\text{Hxc}}[\rho(\mathbf{r})] \right] \phi_i(\mathbf{r}) = \epsilon_i \phi_i(\mathbf{r})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi_i(\mathbf{r})\)</span> are the Kohn-Sham orbitals, <span class="math notranslate nohighlight">\(\epsilon_i\)</span> are the corresponding eigenvalues, <span class="math notranslate nohighlight">\(m\)</span> is the electron mass, <span class="math notranslate nohighlight">\(V_{\text{ext}}(\mathbf{r})\)</span> is the external potential, and <span class="math notranslate nohighlight">\(V_{\text{Hxc}}[\rho(\mathbf{r})]\)</span> is the Hartree-exchange-correlation potential, which depends on the electron density <span class="math notranslate nohighlight">\(\rho(\mathbf{r})\)</span>.</p>
+<p>The electron density:</p>
+<div class="math notranslate nohighlight">
+\[\rho(\mathbf{r}) = \sum_{i=1}^N |\phi_i(\mathbf{r})|^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of electrons in the system.</p>
+<p>The total energy:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + V_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{\text{s}}[\rho(\mathbf{r})]\)</span> is the kinetic energy of the non-interacting Kohn-Sham electrons, <span class="math notranslate nohighlight">\(V_{\text{ext}}[\rho(\mathbf{r})]\)</span> is the external potential energy, <span class="math notranslate nohighlight">\(E_{\text{H}}[\rho(\mathbf{r})]\)</span> is the Hartree energy due to electron-electron repulsion, and <span class="math notranslate nohighlight">\(E_{\text{xc}}[\rho(\mathbf{r})]\)</span> is the exchange-correlation energy, which accounts for the effects of electron correlation.</p>
+<p>The self-consistent field (SCF) procedure is used to solve the Kohn-Sham equations iteratively until the electron density and total energy converge to a self-consistent solution.</p>
+</section>
+<section id="functionals">
+<h2>Functionals<a class="headerlink" href="#functionals" title="Permalink to this headline">#</a></h2>
+<p>Density Functional Theory (DFT) functionals are mathematical expressions that describe the exchange-correlation energy of a system in terms of the electron density. There are many different types of functionals, each with its own set of strengths and weaknesses.</p>
+<p>Two of the most commonly used functionals are the Local Density Approximation (LDA) and the Perdew-Burke-Ernzerhof (PBE) functional.</p>
+<p>LDA is a simple functional that assumes that the exchange-correlation energy depends only on the local electron density at each point in space. This makes LDA computationally efficient, but it can lead to inaccuracies in describing certain electronic properties, such as band gaps and magnetic properties.</p>
+<p>PBE, on the other hand, is a more sophisticated functional that includes both local and non-local contributions to the exchange-correlation energy. This makes PBE more accurate than LDA for a wider range of electronic properties, but also more computationally expensive.</p>
+<p>Overall, the choice of functional depends on the specific system being studied and the level of accuracy required. LDA may be sufficient for some applications, while PBE may be necessary for others. Other functionals, such as hybrid functionals, are also available and can provide an even higher level of accuracy in some cases.</p>
+<p>The Local Density Approximation (LDA) and Perdew-Burke-Ernzerhof (PBE) functionals are expressed in terms of the electron density, <span class="math notranslate nohighlight">\(\rho(\mathbf{r})\)</span>. The key equations for LDA and PBE are:</p>
+<p>LDA functional:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{xc}}^{\text{LDA}}[\rho(\mathbf{r})] = \int \rho(\mathbf{r}) \epsilon_{\text{xc}}^{\text{LDA}}(\rho(\mathbf{r})) d\mathbf{r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_{\text{xc}}^{\text{LDA}}(\rho(\mathbf{r}))\)</span> is the exchange-correlation energy density at each point in space, which is a function of the local electron density.</p>
+<p>PBE functional:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{xc}}^{\text{PBE}}[\rho(\mathbf{r})] = \int \rho(\mathbf{r}) \epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), \nabla \rho(\mathbf{r})) d\mathbf{r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), \nabla \rho(\mathbf{r}))\)</span> is the exchange-correlation energy density, which depends not only on the electron density, but also on its gradient.</p>
+<p>In practice, the exchange-correlation energy density is typically approximated using various forms of parameterization or interpolation, based on experimental data or computational simulations. The resulting functional is then used to calculate the total energy of the system and optimize the electron density self-consistently.</p>
+</section>
+<section id="reduced-density-gradient-s">
+<h2>Reduced density gradient (<span class="math notranslate nohighlight">\(s\)</span>)<a class="headerlink" href="#reduced-density-gradient-s" title="Permalink to this headline">#</a></h2>
+<p>The reduced density gradient is a concept used in Density Functional Theory (DFT) to describe the local kinetic energy density of electrons in a system. It is defined as:</p>
+<div class="math notranslate nohighlight">
+\[s = \frac{\left| \nabla \rho \right|}{2\rho^{4/3}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the electron density and <span class="math notranslate nohighlight">\(\left| \nabla \rho \right|\)</span> is the magnitude of its gradient. The reduced density gradient provides a measure of the electron density’s curvature and how quickly it changes in space.</p>
+<p>The reduced density gradient has been shown to be useful in predicting various molecular properties, including reactivity, aromaticity, and stability. It is often used in conjunction with DFT functionals, such as the Perdew-Burke-Ernzerhof (PBE) functional, to improve the accuracy of calculations.</p>
+<p>Overall, the reduced density gradient is a powerful tool for analyzing and predicting the behavior of electrons in molecular systems, and it is an important concept in the field of computational chemistry.</p>
+<section id="expressing-the-pbe-functional-using-s">
+<h3>Expressing the PBE functional using <span class="math notranslate nohighlight">\(s\)</span><a class="headerlink" href="#expressing-the-pbe-functional-using-s" title="Permalink to this headline">#</a></h3>
+<p>The Perdew-Burke-Ernzerhof (PBE) functional can be written in terms of the reduced density gradient, <span class="math notranslate nohighlight">\(s\)</span>, as:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{xc}}^{\text{PBE}}[\rho(\mathbf{r})] = \int \rho(\mathbf{r}) \epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r})) d\mathbf{r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r}))\)</span> is the exchange-correlation energy density, which depends not only on the electron density, but also on its reduced density gradient.</p>
+<p>The PBE functional takes into account both local and non-local contributions to the exchange-correlation energy, which makes it more accurate than the Local Density Approximation (LDA) for a wider range of electronic properties. The inclusion of the reduced density gradient in the PBE functional further improves its accuracy by capturing the non-local behavior of electrons in a system.</p>
+</section>
+</section>
+<section id="further-reading-and-tutorial">
+<h2>Further reading and tutorial<a class="headerlink" href="#further-reading-and-tutorial" title="Permalink to this headline">#</a></h2>
+<p>In the tutorial we follow closely the presentation in Chapter 2 in the thesis entitled <a class="reference external" href="https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf">Transition metal and alloy catalysts
+in the light of computational materials modelling</a> by Ageo Meier De Andrade. The thesis (Chapter 2 in particular) give an excellent overview of DFT in the cotext of materials science, it is must-read!</p>
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+Write a short (maximum 3-pages) summary that includes:
+<p style='margin-left:1em;'>
+1. A briefly overview of the concept of the `Jacob’s ladder of density functional approximations`.
+2. A comparison of LDA and PBE in terms of how they describe the lattice constant and cohesive energies of diamond. Relate you findings to the reduced gradient distribution of the C-atoms and diamond. Include graphics from the Jupyter note-book to support your argumentaion. (You will also have to do some additional plots of your own here!)
+<p style='margin-left:1em;'>
+Note that parameters like basis-set quallity and k-point sampling have not been fully optimized in the example. Results could therefore be at variance with reference values in the literature. The general behvaiour in terms of the LDA and PBE behaviour is still well captured. 
+</p></span>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./DFT"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../HF/overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Hartree-Fock</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Mechanical/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Calculating mechanical properties</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jolla Kullgren<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

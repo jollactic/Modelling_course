@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Calculating electronic properties &#8212; Electronic and atomistic modelling</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://github.com/jollactic/Modelling_course/ES/overview.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics" href="../FF_MD/overview.html" />
+    <link rel="prev" title="Calculating mechanical properties" href="../Mechanical/overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Electronic and atomistic modelling</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SYSTEMS/overview.html">
+   Atomistic represenation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   Hartree-Fock
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mechanical/overview.html">
+   Calculating mechanical properties
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Calculating electronic properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FF_MD/overview.html">
+   Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CE_MC/overview.html">
+   Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ML/overview.html">
+   Machine learning models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jollactic.github.io/Modelling_course/issues/new?title=Issue%20on%20page%20%2FES/overview.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jollactic.github.io/Modelling_course/edit/main/ES/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/ES/overview.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bloch-theorem">
+   Bloch theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-hydrogen-chain">
+   The hydrogen chain
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-first-brillouin-zone-for-the-hydrogen-chain">
+     The first Brillouin zone for the hydrogen chain.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#band-structure-of-solids">
+   Band-structure of solids
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-brillouin-zone-revisted">
+     First Brillouin zone revisted
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#denisty-of-states">
+   Denisty of states
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Calculating electronic properties</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bloch-theorem">
+   Bloch theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-hydrogen-chain">
+   The hydrogen chain
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-first-brillouin-zone-for-the-hydrogen-chain">
+     The first Brillouin zone for the hydrogen chain.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#band-structure-of-solids">
+   Band-structure of solids
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-brillouin-zone-revisted">
+     First Brillouin zone revisted
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#denisty-of-states">
+   Denisty of states
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="calculating-electronic-properties">
+<h1>Calculating electronic properties<a class="headerlink" href="#calculating-electronic-properties" title="Permalink to this headline">#</a></h1>
+<section id="bloch-theorem">
+<h2>Bloch theorem<a class="headerlink" href="#bloch-theorem" title="Permalink to this headline">#</a></h2>
+<p>The Bloch theorem is a fundamental concept in the study of crystalline materials, which states that the wave function of an electron in a periodic potential can be written as a product of a plane wave and a periodic function. Mathematically, the Bloch theorem can be stated as:</p>
+<div class="math notranslate nohighlight">
+\[\psi_{\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{\mathbf{k}}(\mathbf{r})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\psi_{\mathbf{k}}(\mathbf{r})\)</span> is the wave function of an electron with wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> in a crystal, <span class="math notranslate nohighlight">\(u_{\mathbf{k}}(\mathbf{r})\)</span> is a periodic function with the same periodicity as the crystal lattice, and <span class="math notranslate nohighlight">\(e^{i\mathbf{k}\cdot\mathbf{r}}\)</span> is a plane wave.</p>
+<p>The Bloch theorem is a powerful tool for understanding the electronic properties of crystalline materials, as it allows for the systematic study of the behavior of electrons in periodic potentials. It forms the basis of many theoretical models used in condensed matter physics and materials science, including Density Functional Theory (DFT), which is widely used to study the electronic properties of materials.</p>
+</section>
+<section id="the-hydrogen-chain">
+<h2>The hydrogen chain<a class="headerlink" href="#the-hydrogen-chain" title="Permalink to this headline">#</a></h2>
+<p>One way to understand electronic bandstructure is through the example of the hydrogen chain.</p>
+<p>The hydrogen chain consists of a linear chain of hydrogen atoms, where each atom is separated by a fixed distance. When the hydrogen atoms are far apart, each hydrogen atom has its own set of discrete energy levels, which are similar to the energy levels of a single hydrogen atom. However, as the atoms get closer together, their electron wavefunctions start to overlap, which creates new energy levels that are a combination of the individual energy levels of each atom. These new energy levels are called energy bands, and they can be described by a continuous range of allowed energies for electrons in the crystal.</p>
+<p>The energy levels of a single hydrogen atom can be described by the Schrödinger equation:</p>
+<div class="math notranslate nohighlight">
+\[\hat{H}\psi_n = E_n\psi_n\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{H}\)</span> is the Hamiltonian operator, <span class="math notranslate nohighlight">\(\psi_n\)</span> is the wavefunction of the nth energy level, and <span class="math notranslate nohighlight">\(E_n\)</span> is the corresponding energy.</p>
+<p>When multiple hydrogen atoms are brought together to form a crystal, their electron wavefunctions start to overlap, which leads to the formation of energy bands. The electronic bandstructure of the hydrogen chain can be described using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\epsilon(k) = \epsilon_0 - 2t\cos(ka)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon(k)\)</span> is the energy of an electron with momentum <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the energy of the isolated hydrogen atom, <span class="math notranslate nohighlight">\(t\)</span> is the hopping integral between adjacent atoms, <span class="math notranslate nohighlight">\(a\)</span> is the distance between adjacent atoms, and <span class="math notranslate nohighlight">\(k\)</span> is the wavevector of the electron.</p>
+<section id="the-first-brillouin-zone-for-the-hydrogen-chain">
+<h3>The first Brillouin zone for the hydrogen chain.<a class="headerlink" href="#the-first-brillouin-zone-for-the-hydrogen-chain" title="Permalink to this headline">#</a></h3>
+<p>The first Brillouin zone is a concept in solid-state physics that represents the boundaries of the smallest possible repeating unit in the reciprocal lattice of a crystal. For a one-dimensional crystal like a hydrogen chain, the first Brillouin zone consists of a single interval in reciprocal space. The reciprocal lattice of the chain is given by a set of plane waves with wave vectors that are integer multiples of the fundamental wave vector “k” defined as:</p>
+<p><span class="math notranslate nohighlight">\(k = \frac{2\pi}{a}\)</span></p>
+<p>The first Brillouin zone is defined as the region of reciprocal space that is bounded by the planes that bisect the line connecting the origin (k = 0) to the first reciprocal lattice point. For a one-dimensional hydrogen chain, the first reciprocal lattice point is located at k = ±k, where k is the fundamental wave vector defined above.</p>
+<p>Therefore, the first Brillouin zone for a hydrogen chain is simply the interval between -k and k in reciprocal space, which is a segment of length 2k. In other words, any wave vector in the first Brillouin zone can be written as:</p>
+<p><span class="math notranslate nohighlight">\(k_1 = \pm k + \delta\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\delta\)</span> is a wave vector that lies within the first Brillouin zone.</p>
+</section>
+</section>
+<section id="band-structure-of-solids">
+<h2>Band-structure of solids<a class="headerlink" href="#band-structure-of-solids" title="Permalink to this headline">#</a></h2>
+<p>In the discussion of the electronic bandstructure of simple solids, it is important to consider the contribution of different types of atomic orbitals, including s-, p-, and d-orbitals. The electronic bandstructure of a solid is determined by the interaction between the electrons and the crystal lattice potential, which is affected by the shape and orientation of the atomic orbitals.</p>
+<p>In general, s-orbitals are more isotropic, meaning they have a more symmetric distribution of electron density around the nucleus, while p- and d-orbitals are more anisotropic, meaning they have a directional preference for electron density. This difference in symmetry affects how the orbitals interact with each other and with the crystal lattice potential, which in turn affects the electronic bandstructure of the material.</p>
+<p>In a simple metal, such as copper, the valence band is composed primarily of s-orbitals, which are delocalized throughout the crystal lattice. This delocalization allows electrons to move freely through the material and conduct electricity. In a semiconductor or insulator, the valence band is typically composed of a combination of s- and p-orbitals, while the conduction band is composed of unoccupied p- and d-orbitals that are able to participate in conduction when excited.</p>
+<p>The energy levels of the different orbitals can also affect the electronic bandstructure. For example, in a semiconductor, the energy levels of the s- and p-orbitals can be tuned by doping the material with impurities, which can shift the location of the Fermi level and affect the conductivity of the material. In a material with a large number of d-electrons, such as a transition metal oxide, the d-orbitals can also contribute to the electronic bandstructure and play a role in the material’s electronic and magnetic properties.</p>
+<p>In summary, the contribution of different types of atomic orbitals, including s-, p-, and d-orbitals, is an important factor in determining the electronic bandstructure of simple solids. The symmetry and energy levels of the orbitals affect how they interact with each other and with the crystal lattice potential, which in turn determines the electrical and optical properties of the material.</p>
+<section id="first-brillouin-zone-revisted">
+<h3>First Brillouin zone revisted<a class="headerlink" href="#first-brillouin-zone-revisted" title="Permalink to this headline">#</a></h3>
+<p>The concept of the first Brillouin zone applies to any periodic solid in three dimensions, not just one-dimensional hydrogen chains.</p>
+<p>In a three-dimensional solid, the first Brillouin zone is a polyhedron in reciprocal space that is bounded by the planes that bisect the lines connecting the origin (k = 0) to the reciprocal lattice points closest to the origin. These reciprocal lattice points are the nearest neighbors of the origin, and the first Brillouin zone represents the region of reciprocal space that is closest to the origin.</p>
+<p>The shape of the first Brillouin zone depends on the crystal structure of the solid. For example, in a simple cubic lattice, the first Brillouin zone is a cube centered at the origin, with each face of the cube corresponding to a reciprocal lattice plane. In a face-centered cubic lattice, the first Brillouin zone is a truncated octahedron, while in a body-centered cubic lattice, the first Brillouin zone is a rhombic dodecahedron.</p>
+<p>The first Brillouin zone is important in the study of the electronic and vibrational properties of solids. In particular, the band structure of solids, which describes the allowed energy levels of electrons in the crystal, is typically plotted over the first Brillouin zone. The shape of the Brillouin zone affects the density of states, the effective mass of electrons, and other electronic properties of the solid.</p>
+</section>
+</section>
+<section id="denisty-of-states">
+<h2>Denisty of states<a class="headerlink" href="#denisty-of-states" title="Permalink to this headline">#</a></h2>
+<p>The density of states (DOS) is a function that describes the number of states available at each energy level in a solid. It is closely related to the band structure of the solid, which is a graph of the allowed energy levels for electrons in the solid. The band structure and DOS are related through the following equation:</p>
+<p>\begin{equation}
+D(E) = \frac{1}{V}\sum_{i=1}^{N}\delta(E - E_i)
+\end{equation}</p>
+<p>where <span class="math notranslate nohighlight">\(D(E)\)</span> is the density of states at energy <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(V\)</span> is the volume of the solid, <span class="math notranslate nohighlight">\(N\)</span> is the total number of energy levels in the solid, and <span class="math notranslate nohighlight">\(\delta\)</span> is the Dirac delta function. The energy levels <span class="math notranslate nohighlight">\(E_i\)</span> are obtained from the band structure calculation.</p>
+<p>The above equation states that the density of states at an energy level <span class="math notranslate nohighlight">\(E\)</span> is proportional to the number of energy levels that have an energy equal to <span class="math notranslate nohighlight">\(E\)</span>. In other words, the DOS gives the number of available energy states at a given energy level. The band structure, on the other hand, provides information about the allowed energy levels in the solid, and the corresponding energy ranges where electrons can exist.</p>
+<p>In summary, the band structure and density of states are intimately connected, with the band structure providing information on the allowed energy levels and the density of states providing information on the number of available energy states at each energy level.</p>
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Assignment:</b></p>
+<p style='margin-left:1em;'>
+Go through the jupyter note-book and consider the example for TiO<sub>2</sub> provided at the 'DFTB+ recipies' <a href="https://dftbplus-recipes.readthedocs.io/en/latest/basics/bandstruct.html">page</a>. Reproduce their results using the functions and proceduers detailed in the our note-book and address the following:
+<p style='margin-left:1em;'>
+1. (Basic level): Use the caclulated band diagram of TiO<sub>2</sub> to illustrate if there is a direct or indirect band-gap. 
+<p style='margin-left:1em;'>
+2. (Advanced level): Explore the varition in the PDOS when intrducing a point-defect to the system (e.g. an oxygen vacancy). Note that you would typically need to make a supercell to avoid the defect from interacting across the periodic boundaries.
+</p></span>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ES"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Mechanical/overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Calculating mechanical properties</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../FF_MD/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jolla Kullgren<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
