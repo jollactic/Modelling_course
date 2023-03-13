@@ -98,8 +98,22 @@ The PBE functional takes into account both local and non-local contributions to 
 
 ## Further reading and tutorial
 
-In the tutorial we follow closely the presentation in Chapter 2 in the thesis entitled [Transition metal and alloy catalysts
+Tutorial 1:
+
+In this tutorial we follow closely the presentation in Chapter 2 in the thesis entitled [Transition metal and alloy catalysts
 in the light of computational materials modelling](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf) by Ageo Meier De Andrade. The thesis (Chapter 2 in particular) give an excellent overview of DFT in the cotext of materials science, it is must-read!
+
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_1.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+Tutorial 2:
+
+In this tutorial orginally written by Ask Hjorth Larsen and Keenan Lyon at DTU we consider a simple DFT code for a 1D system. The example represent a grid-based approach were we do not use analytical basis-functions.
+
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_2.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
@@ -111,7 +125,11 @@ Write a short (maximum 3-pages) summary that includes:
 
 <p style='margin-left:1em;'>
 1. A briefly overview of the concept of the `Jacob’s ladder of density functional approximations`.
+
+
+<p style='margin-left:1em;'>
 2. A comparison of LDA and PBE in terms of how they describe the lattice constant and cohesive energies of diamond. Relate you findings to the reduced gradient distribution of the C-atoms and diamond. Include graphics from the Jupyter note-book to support your argumentaion. (You will also have to do some additional plots of your own here!)
+
 
 <p style='margin-left:1em;'>
 Note that parameters like basis-set quallity and k-point sampling have not been fully optimized in the example. Results could therefore be at variance with reference values in the literature. The general behvaiour in terms of the LDA and PBE behaviour is still well captured. 

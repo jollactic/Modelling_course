@@ -78,6 +78,11 @@ From computed surface energies we can predict particle shapes using the Wulff co
 
 4. Extract the particle shape from the space encapsulated by the planes placed in step 3.
 
+### Note-book
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/Mechanical/Tutorial.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
