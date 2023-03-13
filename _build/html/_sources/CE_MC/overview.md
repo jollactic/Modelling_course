@@ -168,6 +168,11 @@ The combination of cluster expansion and Monte Carlo simulations can be used to 
 
  The method can also be used to construct a phase diagram that shows the stable phases of the alloy as a function of temperature and composition.
 
+### Note-book
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/CE_MC/Tutorial.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
