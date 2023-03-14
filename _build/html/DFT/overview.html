@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DFT &#8212; Electronic and atomistic modelling</title>
+    <title>ELECTRONIC STRUCTURE - Density Functional Theory (DFT) &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/DFT/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Calculating mechanical properties" href="../Mechanical/overview.html" />
-    <link rel="prev" title="Hartree-Fock" href="../HF/overview.html" />
+    <link rel="next" title="ELECTRONIC STRUCTURE - Calculating electronic properties" href="../ES/overview.html" />
+    <link rel="prev" title="ELECTRONIC STRUCTURE - Hartee-Fock (HF)" href="../HF/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../HF/overview.html">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   DFT
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ES/overview.html">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1">
@@ -379,6 +379,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#further-reading-and-tutorial">
    Further reading and tutorial
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -389,7 +396,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DFT</h1>
+                <h1>ELECTRONIC STRUCTURE - Density Functional Theory (DFT)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -432,6 +439,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#further-reading-and-tutorial">
    Further reading and tutorial
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -443,8 +457,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="dft">
-<h1>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="electronic-structure-density-functional-theory-dft">
+<h1>ELECTRONIC STRUCTURE - Density Functional Theory (DFT)<a class="headerlink" href="#electronic-structure-density-functional-theory-dft" title="Permalink to this headline">#</a></h1>
 <p>Density Functional Theory (DFT) is a quantum mechanical modeling technique used to calculate the electronic structure of materials. It is based on the concept of the electron density, which is the probability of finding an electron at a particular point in space.</p>
 <p>DFT allows for the calculation of a material’s electronic properties by solving the Schrödinger equation using the electron density instead of the wave function. This greatly simplifies the calculation, making it more computationally efficient than other methods.</p>
 <p>The main idea behind DFT is to approximate the unknown functional dependence of the electron density on the external potential, by using an approximate exchange-correlation functional. This functional accounts for the repulsive interactions between electrons and the attractive interactions between electrons and the positively charged atomic nuclei.</p>
@@ -469,6 +483,10 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + V_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_{\text{s}}[\rho(\mathbf{r})]\)</span> is the kinetic energy of the non-interacting Kohn-Sham electrons, <span class="math notranslate nohighlight">\(V_{\text{ext}}[\rho(\mathbf{r})]\)</span> is the external potential energy, <span class="math notranslate nohighlight">\(E_{\text{H}}[\rho(\mathbf{r})]\)</span> is the Hartree energy due to electron-electron repulsion, and <span class="math notranslate nohighlight">\(E_{\text{xc}}[\rho(\mathbf{r})]\)</span> is the exchange-correlation energy, which accounts for the effects of electron correlation.</p>
+<p>The
+$<span class="math notranslate nohighlight">\(
+\)</span>V_{\text{Hxc}}[\rho(\mathbf{r})]<span class="math notranslate nohighlight">\(
+\)</span>$</p>
 <p>The self-consistent field (SCF) procedure is used to solve the Kohn-Sham equations iteratively until the electron density and total energy converge to a self-consistent solution.</p>
 </section>
 <section id="functionals">
@@ -533,6 +551,10 @@ Write a short (maximum 3-pages) summary that includes:
 Note that parameters like basis-set quallity and k-point sampling have not been fully optimized in the example. Results could therefore be at variance with reference values in the literature. The general behvaiour in terms of the LDA and PBE behaviour is still well captured. 
 </p></span>
 </div>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p>
+</section>
 </section>
 </section>
 
@@ -567,13 +589,13 @@ Note that parameters like basis-set quallity and k-point sampling have not been 
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Hartree-Fock</p>
+            <p class="prev-next-title">ELECTRONIC STRUCTURE - Hartee-Fock (HF)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../Mechanical/overview.html" title="next page">
+    <a class='right-next' id="next-link" href="../ES/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Calculating mechanical properties</p>
+        <p class="prev-next-title">ELECTRONIC STRUCTURE - Calculating electronic properties</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

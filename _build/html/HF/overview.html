@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Hartree-Fock &#8212; Electronic and atomistic modelling</title>
+    <title>ELECTRONIC STRUCTURE - Hartee-Fock (HF) &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/HF/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DFT" href="../DFT/overview.html" />
-    <link rel="prev" title="Atomistic represenation" href="../SYSTEMS/overview.html" />
+    <link rel="next" title="ELECTRONIC STRUCTURE - Density Functional Theory (DFT)" href="../DFT/overview.html" />
+    <link rel="prev" title="MECHANICAL PROPERTIES" href="../Mechanical/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../DFT/overview.html">
-   DFT
+   Periodic Boundary Conditions (PBC)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ES/overview.html">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1">
@@ -389,6 +389,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#appendix-mulliken-population">
    Appendix: Mulliken population
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -399,7 +406,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hartree-Fock</h1>
+                <h1>ELECTRONIC STRUCTURE - Hartee-Fock (HF)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -452,6 +459,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#appendix-mulliken-population">
    Appendix: Mulliken population
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -463,9 +477,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>Another interesting one: https://adambaskerville.github.io/posts/HartreeFockGuide/</p>
-<section class="tex2jax_ignore mathjax_ignore" id="hartree-fock">
-<h1>Hartree-Fock<a class="headerlink" href="#hartree-fock" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="electronic-structure-hartee-fock-hf">
+<h1>ELECTRONIC STRUCTURE - Hartee-Fock (HF)<a class="headerlink" href="#electronic-structure-hartee-fock-hf" title="Permalink to this headline">#</a></h1>
 <p>The Hartree-Fock method (HF) is a brute force way of solving the many-body electronic Schrödinger equation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -848,7 +861,6 @@ depend on the unknown coeffecients <span class="math notranslate nohighlight">\(
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/HF/HF_skeleton.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
-<p>\</p>
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
 <p style='margin-top:1em; text-align:center'>
@@ -859,6 +871,11 @@ Complete the code in the Jupyter note-book link provided above and return a comm
 Tip 1 (Basic level): Consider the H-He<sup>+</sup> molecule which is a popular toy model in the literature. 
 <p style='margin-left:1em;'>
 Tip 2 (Advanced level) You can also explore H-Li<sup>2+</sup> and H-Be<sup>3+</sup> and consider both how your basis-set should be modified and degree of ioniziity in the binding. It is rather simple to compute the so-called Mulliken charges (see the appendix in this chapter) of the atoms which can tell how much electron transfer their is in the system.
+<p style='margin-top:1em; text-align:center'>
+<b>Submission instructions:</b></p>
+<p style='margin-left:1em;'>
+<p style='margin-left:1em;'>
+Upload your commented version of the note-book to the studium page. 
 </p></span>
 </div>
 </section>
@@ -881,6 +898,10 @@ q_i = Z_i - M_i
 \\
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(Z_i\)</span> is the number of electrons in the isolated atom <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(M_i\)</span> is the Mulliken population of atom <span class="math notranslate nohighlight">\(i\)</span> in the molecule. The Mulliken charge <span class="math notranslate nohighlight">\(q_i\)</span> represents the deviation of the actual electron density around atom <span class="math notranslate nohighlight">\(i\)</span> from that of an isolated atom with the same nuclear charge <span class="math notranslate nohighlight">\(Z_i\)</span>, and can be used to determine the charge distribution in the molecular system. If <span class="math notranslate nohighlight">\(q_i\)</span> is positive, atom <span class="math notranslate nohighlight">\(i\)</span> has lost electrons compared to its isolated state and has a net positive charge; if <span class="math notranslate nohighlight">\(q_i\)</span> is negative, atom <span class="math notranslate nohighlight">\(i\)</span> has gained electrons and has a net negative charge.</p>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p>
+</section>
 </section>
 </section>
 
@@ -911,17 +932,17 @@ q_i = Z_i - M_i
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../SYSTEMS/overview.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../Mechanical/overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Atomistic represenation</p>
+            <p class="prev-next-title">MECHANICAL PROPERTIES</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../DFT/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DFT</p>
+        <p class="prev-next-title">ELECTRONIC STRUCTURE - Density Functional Theory (DFT)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -16,7 +16,7 @@ Interatomic potentials are widely used in computational materials science for a 
 
 The Wikipedia-page provide a rather good an comprehensive summary as well, [follow this link if you are interested](https://en.wikipedia.org/wiki/Interatomic_potential).
 
-### Energy of a pair-potential
+### Energy of a pair-potential model
 
 In a pair potential model, the total energy of a system is calculated as the sum of the pairwise interaction energies between all pairs of atoms in the system. The pairwise interaction energy between two atoms i and j is given by the potential energy function $V(r_{ij})$, where $r_{ij}$ is the distance between the two atoms.
 
@@ -57,6 +57,19 @@ E = U + K
 $$
 
 In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function $V(r_{ij})$. 
+
+
+### Energy of pair-potential model under periodic boundary conditions
+In a simulation using periodic boundary conditions, the interactions between atoms in adjacent unit cells are taken into account to represent an infinite system.
+
+To understand how this is done, consider a simulation cell containing a number of atoms, and imagine replicating this cell periodically in all three dimensions. This creates a three-dimensional lattice of identical cells, with each cell containing the same set of atoms as the original simulation cell. The replicated cells are called periodic images, and are arranged around the original simulation cell in a periodic manner, such that the distance between adjacent cells is equal to the length of the simulation cell in each dimension.
+
+When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This is done by including all pairwise interactions between atoms in the simulation cell and their periodic images. 
+
+If we have a pair of atoms in the simulation cell, and their periodic images are located in the adjacent cells, then the potential energy between these two atoms is calculated as the sum of the potential energy contributions from all pairwise interactions between the atoms in the simulation cell and their periodic images. This includes interactions between atoms in the simulation cell, between atoms in the simulation cell and their periodic images, and between periodic images of atoms in adjacent cells.
+
+To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.
+
 
 ## Molecular dynamics
 Molecular dynamics (MD) is a powerful computational technique used in materials science, chemistry, physics, and biology to simulate the behavior of complex systems at the atomic or molecular level. It involves the numerical integration of Newton's equations of motion to track the positions and velocities of individual atoms or molecules in a system over time, allowing researchers to study the behavior of the system under different conditions.
@@ -152,6 +165,7 @@ The diffusion constant can be used to characterize the mobility of particles in 
 </a>
 
 
+
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
 <p style='margin-top:1em; text-align:center'>
@@ -162,3 +176,7 @@ The diffusion constant can be used to characterize the mobility of particles in 
 
 </p></span>
 </div>
+
+### Further reading:
+
+1. [Chapter 4 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)

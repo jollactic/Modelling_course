@@ -1,6 +1,4 @@
-Another interesting one: https://adambaskerville.github.io/posts/HartreeFockGuide/
-
-# Hartree-Fock
+# ELECTRONIC STRUCTURE - Hartee-Fock (HF)
 
 The Hartree-Fock method (HF) is a brute force way of solving the many-body electronic Schrödinger equation:
 
@@ -437,7 +435,7 @@ Now let's build our own code!
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
-\\
+
 
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
@@ -450,6 +448,13 @@ Complete the code in the Jupyter note-book link provided above and return a comm
 Tip 1 (Basic level): Consider the H-He<sup>+</sup> molecule which is a popular toy model in the literature. 
 <p style='margin-left:1em;'>
 Tip 2 (Advanced level) You can also explore H-Li<sup>2+</sup> and H-Be<sup>3+</sup> and consider both how your basis-set should be modified and degree of ioniziity in the binding. It is rather simple to compute the so-called Mulliken charges (see the appendix in this chapter) of the atoms which can tell how much electron transfer their is in the system.
+
+<p style='margin-top:1em; text-align:center'>
+<b>Submission instructions:</b></p>
+<p style='margin-left:1em;'>
+
+<p style='margin-left:1em;'>
+Upload your commented version of the note-book to the studium page. 
 
 </p></span>
 </div>
@@ -476,3 +481,8 @@ q_i = Z_i - M_i
 $$
 
 where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is the Mulliken population of atom $i$ in the molecule. The Mulliken charge $q_i$ represents the deviation of the actual electron density around atom $i$ from that of an isolated atom with the same nuclear charge $Z_i$, and can be used to determine the charge distribution in the molecular system. If $q_i$ is positive, atom $i$ has lost electrons compared to its isolated state and has a net positive charge; if $q_i$ is negative, atom $i$ has gained electrons and has a net negative charge.
+
+
+### Further reading:
+
+[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)

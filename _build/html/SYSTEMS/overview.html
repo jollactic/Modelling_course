@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Atomistic represenation &#8212; Electronic and atomistic modelling</title>
+    <title>REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/jollactic/Modelling_course/SYSTEMS/overview.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Hartree-Fock" href="../HF/overview.html" />
+    <link rel="next" title="MECHANICAL PROPERTIES" href="../Mechanical/overview.html" />
     <link rel="prev" title="Introduction" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../HF/overview.html">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../DFT/overview.html">
-   DFT
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ES/overview.html">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1">
@@ -352,9 +352,16 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lattice-models">
-   Lattice models
+  <a class="reference internal nav-link" href="#supercells">
+   Supercells
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -365,7 +372,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Atomistic represenation</h1>
+                <h1>REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -381,9 +388,16 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lattice-models">
-   Lattice models
+  <a class="reference internal nav-link" href="#supercells">
+   Supercells
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -395,8 +409,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="atomistic-represenation">
-<h1>Atomistic represenation<a class="headerlink" href="#atomistic-represenation" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="represenitng-systems-in-electronic-and-atomistic-simulations">
+<h1>REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS<a class="headerlink" href="#represenitng-systems-in-electronic-and-atomistic-simulations" title="Permalink to this headline">#</a></h1>
+<p>In order to use electronic or atomistic simulations techniques we need a way to represnt the system we would like to study. In the case of molecules this task i trivial, we simply need to specify the positions of all atoms in the molecule (or nuclii in the case of an electronic simulation). When dealing with a materials with an almost ininite number of atoms this becomes untracktable. Here we make use of simulation cells and periodic boundary conditions.</p>
 <section id="periodic-boundary-conditions-pbc">
 <h2>Periodic Boundary Conditions (PBC)<a class="headerlink" href="#periodic-boundary-conditions-pbc" title="Permalink to this headline">#</a></h2>
 <p>Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry, including molecular dynamics simulations and condensed matter physics.</p>
@@ -413,66 +428,21 @@ z_i + L_z &amp;= z_i
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span>, and <span class="math notranslate nohighlight">\(z_i\)</span> are the coordinates of particle <span class="math notranslate nohighlight">\(i\)</span> in the simulation cell, and <span class="math notranslate nohighlight">\(L_x\)</span>, <span class="math notranslate nohighlight">\(L_y\)</span>, and <span class="math notranslate nohighlight">\(L_z\)</span> are the lengths of the simulation cell in each direction. These equations state that a particle’s position plus the length of the simulation cell in a given direction is equivalent to its position in that direction.</p>
 <p>PBCs are particularly useful when studying systems that exhibit periodicity, such as crystals or periodic arrays of particles. By using PBCs, researchers can simulate a small part of the system and extrapolate its behavior to the entire system. However, PBCs do have limitations, such as the inability to accurately model surface effects and other non-periodic phenomena.</p>
-<p>The code to generate the animation is provide below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="c1"># Set up simulation parameters</span>
-<span class="n">L</span> <span class="o">=</span> <span class="mf">2.0</span>   <span class="c1"># Length of simulation box</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>    <span class="c1"># Number of particles</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">400</span>    <span class="c1"># Number of time steps</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>   <span class="c1"># Time step size</span>
-
-<span class="c1"># Initialize particle positions and velocities</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">vel</span> <span class="o">=</span> <span class="n">L</span><span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1"># Define function to apply periodic boundary conditions</span>
-<span class="k">def</span> <span class="nf">apply_pbc</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Apply periodic boundary conditions to positions&quot;&quot;&quot;</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">pos</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">]</span> <span class="o">-=</span> <span class="n">L</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
-
-<span class="c1"># Define function to update plot</span>
-<span class="k">def</span> <span class="nf">update_plot</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">pos</span>
-    <span class="c1"># Apply periodic boundary conditions</span>
-    <span class="n">apply_pbc</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
-
-    <span class="c1"># Update particle positions</span>
-    <span class="n">pos</span> <span class="o">+=</span> <span class="n">vel</span><span class="o">*</span><span class="n">dt</span>
-
-    <span class="c1"># Clear plot and plot particle positions</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">pos</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Time Step: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-    
-<span class="c1"># Create plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="c1"># Create animation</span>
-<span class="n">animation</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update_plot</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="c1"># Display animation</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">animation</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
 <p>Further reading: <a class="reference external" href="https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294">PBC at python in plain english</a></p>
 </section>
-<section id="lattice-models">
-<h2>Lattice models<a class="headerlink" href="#lattice-models" title="Permalink to this headline">#</a></h2>
-<p>In three dimensions, a lattice can be defined as a regular arrangement of points in three-dimensional space, where each point has identical surroundings and the arrangement repeats itself periodically in all directions. More formally, a lattice in three dimensions can be defined as a set of points of the form <span class="math notranslate nohighlight">\(\vec{r} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\)</span>, where <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\vec{a}_3\)</span> are three linearly independent vectors called the lattice vectors, and <span class="math notranslate nohighlight">\(n_1\)</span>, <span class="math notranslate nohighlight">\(n_2\)</span>, and <span class="math notranslate nohighlight">\(n_3\)</span> are integers.</p>
-<p>The lattice vectors <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\vec{a}_3\)</span> are chosen such that they form a parallelepiped that contains all the lattice points. This parallelepiped is called the unit cell of the lattice, and it represents the repeating pattern of the lattice.</p>
-<p><img alt="PBC" src="../_images/lattice.png" /></p>
-<p>The figure illustrates a 2d lattice with the unit cell marker out.</p>
-<p>There are many types of lattices in three dimensions, each with different symmetry properties. Some common examples include the simple cubic lattice, the face-centered cubic lattice, and the body-centered cubic lattice. The simple cubic lattice is the most basic type of lattice, where each lattice point is at the corner of a cube. The face-centered cubic lattice has additional lattice points at the center of each face of the cube, while the body-centered cubic lattice has an additional lattice point at the center of the cube.</p>
-<p>We can sometimes use a lattice in simulations. We will see an example of that when we consider the cluster expansion method.</p>
+<section id="supercells">
+<h2>Supercells<a class="headerlink" href="#supercells" title="Permalink to this headline">#</a></h2>
+<p>Supercells are a widely used concept in materials modeling, particularly in computational solid-state physics and chemistry. A supercell is an artificial unit cell that contains multiple copies of the original unit cell, allowing for the simulation of larger systems and more complex structures. The supercell can be constructed by replicating the original unit cell along one or more of its lattice vectors, resulting in a larger cell with a new, larger lattice.</p>
+<p>Suppose we have an original unit cell with lattice vectors <span class="math notranslate nohighlight">\(\mathbf{a}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{a}_3\)</span>, and let <span class="math notranslate nohighlight">\(n_1\)</span>, <span class="math notranslate nohighlight">\(n_2\)</span>, and <span class="math notranslate nohighlight">\(n_3\)</span> be the number of times the unit cell is replicated along each lattice vector. The resulting supercell will have lattice vectors <span class="math notranslate nohighlight">\(\mathbf{A}_1=n_1\mathbf{a}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{A}_2=n_2\mathbf{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{A}_3=n_3\mathbf{a}_3\)</span>, and will contain <span class="math notranslate nohighlight">\(n=n_1n_2n_3\)</span> replicas of the original unit cell.</p>
+<p>Supercells are useful in materials modeling for several reasons. First, they allow for the simulation of larger systems, which can be important for understanding the behavior of materials under different conditions or for predicting the properties of materials that are difficult to synthesize or characterize experimentally. Second, they can be used to model defects or impurities in a crystal lattice, by introducing an additional atom or group of atoms into the supercell. Third, they can be used to study the effects of lattice vibrations or thermal fluctuations on the properties of materials.</p>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Periodic_boundary_conditions">Periodic boundary conditions at Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221">Chapter 3.2.2 in <em>Understanding Molecular Simulation : From Algorithms to Applications</em> by Daan Frenkel &amp; Berend Smit</a></p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -510,10 +480,10 @@ z_i + L_z &amp;= z_i
             <p class="prev-next-title">Introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../HF/overview.html" title="next page">
+    <a class='right-next' id="next-link" href="../Mechanical/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hartree-Fock</p>
+        <p class="prev-next-title">MECHANICAL PROPERTIES</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

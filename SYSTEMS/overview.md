@@ -1,4 +1,6 @@
-# Atomistic represenation
+# REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS 
+
+In order to use electronic or atomistic simulations techniques we need a way to represnt the system we would like to study. In the case of molecules this task i trivial, we simply need to specify the positions of all atoms in the molecule (or nuclii in the case of an electronic simulation). When dealing with a materials with an almost ininite number of atoms this becomes untracktable. Here we make use of simulation cells and periodic boundary conditions.
 
 ## Periodic Boundary Conditions (PBC)
 
@@ -23,74 +25,21 @@ where $x_i$, $y_i$, and $z_i$ are the coordinates of particle $i$ in the simulat
 
 PBCs are particularly useful when studying systems that exhibit periodicity, such as crystals or periodic arrays of particles. By using PBCs, researchers can simulate a small part of the system and extrapolate its behavior to the entire system. However, PBCs do have limitations, such as the inability to accurately model surface effects and other non-periodic phenomena.
 
-The code to generate the animation is provide below:
-
-```
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-from IPython.display import HTML
-
-# Set up simulation parameters
-L = 2.0   # Length of simulation box
-N = 30    # Number of particles
-T = 400    # Number of time steps
-dt = 0.01   # Time step size
-
-# Initialize particle positions and velocities
-pos = L*np.random.rand(N,2)
-vel = L*2.0*(np.random.rand(N,2)-0.5)
-
-# Define function to apply periodic boundary conditions
-def apply_pbc(pos,L):
-    """Apply periodic boundary conditions to positions"""
-    pos[pos > L] -= L
-    pos[pos < 0] += L
-
-# Define function to update plot
-def update_plot(frame):
-    global pos
-    # Apply periodic boundary conditions
-    apply_pbc(pos,L)
-
-    # Update particle positions
-    pos += vel*dt
-
-    # Clear plot and plot particle positions
-    ax.clear()
-    ax.scatter(pos[:,0],pos[:,1])
-    ax.scatter(pos[0,0],pos[0,1],color='red')
-    ax.set_xlim(0,L)
-    ax.set_ylim(0,L)
-    ax.set_title('Time Step: {}'.format(frame))
-    ax.set_aspect('equal')
-    
-# Create plot
-fig, ax = plt.subplots()
-
-# Create animation
-animation = FuncAnimation(fig, update_plot, frames=T, interval=50)
-
-# Display animation
-HTML(animation.to_jshtml())
-```
-
-```{html}
-HTML(animation.to_jshtml())
-```
-
 Further reading: [PBC at python in plain english](https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294)
 
-## Lattice models
-In three dimensions, a lattice can be defined as a regular arrangement of points in three-dimensional space, where each point has identical surroundings and the arrangement repeats itself periodically in all directions. More formally, a lattice in three dimensions can be defined as a set of points of the form $\vec{r} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3$, where $\vec{a}_1$, $\vec{a}_2$, and $\vec{a}_3$ are three linearly independent vectors called the lattice vectors, and $n_1$, $n_2$, and $n_3$ are integers.
+## Supercells
 
-The lattice vectors $\vec{a}_1$, $\vec{a}_2$, and $\vec{a}_3$ are chosen such that they form a parallelepiped that contains all the lattice points. This parallelepiped is called the unit cell of the lattice, and it represents the repeating pattern of the lattice.
+Supercells are a widely used concept in materials modeling, particularly in computational solid-state physics and chemistry. A supercell is an artificial unit cell that contains multiple copies of the original unit cell, allowing for the simulation of larger systems and more complex structures. The supercell can be constructed by replicating the original unit cell along one or more of its lattice vectors, resulting in a larger cell with a new, larger lattice.
+
+Suppose we have an original unit cell with lattice vectors $\mathbf{a}_1$, $\mathbf{a}_2$, and $\mathbf{a}_3$, and let $n_1$, $n_2$, and $n_3$ be the number of times the unit cell is replicated along each lattice vector. The resulting supercell will have lattice vectors $\mathbf{A}_1=n_1\mathbf{a}_1$, $\mathbf{A}_2=n_2\mathbf{a}_2$, and $\mathbf{A}_3=n_3\mathbf{a}_3$, and will contain $n=n_1n_2n_3$ replicas of the original unit cell.
+
+Supercells are useful in materials modeling for several reasons. First, they allow for the simulation of larger systems, which can be important for understanding the behavior of materials under different conditions or for predicting the properties of materials that are difficult to synthesize or characterize experimentally. Second, they can be used to model defects or impurities in a crystal lattice, by introducing an additional atom or group of atoms into the supercell. Third, they can be used to study the effects of lattice vibrations or thermal fluctuations on the properties of materials.
 
 
-![PBC](lattice.png)
+### Further reading:
 
-The figure illustrates a 2d lattice with the unit cell marker out.
+1. [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
 
-There are many types of lattices in three dimensions, each with different symmetry properties. Some common examples include the simple cubic lattice, the face-centered cubic lattice, and the body-centered cubic lattice. The simple cubic lattice is the most basic type of lattice, where each lattice point is at the corner of a cube. The face-centered cubic lattice has additional lattice points at the center of each face of the cube, while the body-centered cubic lattice has an additional lattice point at the center of the cube.
+2. [Periodic boundary conditions at Wikipedia](https://en.wikipedia.org/wiki/Periodic_boundary_conditions)
 
-We can sometimes use a lattice in simulations. We will see an example of that when we consider the cluster expansion method.
+3. [Chapter 3.2.2 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)

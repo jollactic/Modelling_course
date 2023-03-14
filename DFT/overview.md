@@ -1,4 +1,4 @@
-# DFT
+# ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
 Density Functional Theory (DFT) is a quantum mechanical modeling technique used to calculate the electronic structure of materials. It is based on the concept of the electron density, which is the probability of finding an electron at a particular point in space.
 
 DFT allows for the calculation of a material's electronic properties by solving the Schrödinger equation using the electron density instead of the wave function. This greatly simplifies the calculation, making it more computationally efficient than other methods.
@@ -39,6 +39,11 @@ The total energy:
 $$E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + V_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]$$
 
 where $T_{\text{s}}[\rho(\mathbf{r})]$ is the kinetic energy of the non-interacting Kohn-Sham electrons, $V_{\text{ext}}[\rho(\mathbf{r})]$ is the external potential energy, $E_{\text{H}}[\rho(\mathbf{r})]$ is the Hartree energy due to electron-electron repulsion, and $E_{\text{xc}}[\rho(\mathbf{r})]$ is the exchange-correlation energy, which accounts for the effects of electron correlation.
+
+The 
+$$
+$V_{\text{Hxc}}[\rho(\mathbf{r})]$
+$$
 
 The self-consistent field (SCF) procedure is used to solve the Kohn-Sham equations iteratively until the electron density and total energy converge to a self-consistent solution.
 
@@ -137,3 +142,7 @@ Note that parameters like basis-set quallity and k-point sampling have not been 
 
 </p></span>
 </div>
+
+### Further reading:
+
+[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)

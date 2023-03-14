@@ -2,11 +2,10 @@ format: jb-book
 root: intro
 chapters:
 - file: SYSTEMS/overview
+- file: Mechanical/overview
 - file: HF/overview
 - file: DFT/overview
-- file: Mechanical/overview
 - file: ES/overview
 - file: FF_MD/overview
 - file: CE_MC/overview
 - file: ML/overview
-

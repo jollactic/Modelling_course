@@ -1,7 +1,12 @@
-# Calculating electronic properties
+# ELECTRONIC STRUCTURE - Calculating electronic properties
+
+Electronic simulations techniques allow us to compute electronic properties such as electronic band-gaps. In order to determine such properties we need to allow our simulations techniques
+
+A brief overview is given in the following section. A more comprehensive summary can be found in the [excellent article by Hoffmann](https://onlinelibrary.wiley.com/doi/epdf/10.1002/anie.198708461).
+
 
 ## Bloch theorem
-The Bloch theorem is a fundamental concept in the study of crystalline materials, which states that the wave function of an electron in a periodic potential can be written as a product of a plane wave and a periodic function. Mathematically, the Bloch theorem can be stated as:
+The Bloch theorem is a fundamental concept in the study of electronic properties of crystalline materials, which states that the wave function of an electron in a periodic potential can be written as a product of a plane wave and a periodic function. Mathematically, the Bloch theorem can be stated as:
 
 $$\psi_{\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{\mathbf{k}}(\mathbf{r})$$
 
@@ -88,12 +93,21 @@ In summary, the band structure and density of states are intimately connected, w
 <p style='margin-top:1em; text-align:center'>
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
-Go through the jupyter note-book and consider the example for TiO<sub>2</sub> provided at the 'DFTB+ recipies' <a href="https://dftbplus-recipes.readthedocs.io/en/latest/basics/bandstruct.html">page</a>. Reproduce their results using the functions and proceduers detailed in the our note-book and address the following:
+Go through the jupyter note-book and consider the example for TiO<sub>2</sub> provided at the 'DFTB+ recipies' <a href="https://dftbplus-recipes.readthedocs.io/en/latest/basics/bandstruct.html">page</a>. Reproduce their results using the functions and proceduers detailed in the our note-book. Maks sure to address the questions in the notebook.
+
+<p style='margin-top:1em; text-align:center'>
+<b>Submission instructions:</b></p>
+<p style='margin-left:1em;'>
 
 <p style='margin-left:1em;'>
-1. (Basic level): Use the caclulated band diagram of TiO<sub>2</sub> to illustrate if there is a direct or indirect band-gap. 
-<p style='margin-left:1em;'>
-2. (Advanced level): Explore the varition in the PDOS when intrducing a point-defect to the system (e.g. an oxygen vacancy). Note that you would typically need to make a supercell to avoid the defect from interacting across the periodic boundaries.
+Upload your commented version of the note-book to the studium page. 
+
 
 </p></span>
 </div>
+
+### Further reading:
+
+1. [*How Chemistry and Physics Meet in the Solid State* By Roald Hoffmann](https://onlinelibrary.wiley.com/doi/epdf/10.1002/anie.198708461)
+
+2. [Chapter 2 and 3 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)

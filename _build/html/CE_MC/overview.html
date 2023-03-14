@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../HF/overview.html">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../DFT/overview.html">
-   DFT
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ES/overview.html">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1">
@@ -347,6 +347,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lattice-models">
+   Lattice models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cluster-expansion-ce">
    Cluster expansion (CE)
   </a>
@@ -369,6 +374,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#note-book">
      Note-book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
     </a>
    </li>
   </ul>
@@ -393,6 +403,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lattice-models">
+   Lattice models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cluster-expansion-ce">
    Cluster expansion (CE)
   </a>
@@ -417,6 +432,11 @@ title="Print to PDF"
      Note-book
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -431,108 +451,56 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="dealing-with-dissordered-structures-cluster-expansion-and-monte-carlo-sampling">
 <h1>Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling<a class="headerlink" href="#dealing-with-dissordered-structures-cluster-expansion-and-monte-carlo-sampling" title="Permalink to this headline">#</a></h1>
+<section id="lattice-models">
+<h2>Lattice models<a class="headerlink" href="#lattice-models" title="Permalink to this headline">#</a></h2>
+<p>The cluster expansion technique makes use of an lattice representation of our system.</p>
+<p>In three dimensions, a lattice can be defined as a regular arrangement of points in three-dimensional space, where each point has identical surroundings and the arrangement repeats itself periodically in all directions. More formally, a lattice in three dimensions can be defined as a set of points of the form <span class="math notranslate nohighlight">\(\vec{r} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\)</span>, where <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\vec{a}_3\)</span> are three linearly independent vectors called the lattice vectors, and <span class="math notranslate nohighlight">\(n_1\)</span>, <span class="math notranslate nohighlight">\(n_2\)</span>, and <span class="math notranslate nohighlight">\(n_3\)</span> are integers.</p>
+<p>The lattice vectors <span class="math notranslate nohighlight">\(\vec{a}_1\)</span>, <span class="math notranslate nohighlight">\(\vec{a}_2\)</span>, and <span class="math notranslate nohighlight">\(\vec{a}_3\)</span> are chosen such that they form a parallelepiped that contains all the lattice points. This parallelepiped is called the unit cell of the lattice, and it represents the repeating pattern of the lattice.</p>
+<p><img alt="Lattice" src="../_images/lattice.png" /></p>
+<p>The figure illustrates a 2d lattice with the unit cell marker out.</p>
+<p>There are many types of lattices in three dimensions, each with different symmetry properties. Some common examples include the simple cubic lattice, the face-centered cubic lattice, and the body-centered cubic lattice. The simple cubic lattice is the most basic type of lattice, where each lattice point is at the corner of a cube. The face-centered cubic lattice has additional lattice points at the center of each face of the cube, while the body-centered cubic lattice has an additional lattice point at the center of the cube.</p>
+</section>
 <section id="cluster-expansion-ce">
 <h2>Cluster expansion (CE)<a class="headerlink" href="#cluster-expansion-ce" title="Permalink to this headline">#</a></h2>
 <p>The cluster expansion method is a computational technique used to model the energetics of alloys. It is based on the idea that the total energy of an alloy can be written as a sum of the energies of individual clusters, or groups of atoms, within the alloy.
 In this method we use lattice representaion of our system. The cluster expansion method is typically used to calculate the configurational entropy and to predict the stable structures of alloys.</p>
-<p>In mathematical terms, the cluster expansion method can be represented as:</p>
+<p>In mathematical terms, the total energy of a alloy configuration, <span class="math notranslate nohighlight">\(n\)</span>, can be represented as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-E = \sum_{i} c_{i}\Delta E_{i}
+E_n = \sum_{i} c_{i,n}\Delta E_{i}
 \\
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(E\)</span> is the total energy of the alloy, <span class="math notranslate nohighlight">\(\Delta E_{i}\)</span> is the energy of the <span class="math notranslate nohighlight">\(i\)</span>th cluster, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the concentration of the <span class="math notranslate nohighlight">\(i\)</span>th cluster within the alloy.</p>
+<p>where <span class="math notranslate nohighlight">\(E_n\)</span> is the total energy of the alloy configuration, <span class="math notranslate nohighlight">\(\Delta E_{i}\)</span> is the energy of the <span class="math notranslate nohighlight">\(i\)</span>th cluster (the cluster coefficient), and <span class="math notranslate nohighlight">\(c_{i,n}\)</span> is the concentration of the <span class="math notranslate nohighlight">\(i\)</span>th cluster within the alloy configuration.</p>
+<p>As an example we can consider a 2-dimensional alloy where each lattice point is occupied with either a black or white atom (These could be two metals e.g. Ag and Pt). If we use a 5<span class="math notranslate nohighlight">\(\times\)</span>5 lattice to represent our system we have 25 lattice site and the possiblity of forming 2<span class="math notranslate nohighlight">\(^25=33'554'432\)</span> unique alloy configurations. The figure below show one example of such configuration and illustrates how the CE approach can be use to determine it’s energy.</p>
+<p><img alt="PBC" src="../_images/CE.gif" />
+<em><strong>Figure.</strong></em> <em>Example showing how the energy of a 2-dimensional alloy is computed using a cluster expansion model including. The model has three clusters, 1) a horizontal dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{1}=0.1\)</span>, 2) a vertical dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{2}=0.2\)</span>, and trimer with energy <span class="math notranslate nohighlight">\(\Delta E_{3}=-0.1\)</span>. In the animation cluster blue when they can be fitted at a certain position in the lattice.</em></p>
+<p>A cluster expansion model is typically parametrized using Density Functional Theory (DFT) data. In order to do so we calculate the total energies for several <em>simple</em> alloy configurations (using small enough supercells that we can afford to perform the time consuming DFT calculations). We need at least as many such configurations as the number of clusters included in our expansion if we like to determine all cluster coefficients. It is straight-forward to re-write the equation above into matrix from:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+E_{1} \\
+E_{2} \\
+\vdots \\
+E_{n}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+c_{1,1} &amp; c_{1,2} &amp; \cdots &amp; c_{1,m} \\
+c_{2,1} &amp; c_{2,2} &amp; \cdots &amp; c_{2,m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+c_{n,1} &amp; c_{n,2} &amp; \cdots &amp; c_{n,m}
+\end{bmatrix}
+\begin{bmatrix}
+\Delta E_{1} \\
+\Delta E_{2} \\
+\vdots \\
+\Delta E_{m}
+\end{bmatrix}
+\end{split}\]</div>
+<p>The cluster coefficients, <span class="math notranslate nohighlight">\(\Delta E_{i}\)</span>, can then be obtained from a <em>least-squares fit</em>. In practice we often apply regularization to obtain a more robust fit and to avoid problem with so-called overfitting. Once we have parametrized our model we can consider larger and more complex situations.</p>
 <p>The cluster expansion method relies on two key assumptions. The first assumption is that the energetics of an alloy can be accurately described by considering only short-range interactions between atoms. The second assumption is that the energy of a cluster can be calculated as a sum of the energies of its constituent atoms, plus a term that accounts for the interactions between the atoms within the cluster.</p>
 <p>The cluster expansion method is a powerful tool for predicting the properties of alloys, particularly in cases where experimental data is limited. However, it requires accurate knowledge of the energetics of individual clusters, which can be difficult to obtain. Additionally, the cluster expansion method is limited to systems in which the interactions between atoms can be accurately described by short-range potentials.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
-
-<span class="c1"># Define lattice dimensions</span>
-<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
-
-<span class="c1"># Define clusters and their coefficients</span>
-<span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span>    <span class="p">[[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="mf">0.1</span><span class="p">],</span>
-    <span class="p">[[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="mf">0.2</span><span class="p">],</span>
-    <span class="p">[[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span>
-<span class="p">]</span>
-
-<span class="c1"># Define function to calculate the energy of a single cluster</span>
-<span class="k">def</span> <span class="nf">cluster_energy</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">coefficient</span><span class="p">,</span> <span class="n">occupancy</span><span class="p">):</span>
-    <span class="n">energy</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">:</span>
-        <span class="n">cluster_energy</span> <span class="o">=</span> <span class="n">coefficient</span> 
-        <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">site</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">nx</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">ny</span><span class="p">):</span>
-                <span class="n">cluster_energy</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">break</span>
-            <span class="k">if</span> <span class="n">occupancy</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">cluster_energy</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">break</span>
-        <span class="n">energy</span> <span class="o">+=</span> <span class="n">cluster_energy</span>
-    <span class="k">return</span> <span class="n">energy</span>
-
-<span class="c1"># Randomly set occupancy variables for each lattice site</span>
-<span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
-
-<span class="c1"># Calculate the total energy and cluster energies</span>
-<span class="n">total_energy</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">cluster_energies</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">coefficient</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
-    <span class="n">energy</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="p">):</span>
-            <span class="c1"># Translate cluster to current position and calculate energy</span>
-            <span class="n">translated_cluster</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">site</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">]]</span>
-            <span class="n">energy</span> <span class="o">+=</span> <span class="n">cluster_energy</span><span class="p">(</span><span class="n">translated_cluster</span><span class="p">,</span> <span class="n">coefficient</span><span class="p">,</span> <span class="n">occupancy</span><span class="p">)</span>
-    <span class="n">cluster_energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
-    <span class="n">total_energy</span> <span class="o">+=</span> <span class="n">energy</span>
-
-<span class="c1"># Plot the lattice without clusters marked out</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="p">):</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]])</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span> <span class="k">if</span> <span class="n">occupancy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;none&quot;</span>
-        <span class="n">poly</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;A 2d alloy&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Plot each cluster individually</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">coefficient</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clusters</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-    <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">cluster</span><span class="p">:</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">site</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">nx</span><span class="o">/</span><span class="mf">2.</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">site</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">ny</span><span class="o">/</span><span class="mf">2.</span><span class="o">-</span><span class="mi">1</span>
-        <span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]])</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
-        <span class="n">poly</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">poly</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cluster </span><span class="si">{}</span><span class="s2"> (coefficient </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">coefficient</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The energy of the system is defined by the number of </span><span class="se">\n</span><span class="s2"> cluster of each type that you can fit over black pathes of the alloy.&quot;</span><span class="p">)</span>
-
-<span class="n">E_guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the expected energy of the system?&quot;</span><span class="p">)</span>
-
-
-<span class="c1"># Print total energy and cluster energies</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True total energy: &quot;</span><span class="p">,</span> <span class="n">total_energy</span><span class="p">,</span><span class="s2">&quot; Your guess?&quot;</span><span class="p">,</span><span class="n">E_guess</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">energy</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cluster_energies</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contribtion from cluster </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">energy</span><span class="p">))</span>
-</pre></div>
-</div>
 </section>
 <section id="convex-hull-and-phase-diagrams">
 <h2>Convex hull and phase-diagrams<a class="headerlink" href="#convex-hull-and-phase-diagrams" title="Permalink to this headline">#</a></h2>
@@ -546,32 +514,47 @@ E = \sum_{i} c_{i}\Delta E_{i}
 <li><p>Draw a convex hull around the lowest-energy configurations, and identify the points on the hull as the most stable phases at the given composition.</p></li>
 </ol>
 <p>Connect the points on the convex hull with lines to represent the phase boundaries.</p>
-<p>The resulting phase diagram shows the stable phases of the alloy at different compositions, and the transitions between them. This can be useful in predicting the behavior of the alloy under different conditions, such as changes in temperature or pressure. However, if we only consider total energies of static structures we are neglecting to role of configurational dissorder in the system. For a given composition we may have many configruations with similar energies. The system is therefor typically better represented by a weighted average over all these configuration, a so-called ensambe average. Monte-Carlo simulations can be used to rigoursly compute ensemble averages.</p>
-<p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/tutorials/ga/ga_convex_hull.html">ASE tutorial</a></p>
+<p>The resulting phase diagram shows the stable phases of the alloy at different compositions, and the transitions between them. This can be useful in predicting the behavior of the alloy under different conditions, such as changes in temperature or pressure. However, if we only consider total energies of static structures we are neglecting to role of configurational dissorder in the system. For a given composition we may have many configruations with similar energies. The system is therefor typically better represented by a weighted average (from the Boltzmann distribution) over all these configuration, a so-called ensamble average.</p>
+<p>From the simple example above we realise that it will be unfeasible in the general case to compute the energy of all configurations, there is simply too many of them. Here, Monte-Carlo simulations can be used to rigoursly compute such ensemble averages without having to evaluate all these energies.</p>
+<p><img alt="Convex Hull" src="../_images/ASE_Hull.png" /></p>
+<p><em><strong>Figure.</strong></em> <em>An example of a convex hull for a Cu-Pt alloy system. The solid blue line is convex hull and all point on it correspond to stable compositions (marked with formulas). Points above the hull are unstable. (<a class="reference external" href="https://wiki.fysik.dtu.dk/ase/tutorials/ga/ga_convex_hull.html">The figure is taken from the atomic simulations environment wiki page</a>.)</em></p>
 </section>
 <section id="metropolis-monte-carlo-mc">
 <h2>Metropolis Monte-Carlo (MC)<a class="headerlink" href="#metropolis-monte-carlo-mc" title="Permalink to this headline">#</a></h2>
-<p>The Metropolis Monte Carlo simulation technique is a powerful computational method used to simulate the behavior of atoms or molecules in a system. It is commonly used in condensed matter physics, chemistry, and materials science.</p>
-<p>The Metropolis Monte Carlo simulation technique works by randomly proposing new configurations of the system, and accepting or rejecting them based on their energy difference relative to the current configuration. The probability of accepting a new configuration is determined by the Metropolis criterion, which ensures that the simulation samples the correct thermodynamic ensemble.</p>
+<p>The Metropolis Monte Carlo simulation technique is a powerful computational method used to simulate the thermodynamcs of dissordered systems in condensed matter physics, chemistry, and materials science.</p>
+<p>The Metropolis Monte Carlo simulation technique works by randomly proposing new configurations of the system, and accepting or rejecting them based on their energy difference relative to the current configuration. The probability of accepting a new configuration is determined by the Metropolis criterion, which ensures that the simulation samples the correct thermodynamic ensemble (it complies with the Boltzmann distribution).</p>
 <p>The Metropolis criterion states that the probability of accepting a new configuration with energy difference <span class="math notranslate nohighlight">\(\Delta E\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-P(\Delta E) = min { e^{-\Delta E/k_BT}, 1 }
+P(\Delta E) = min  \{ e^{-\Delta E/k_BT}, 1  \}
 \\
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(k_B\)</span> is the Boltzmann constant, <span class="math notranslate nohighlight">\(T\)</span> is the temperature, and <span class="math notranslate nohighlight">\(\Delta E\)</span> is the energy difference between the proposed configuration and the current configuration. This means that, if the propsoed configuration has a lower energy it is always<br />
-accepted.</p>
+<p>where <span class="math notranslate nohighlight">\(k_B\)</span> is the Boltzmann constant, <span class="math notranslate nohighlight">\(T\)</span> is the temperature, and <span class="math notranslate nohighlight">\(\Delta E\)</span> is the energy difference between the proposed  configuration and the current configuration. This means that, if the propsoed configuration has a lower energy it is always accepted.</p>
 <p>In practice, the Metropolis Monte Carlo simulation technique involves the following steps:</p>
 <ol class="simple">
 <li><p>Choose a starting configuration for the system.</p></li>
 <li><p>Randomly propose a new configuration by moving one or more atoms or molecules in the system.</p></li>
 <li><p>Calculate the energy difference between the proposed configuration and the current configuration.</p></li>
 <li><p>Determine whether to accept or reject the proposed configuration based on the Metropolis criterion.</p></li>
-<li><p>Repeat steps 2-4 for a large number of iterations, allowing the simulation to explore the configuration space of the system.</p></li>
+<li><p>Record/save the current configuration into a data-base. <em>Note that the same configurations can be added twice or more when we reject proposed configurations. This is a key-point of the approach, low energy configuration shall be mre predominant in our data-base.</em></p></li>
+<li><p>Repeat steps 2-4 for a large number <span class="math notranslate nohighlight">\(N\)</span> of iterations , allowing the simulation to explore the configuration space of the system.</p></li>
 </ol>
-<p>Analyze the results of the simulation to calculate thermodynamic properties of the system, such as the heat capacity and free energy.</p>
-<p>The Metropolis Monte Carlo simulation technique can be used to simulate a wide range of systems, including simple gases, liquids, and solids, as well as more complex systems such as polymers, and proteins.</p>
+<p>From the data-base generated in this procedure, we can calculate thermodynamic properties of the system, such as the heat capacity and free energy. In order to do so we simply take the average of the property calculated using all configurations in our data-base. For example the internal energy, <span class="math notranslate nohighlight">\(&lt;U&gt;\)</span>, can be calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+&lt;U&gt; = \frac{1}{N} \sum_{n}^{N} E_i
+\\
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of configurations in our data-base, and <span class="math notranslate nohighlight">\(E_n\)</span> is the energy of configuration <span class="math notranslate nohighlight">\(n\)</span>. The concept can be generalized to any property that can be computed for the single configurations (so-called mechanical properties).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+&lt;A&gt; = \frac{1}{N} \sum_{n}^{N} A_n
+\\
+\end{split}\]</div>
+<p><a class="reference external" href="https://chi-feng.github.io/mcmc-demo/app.html?algorithm=RandomWalkMH&amp;target=banana">The concept os this type of sampling is neatly illustrated in this interactive example</a>.</p>
 </section>
 <section id="combining-ce-and-mc">
 <h2>Combining CE and MC<a class="headerlink" href="#combining-ce-and-mc" title="Permalink to this headline">#</a></h2>
@@ -588,7 +571,16 @@ accepted.</p>
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
 </p></span>
-</div></section>
+</div>
+</section>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://iopscience.iop.org/article/10.1088/1361-648X/ab1bbc">A pedagocially written article on the subject</a></p></li>
+<li><p><a class="reference external" href="http://manuscript.elsevier.com/S1359645416308205/pdf/S1359645416308205.pdf">An extensive DFT based study of the Ag-Pt system</a></p></li>
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221">Chapter 3 in <em>Understanding Molecular Simulation : From Algorithms to Applications</em> by Daan Frenkel &amp; Berend Smit</a></p></li>
+</ol>
+</section>
 </section>
 </section>
 

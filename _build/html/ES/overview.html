@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Calculating electronic properties &#8212; Electronic and atomistic modelling</title>
+    <title>ELECTRONIC STRUCTURE - Calculating electronic properties &#8212; Electronic and atomistic modelling</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dealing with larges systems and dynamics - Interatomic potentials and molecular dynamics" href="../FF_MD/overview.html" />
-    <link rel="prev" title="Calculating mechanical properties" href="../Mechanical/overview.html" />
+    <link rel="prev" title="ELECTRONIC STRUCTURE - Density Functional Theory (DFT)" href="../DFT/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../HF/overview.html">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../DFT/overview.html">
-   DFT
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1">
@@ -385,6 +385,11 @@ title="Print to PDF"
      Note-book
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -396,7 +401,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Calculating electronic properties</h1>
+                <h1>ELECTRONIC STRUCTURE - Calculating electronic properties</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -445,6 +450,11 @@ title="Print to PDF"
      Note-book
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -457,11 +467,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="calculating-electronic-properties">
-<h1>Calculating electronic properties<a class="headerlink" href="#calculating-electronic-properties" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="electronic-structure-calculating-electronic-properties">
+<h1>ELECTRONIC STRUCTURE - Calculating electronic properties<a class="headerlink" href="#electronic-structure-calculating-electronic-properties" title="Permalink to this headline">#</a></h1>
+<p>Electronic simulations techniques allow us to compute electronic properties such as electronic band-gaps. In order to determine such properties we need to allow our simulations techniques</p>
+<p>A brief overview is given in the following section. A more comprehensive summary can be found in the <a class="reference external" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/anie.198708461">excellent article by Hoffmann</a>.</p>
 <section id="bloch-theorem">
 <h2>Bloch theorem<a class="headerlink" href="#bloch-theorem" title="Permalink to this headline">#</a></h2>
-<p>The Bloch theorem is a fundamental concept in the study of crystalline materials, which states that the wave function of an electron in a periodic potential can be written as a product of a plane wave and a periodic function. Mathematically, the Bloch theorem can be stated as:</p>
+<p>The Bloch theorem is a fundamental concept in the study of electronic properties of crystalline materials, which states that the wave function of an electron in a periodic potential can be written as a product of a plane wave and a periodic function. Mathematically, the Bloch theorem can be stated as:</p>
 <div class="math notranslate nohighlight">
 \[\psi_{\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{\mathbf{k}}(\mathbf{r})\]</div>
 <p>where <span class="math notranslate nohighlight">\(\psi_{\mathbf{k}}(\mathbf{r})\)</span> is the wave function of an electron with wave vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> in a crystal, <span class="math notranslate nohighlight">\(u_{\mathbf{k}}(\mathbf{r})\)</span> is a periodic function with the same periodicity as the crystal lattice, and <span class="math notranslate nohighlight">\(e^{i\mathbf{k}\cdot\mathbf{r}}\)</span> is a plane wave.</p>
@@ -523,13 +535,22 @@ D(E) = \frac{1}{V}\sum_{i=1}^{N}\delta(E - E_i)
 <p style='margin-top:1em; text-align:center'>
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
-Go through the jupyter note-book and consider the example for TiO<sub>2</sub> provided at the 'DFTB+ recipies' <a href="https://dftbplus-recipes.readthedocs.io/en/latest/basics/bandstruct.html">page</a>. Reproduce their results using the functions and proceduers detailed in the our note-book and address the following:
+Go through the jupyter note-book and consider the example for TiO<sub>2</sub> provided at the 'DFTB+ recipies' <a href="https://dftbplus-recipes.readthedocs.io/en/latest/basics/bandstruct.html">page</a>. Reproduce their results using the functions and proceduers detailed in the our note-book. Maks sure to address the questions in the notebook.
+<p style='margin-top:1em; text-align:center'>
+<b>Submission instructions:</b></p>
 <p style='margin-left:1em;'>
-1. (Basic level): Use the caclulated band diagram of TiO<sub>2</sub> to illustrate if there is a direct or indirect band-gap. 
 <p style='margin-left:1em;'>
-2. (Advanced level): Explore the varition in the PDOS when intrducing a point-defect to the system (e.g. an oxygen vacancy). Note that you would typically need to make a supercell to avoid the defect from interacting across the periodic boundaries.
+Upload your commented version of the note-book to the studium page. 
 </p></span>
-</div></section>
+</div>
+</section>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/anie.198708461"><em>How Chemistry and Physics Meet in the Solid State</em> By Roald Hoffmann</a></p></li>
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 and 3 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -560,11 +581,11 @@ Go through the jupyter note-book and consider the example for TiO<sub>2</sub> pr
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../Mechanical/overview.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../DFT/overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Calculating mechanical properties</p>
+            <p class="prev-next-title">ELECTRONIC STRUCTURE - Density Functional Theory (DFT)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../FF_MD/overview.html" title="next page">

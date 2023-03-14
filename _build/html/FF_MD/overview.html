@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dealing with dissordered structures - Cluster expansion and Monte-Carlo sampling" href="../CE_MC/overview.html" />
-    <link rel="prev" title="Calculating electronic properties" href="../ES/overview.html" />
+    <link rel="prev" title="ELECTRONIC STRUCTURE - Calculating electronic properties" href="../ES/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,27 +114,27 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Atomistic represenation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../HF/overview.html">
-   Hartree-Fock
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../DFT/overview.html">
-   DFT
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Mechanical/overview.html">
-   Calculating mechanical properties
+   MECHANICAL PROPERTIES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HF/overview.html">
+   ELECTRONIC STRUCTURE - Hartee-Fock (HF)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DFT/overview.html">
+   ELECTRONIC STRUCTURE - Density Functional Theory (DFT)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ES/overview.html">
-   Calculating electronic properties
+   ELECTRONIC STRUCTURE - Calculating electronic properties
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -352,8 +352,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#energy-of-a-pair-potential">
-     Energy of a pair-potential
+    <a class="reference internal nav-link" href="#energy-of-a-pair-potential-model">
+     Energy of a pair-potential model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions">
+     Energy of pair-potential model under periodic boundary conditions
     </a>
    </li>
   </ul>
@@ -386,6 +391,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#diffusion">
      Diffusion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
     </a>
    </li>
   </ul>
@@ -415,8 +425,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#energy-of-a-pair-potential">
-     Energy of a pair-potential
+    <a class="reference internal nav-link" href="#energy-of-a-pair-potential-model">
+     Energy of a pair-potential model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions">
+     Energy of pair-potential model under periodic boundary conditions
     </a>
    </li>
   </ul>
@@ -451,6 +466,11 @@ title="Print to PDF"
      Diffusion
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -476,8 +496,8 @@ title="Print to PDF"
 <p>Interatomic potentials are typically parameterized using experimental data or high-level quantum mechanical calculations. The parameters in the potential function are adjusted until the predicted properties of the material match the experimental data or quantum mechanical calculations. Once the potential has been parameterized, it can be used to simulate the behavior of the material under different conditions, such as temperature, pressure, and deformation.</p>
 <p>Interatomic potentials are widely used in computational materials science for a variety of applications, including the prediction of the mechanical, thermal, and electrical properties of materials, the study of defect behavior and diffusion in materials, and the design of new materials with tailored properties. However, it is important to note that interatomic potentials are not always accurate and may have limitations, particularly in cases where the material being studied has complex bonding interactions or exhibits strong quantum mechanical effects. As such, it is important to validate the accuracy of any interatomic potential before using it for simulations.</p>
 <p>The Wikipedia-page provide a rather good an comprehensive summary as well, <a class="reference external" href="https://en.wikipedia.org/wiki/Interatomic_potential">follow this link if you are interested</a>.</p>
-<section id="energy-of-a-pair-potential">
-<h3>Energy of a pair-potential<a class="headerlink" href="#energy-of-a-pair-potential" title="Permalink to this headline">#</a></h3>
+<section id="energy-of-a-pair-potential-model">
+<h3>Energy of a pair-potential model<a class="headerlink" href="#energy-of-a-pair-potential-model" title="Permalink to this headline">#</a></h3>
 <p>In a pair potential model, the total energy of a system is calculated as the sum of the pairwise interaction energies between all pairs of atoms in the system. The pairwise interaction energy between two atoms i and j is given by the potential energy function <span class="math notranslate nohighlight">\(V(r_{ij})\)</span>, where <span class="math notranslate nohighlight">\(r_{ij}\)</span> is the distance between the two atoms.</p>
 <p>The total potential energy of the system, U, is then given by:</p>
 <div class="math notranslate nohighlight">
@@ -510,6 +530,14 @@ E = U + K
 \\
 \end{split}\]</div>
 <p>In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function <span class="math notranslate nohighlight">\(V(r_{ij})\)</span>.</p>
+</section>
+<section id="energy-of-pair-potential-model-under-periodic-boundary-conditions">
+<h3>Energy of pair-potential model under periodic boundary conditions<a class="headerlink" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions" title="Permalink to this headline">#</a></h3>
+<p>In a simulation using periodic boundary conditions, the interactions between atoms in adjacent unit cells are taken into account to represent an infinite system.</p>
+<p>To understand how this is done, consider a simulation cell containing a number of atoms, and imagine replicating this cell periodically in all three dimensions. This creates a three-dimensional lattice of identical cells, with each cell containing the same set of atoms as the original simulation cell. The replicated cells are called periodic images, and are arranged around the original simulation cell in a periodic manner, such that the distance between adjacent cells is equal to the length of the simulation cell in each dimension.</p>
+<p>When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This is done by including all pairwise interactions between atoms in the simulation cell and their periodic images.</p>
+<p>If we have a pair of atoms in the simulation cell, and their periodic images are located in the adjacent cells, then the potential energy between these two atoms is calculated as the sum of the potential energy contributions from all pairwise interactions between the atoms in the simulation cell and their periodic images. This includes interactions between atoms in the simulation cell, between atoms in the simulation cell and their periodic images, and between periodic images of atoms in adjacent cells.</p>
+<p>To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.</p>
 </section>
 </section>
 <section id="molecular-dynamics">
@@ -591,7 +619,14 @@ Mathematically, the RDF can be expressed as:</p>
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
 </p></span>
-</div></section>
+</div>
+</section>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221">Chapter 4 in <em>Understanding Molecular Simulation : From Algorithms to Applications</em> by Daan Frenkel &amp; Berend Smit</a></p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -626,7 +661,7 @@ Mathematically, the RDF can be expressed as:</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Calculating electronic properties</p>
+            <p class="prev-next-title">ELECTRONIC STRUCTURE - Calculating electronic properties</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../CE_MC/overview.html" title="next page">
