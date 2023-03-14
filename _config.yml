@@ -77,8 +77,8 @@ latex:
     targetname              : book.tex
 
 # Add a bibtex file so that we can create citations
-bibtex_bibfiles             : ["references.bib"]
-bibtex_reference_style      : author_year    # requires sphinxcontrib-bibtex 2.2.0
+# bibtex_bibfiles             : ["references.bib"]
+# bibtex_reference_style      : author_year    # requires sphinxcontrib-bibtex 2.2.0
 
 
 
