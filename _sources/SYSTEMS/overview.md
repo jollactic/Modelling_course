@@ -24,9 +24,6 @@ where $x_i$, $y_i$, and $z_i$ are the coordinates of particle $i$ in the simulat
 
 PBCs are particularly useful when studying systems that exhibit periodicity, such as crystals or periodic arrays of particles. By using PBCs, researchers can simulate a small part of the system and extrapolate its behavior to the entire system. However, PBCs do have limitations, such as the inability to accurately model surface effects and other non-periodic phenomena.
 
-[P2](PBC_move.png)
-[P2](MinImg.png)
-
 ## Supercells
 
 Supercells are a widely used concept in materials modeling, particularly in computational solid-state physics and chemistry. A supercell is an artificial unit cell that contains multiple copies of the original unit cell, allowing for the simulation of larger systems and more complex structures. The supercell can be constructed by replicating the original unit cell along one or more of its lattice vectors, resulting in a larger cell with a new, larger lattice.

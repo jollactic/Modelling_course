@@ -70,7 +70,8 @@ If we have a pair of atoms in the simulation cell, and their periodic images are
 
 To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.
 
-![MinImage](MinImg.png)
+![MinImage](MinImg.png){width=50%}
+
 ***Figure*** *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.
 
 ## Molecular dynamics
