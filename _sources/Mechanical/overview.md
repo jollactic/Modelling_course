@@ -1,5 +1,8 @@
 # MECHANICAL PROPERTIES
+
 Computation of mechanical properties does not require explicit description of electrons. All methods on the electronic-atomistic ladder can therefore be used here.
+
+The only thing we need to know at this stage, regarding electronic and atomistic simulation tools are that they will allow us to i) calculate the total energy of system, and ii) calculate the forces acting on each atom (or nuclii) in the system.  
 
 ## Geometry optimization
 
@@ -22,8 +25,6 @@ $$
 $$
 
 Note that $F(\textbf{r}_{i}^{N})$ collects the force along x,y,z for ALL nucleus. Thus if we know how to compute forces we can implement a steepest descent algorithm. Forces is a standard output for most computational methods such as HF and DFT. 
-
-Further reading: https://en.wikipedia.org/wiki/Gradient_descent
 
 ## Equation of State
 
@@ -95,7 +96,7 @@ From computed surface energies we can predict particle shapes using the Wulff co
 1. Complete the code for geometry optimization in the jupyter note-book. 
 2. Choose of of the metals compatible with <a href="https://wiki.fysik.dtu.dk/ase/ase/calculators/emt.html#ase.calculators.emt.EMT">EMT</a> method and find the equlibrium cell volume and bulk modulus.
 3. Use the optimized cell volume to figure out the optimum lattice constant of your metal. Use this lattice constant to calculate the surface energy for at-least one surface termination. Explore how the surface energy vary with the number of layers, at what point does the energy seem to change insignificantly when adding more layers to the slab?
-4. (Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal. 
+4. (Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine with your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal. 
 
 <p style='margin-top:1em; text-align:center'>
 <b>Submission instructions:</b></p>
@@ -107,3 +108,6 @@ Upload your commented version of the note-book to the studium page.
 
 </p></span>
 </div>
+
+### Further readin
+[Gradient descent at Wikipedia](Further reading: https://en.wikipedia.org/wiki/Gradient_descent)
