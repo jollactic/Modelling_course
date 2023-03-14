@@ -58,18 +58,20 @@ $$
 
 In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function $V(r_{ij})$. 
 
+### Interactions under periodic boundary conditions
 
-### Energy of pair-potential model under periodic boundary conditions
 In a simulation using periodic boundary conditions, the interactions between atoms in adjacent unit cells are taken into account to represent an infinite system.
 
 To understand how this is done, consider a simulation cell containing a number of atoms, and imagine replicating this cell periodically in all three dimensions. This creates a three-dimensional lattice of identical cells, with each cell containing the same set of atoms as the original simulation cell. The replicated cells are called periodic images, and are arranged around the original simulation cell in a periodic manner, such that the distance between adjacent cells is equal to the length of the simulation cell in each dimension.
 
-When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This is done by including all pairwise interactions between atoms in the simulation cell and their periodic images. 
+When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This can be done by including all pairwise interactions between atoms in the simulation cell and their periodic images.  
 
 If we have a pair of atoms in the simulation cell, and their periodic images are located in the adjacent cells, then the potential energy between these two atoms is calculated as the sum of the potential energy contributions from all pairwise interactions between the atoms in the simulation cell and their periodic images. This includes interactions between atoms in the simulation cell, between atoms in the simulation cell and their periodic images, and between periodic images of atoms in adjacent cells.
 
 To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.
 
+![MinImage](MinImg.png)
+***Figure*** *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.
 
 ## Molecular dynamics
 Molecular dynamics (MD) is a powerful computational technique used in materials science, chemistry, physics, and biology to simulate the behavior of complex systems at the atomic or molecular level. It involves the numerical integration of Newton's equations of motion to track the positions and velocities of individual atoms or molecules in a system over time, allowing researchers to study the behavior of the system under different conditions.

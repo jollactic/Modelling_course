@@ -357,8 +357,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions">
-     Energy of pair-potential model under periodic boundary conditions
+    <a class="reference internal nav-link" href="#interactions-under-periodic-boundary-conditions">
+     Interactions under periodic boundary conditions
     </a>
    </li>
   </ul>
@@ -430,8 +430,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions">
-     Energy of pair-potential model under periodic boundary conditions
+    <a class="reference internal nav-link" href="#interactions-under-periodic-boundary-conditions">
+     Interactions under periodic boundary conditions
     </a>
    </li>
   </ul>
@@ -531,13 +531,15 @@ E = U + K
 \end{split}\]</div>
 <p>In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function <span class="math notranslate nohighlight">\(V(r_{ij})\)</span>.</p>
 </section>
-<section id="energy-of-pair-potential-model-under-periodic-boundary-conditions">
-<h3>Energy of pair-potential model under periodic boundary conditions<a class="headerlink" href="#energy-of-pair-potential-model-under-periodic-boundary-conditions" title="Permalink to this headline">#</a></h3>
+<section id="interactions-under-periodic-boundary-conditions">
+<h3>Interactions under periodic boundary conditions<a class="headerlink" href="#interactions-under-periodic-boundary-conditions" title="Permalink to this headline">#</a></h3>
 <p>In a simulation using periodic boundary conditions, the interactions between atoms in adjacent unit cells are taken into account to represent an infinite system.</p>
 <p>To understand how this is done, consider a simulation cell containing a number of atoms, and imagine replicating this cell periodically in all three dimensions. This creates a three-dimensional lattice of identical cells, with each cell containing the same set of atoms as the original simulation cell. The replicated cells are called periodic images, and are arranged around the original simulation cell in a periodic manner, such that the distance between adjacent cells is equal to the length of the simulation cell in each dimension.</p>
-<p>When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This is done by including all pairwise interactions between atoms in the simulation cell and their periodic images.</p>
+<p>When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This can be done by including all pairwise interactions between atoms in the simulation cell and their periodic images.</p>
 <p>If we have a pair of atoms in the simulation cell, and their periodic images are located in the adjacent cells, then the potential energy between these two atoms is calculated as the sum of the potential energy contributions from all pairwise interactions between the atoms in the simulation cell and their periodic images. This includes interactions between atoms in the simulation cell, between atoms in the simulation cell and their periodic images, and between periodic images of atoms in adjacent cells.</p>
 <p>To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.</p>
+<p><img alt="MinImage" src="../_images/MinImg.png" />
+<em><strong>Figure</strong></em> *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.</p>
 </section>
 </section>
 <section id="molecular-dynamics">
