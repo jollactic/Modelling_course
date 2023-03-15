@@ -70,9 +70,8 @@ If we have a pair of atoms in the simulation cell, and their periodic images are
 
 To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.
 
-![MinImage](MinImg.png){width=0.5}
-
-***Figure*** *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.
+![MinImage](MinImg.png)
+***Figure.*** *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.*
 
 ## Molecular dynamics
 Molecular dynamics (MD) is a powerful computational technique used in materials science, chemistry, physics, and biology to simulate the behavior of complex systems at the atomic or molecular level. It involves the numerical integration of Newton's equations of motion to track the positions and velocities of individual atoms or molecules in a system over time, allowing researchers to study the behavior of the system under different conditions.
@@ -138,6 +137,11 @@ where $\rho$ is the number density of particles, $N$ is the total number of part
 
 The RDF is a useful tool for analyzing the structure and ordering of particles in a system. Peaks in the RDF correspond to characteristic distances between particles in different types of ordered structures. The RDF can also be used to estimate the coordination number, which is the average number of nearest neighbors of a particle in the system.
 
+![MinImage](RDF.png)
+***Figure.*** *The radial distribution measures the local denisity in a spherical shell around a reference particle and compares it to the average denisty of the system. For large $r$ the shell is a perfect representation of the system as a whole in terms of denisty and the function therefore approaches 1 at large $r$.*
+
+
+
 ### Diffusion
 The diffusion constant is a measure of how fast particles move through a medium. In molecular dynamics (MD) simulations, the diffusion constant can be calculated from the mean squared displacement (MSD) of particles using the Einstein equation.
 
@@ -162,6 +166,8 @@ To calculate the diffusion constant from an MD trajectory, one typically follows
 5. Divide the slope by 6 to obtain the diffusion constant $D$.
 
 The diffusion constant can be used to characterize the mobility of particles in a system, and can be used to predict the transport properties of materials.
+
+### Tutorial
 
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/FF_MD/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>

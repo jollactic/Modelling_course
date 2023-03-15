@@ -1,5 +1,10 @@
 # ELECTRONIC STRUCTURE - Hartee-Fock (HF)
 
+<video width="800" controls>
+  <source src="..\_static\video_1_BO.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 The Hartree-Fock method (HF) is a brute force way of solving the many-body electronic Schrödinger equation:
 
 $$

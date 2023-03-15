@@ -101,7 +101,7 @@ where $\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r}))$ is th
 The PBE functional takes into account both local and non-local contributions to the exchange-correlation energy, which makes it more accurate than the Local Density Approximation (LDA) for a wider range of electronic properties. The inclusion of the reduced density gradient in the PBE functional further improves its accuracy by capturing the non-local behavior of electrons in a system.
 
 
-## Further reading and tutorial
+## Tutorial
 
 Basic tutorial: 
 
@@ -148,3 +148,5 @@ Note that parameters like basis-set quality and k-point sampling in the tutorial
 1. [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
 
 2. [*Nobel Lecture: Electronic structure of matter—wave functions and density functionals* by Walter Kohn](https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.71.1253)
+
+3. [*Transition metal and alloy catalysts in the light of computational materials modelling* Ageo Meier De Andrade](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf)
