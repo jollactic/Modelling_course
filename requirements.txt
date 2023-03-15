@@ -1,3 +1,2 @@
 myst-nb
-jupyter-book
-ghp-import
+jupyter-book==0.14.0

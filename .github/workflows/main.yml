@@ -32,8 +32,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        ghp-import -n -p -f _build/html
-      # jupyter-book build .
+        jupyter-book build .
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
