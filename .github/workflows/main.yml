@@ -31,8 +31,9 @@ jobs:
 
     # Build the book
     - name: Build the book
-      run: |
-        jupyter-book build .
+      uses: jupyter-book build .
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
