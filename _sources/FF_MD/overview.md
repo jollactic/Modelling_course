@@ -189,3 +189,5 @@ The diffusion constant can be used to characterize the mobility of particles in 
 ### Further reading:
 
 1. [Chapter 4 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)
+
+2. [Chapter 6 and 7 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

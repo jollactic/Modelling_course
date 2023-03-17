@@ -347,6 +347,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-born-oppenheimer-approximation">
+   The Born-Oppenheimer approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-schrodinger-equation-and-the-hamiltonian">
    The Schrödinger equation and the Hamiltonian
   </a>
@@ -417,6 +422,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-born-oppenheimer-approximation">
+   The Born-Oppenheimer approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-schrodinger-equation-and-the-hamiltonian">
    The Schrödinger equation and the Hamiltonian
   </a>
@@ -479,10 +489,6 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="electronic-structure-hartee-fock-hf">
 <h1>ELECTRONIC STRUCTURE - Hartee-Fock (HF)<a class="headerlink" href="#electronic-structure-hartee-fock-hf" title="Permalink to this headline">#</a></h1>
-<video width="800" controls>
-  <source src="..\_static\video_1_BO.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 <p>The Hartree-Fock method (HF) is a brute force way of solving the many-body electronic Schrödinger equation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -491,6 +497,11 @@ title="Print to PDF"
 \\
 \end{split}\]</div>
 <p>by performing a number of approximations/simplifications. In the following we will go through all steps in this simplification process. But first we have a look at the Schrödinger equation (SE) itself in a bit more detail.</p>
+<section id="the-born-oppenheimer-approximation">
+<h2>The Born-Oppenheimer approximation<a class="headerlink" href="#the-born-oppenheimer-approximation" title="Permalink to this headline">#</a></h2>
+<p>The Born-Oppenheimer approximation allows for the separation of the motion of atomic nuclei and electrons in a molecule.
+The Born-Oppenheimer approximation is based on the observation that the mass of atomic nuclei is so much greater than that of the electrons, that the nuclei therefore much so slow compared than the electrons that it can be considered as being fixed in comparison. This allows for the separation of the electronic and nuclear motion, and the electronic energy can be calculated while treating the nuclear positions as fixed. This approximation is justified by the adiabatic theorem, which states that if a system evolves slowly enough, its wave function will remain in the instantaneous eigenstate of the Hamiltonian. In the case of the Born-Oppenheimer approximation, the electronic motion is assumed to be fast enough that the wave function remains in the electronic ground state while the nuclear positions change slowly. Therefore, the electronic energy can be calculated independently of the nuclear positions, and the nuclear motion can be treated separately.</p>
+</section>
 <section id="the-schrodinger-equation-and-the-hamiltonian">
 <h2>The Schrödinger equation and the Hamiltonian<a class="headerlink" href="#the-schrodinger-equation-and-the-hamiltonian" title="Permalink to this headline">#</a></h2>
 <p>There are two central objects in the Schrödinger equation. i) The Hamlitonian <span class="math notranslate nohighlight">\(\widehat{H}\)</span>, and, ii) the wavefunction <span class="math notranslate nohighlight">\(\Psi\)</span>. The Hamiltonian describes all the interactions in the system. In our case, dealing with materials and molecules, these are:</p>
@@ -518,6 +529,11 @@ title="Print to PDF"
 \\
 \end{split}\]</div>
 <p>M and N above refer to the number of nuclei and electrons, respectively. Although the equation is relatively easy to write down for a general system, it is very difficult or impossible to find the solution to the equation and obtain the wavefunction. The Hartree-Fock method is one way forward.</p>
+<video width="400" controls>
+  <source src="..\_static\BO_SE.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em><strong>Born-Oppenheimer approximation and the electronic Schrödinger equation.</strong></em></p>
 </section>
 <section id="the-hartree-without-fock-method-and-simplified-notation">
 <h2>The Hartree (without Fock) method and simplified notation<a class="headerlink" href="#the-hartree-without-fock-method-and-simplified-notation" title="Permalink to this headline">#</a></h2>
@@ -525,7 +541,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-\Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}_{el}})=\chi_1(\mathbf{r}_\textup{1})\chi_2(\mathbf{r}_\textup{2})\cdots\chi_{\textup{N}}(\mathbf{r}_{\textup{N}})
+\Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})=\chi_1(\mathbf{r}_\textup{1})\chi_2(\mathbf{r}_\textup{2})\cdots\chi_{\textup{N}}(\mathbf{r}_{\textup{N}})
 \\
 \end{split}\]</div>
 <p>Note that this form for the wavefunction would be exact if electrons were not interaction with each other and if we dissregard the fact that a wavefunction should be anti-symmetric (the sign of the wavefunction must change sign when two electrons are exchanged). Fock will fix the anti-symmetry problem, but first lets see how we could work with the Hartree (without Fock) method.</p>
@@ -661,7 +677,7 @@ f_\textup{i}\chi_\textup{i}=\varepsilon \chi_\textup{i}
 f_\textup{i} = h_\textup{i} + \sum_{j=1;j\ne i}^{N} \textbf{J}_j(\textbf{r}_\textup{i})
 \\
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(h_\textup{i}\)</span> is the same as before and <span class="math notranslate nohighlight">\(\textbf{J}_j(\textbf{r}_\textup{i})\)</span> is called a Coulomb operator and describes the average electrostatic field that electron <span class="math notranslate nohighlight">\(i \)</span> experience from a second electron <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(h_\textup{i}\)</span> is the same as before and <span class="math notranslate nohighlight">\(\textbf{J}_j(\textbf{r}_\textup{i})\)</span> is called a Coulomb operator and describes the average electrostatic field that electron <span class="math notranslate nohighlight">\(i\)</span> experience from a second electron <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
@@ -672,10 +688,16 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1;j\ne i}^{N} \textbf{J}_j(\textbf{r}_\tex
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-\textbf{J}_j(1) = \int \chi_\textup{j}^*(2)r_{12}^{-1} \chi_\textup{j}(2) d\textbf{r}_\textup{2}
+\textbf{J}_j(1) = \int \overline{\chi}_\textup{j}(2)r_{12}^{-1} \chi_\textup{j}(2) d\textbf{r}_\textup{2}
 \\
 \end{split}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\overline{\chi}_\textup{j}(2)\chi_\textup{j}(2)\)</span> correspond the probablity (electron) densisty of an electron.</p>
 <p>Berfore we get too far, we should stop and fix a major flaw that is being overlooked in the Hartree (without Fock) approach. We therfore turn to the Hartree-Fock approach which deals with this flaw.</p>
+<video width="400" controls>
+  <source src="..\_static\HwoF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em><strong>Born-Oppenheimer approximation and the electronic Schrödinger equation.</strong></em></p>
 </section>
 </section>
 <section id="the-hartree-fock-equation">
@@ -905,6 +927,7 @@ q_i = Z_i - M_i
 <section id="further-reading">
 <h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p>
+<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544">Chapter 8 in <em>Atomistic Computer Simulations : A Practical Guide</em> by Veronika Brázdová and David R. Bowler</a></p>
 </section>
 </section>
 </section>

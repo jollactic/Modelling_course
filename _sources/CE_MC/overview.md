@@ -28,10 +28,10 @@ $$
 
 where $E_n$ is the total energy of the alloy configuration, $\Delta E_{i}$ is the energy of the $i$th cluster (the cluster coefficient), and $c_{i,n}$ is the concentration of the $i$th cluster within the alloy configuration.
 
-As an example we can consider a 2-dimensional alloy where each lattice point is occupied with either a black or white atom (These could be two metals e.g. Ag and Pt). If we use a 5$\times$5 lattice to represent our system we have 25 lattice site and the possiblity of forming 2$^25=33'554'432$ unique alloy configurations. The figure below show one example of such configuration and illustrates how the CE approach can be use to determine it's energy.
+As an example we can consider a 2-dimensional alloy where each lattice point is occupied with either a black or white atom (These could be two metals e.g. Ag and Pt). If we use a 5$\times$5 lattice to represent our system we have 25 lattice site and the possiblity of forming 2$^{25}=33'554'432$ unique alloy configurations. The figure below show one example of such configuration and illustrates how the CE approach can be use to determine it's energy.
 
 ![PBC](CE.gif)
-***Figure.*** *Example showing how the energy of a 2-dimensional alloy is computed using a cluster expansion model. The model has three clusters, 1) a horizontal dimer with energy $\Delta E_{1}=0.1$, 2) a vertical dimer with energy $\Delta E_{2}=0.2$, and trimer with energy $\Delta E_{3}=-0.1$. In the animation cluster blue when they can be fitted at a certain position in the lattice.*
+***Figure.*** *Example showing how the energy of a 2-dimensional alloy is computed using a cluster expansion model. The model has three clusters, a horizontal dimer with energy $\Delta E_{1}=0.1$, a vertical dimer with energy $\Delta E_{2}=0.2$, and trimer with energy $\Delta E_{3}=-0.1$. In the animation cluster blue when they can be fitted at a certain position in the lattice.*
 
 A cluster expansion model is typically parametrized using Density Functional Theory (DFT) data. In order to do so we calculate the total energies for several *simple* alloy configurations (using small enough supercells that we can afford to perform the time consuming DFT calculations). We need at least as many such configurations as the number of clusters included in our expansion if we like to determine all cluster coefficients. It is straight-forward to re-write the equation above into matrix from: 
 
@@ -144,7 +144,8 @@ The combination of cluster expansion and Monte Carlo simulations can be used to 
 
  The method can also be used to construct a phase diagram that shows the stable phases of the alloy as a function of temperature and composition.
 
-### Note-book
+### Tutorial
+
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/CE_MC/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -168,3 +169,5 @@ The combination of cluster expansion and Monte Carlo simulations can be used to 
 2. [An extensive DFT based study of the Ag-Pt system](http://manuscript.elsevier.com/S1359645416308205/pdf/S1359645416308205.pdf)
 
 3. [Chapter 3 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)
+
+4. [Chapter 6 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

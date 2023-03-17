@@ -111,4 +111,6 @@ Upload your commented version of the note-book to the studium page.
 </div>
 
 ### Further readin
-[Gradient descent at Wikipedia](Further reading: https://en.wikipedia.org/wiki/Gradient_descent)
+1. [Gradient descent at Wikipedia](Further reading: https://en.wikipedia.org/wiki/Gradient_descent)
+
+2. [Chapter 5 *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

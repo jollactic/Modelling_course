@@ -105,16 +105,16 @@ The PBE functional takes into account both local and non-local contributions to 
 
 Basic tutorial: 
 
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_1.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 In this tutorial orginally written by Ask Hjorth Larsen and Keenan Lyon at DTU we consider a simple DFT code for a 1D system. The example represent a grid-based approach were we do not use analytical basis-functions.
 
 Advanced tutorial:
 
 In this tutorial we follow closely the presentation in Chapter 2 in the thesis entitled [Transition metal and alloy catalysts
 in the light of computational materials modelling](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf) by Ageo Meier De Andrade. The thesis (Chapter 2 in particular) give an excellent overview of DFT in the cotext of materials science, it is must-read!
-
-<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_1.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
 
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_2.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -150,3 +150,5 @@ Note that parameters like basis-set quality and k-point sampling in the tutorial
 2. [*Nobel Lecture: Electronic structure of matter—wave functions and density functionals* by Walter Kohn](https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.71.1253)
 
 3. [*Transition metal and alloy catalysts in the light of computational materials modelling* Ageo Meier De Andrade](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf)
+
+4. [Chapter 9 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)
