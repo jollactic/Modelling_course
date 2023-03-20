@@ -237,8 +237,7 @@ Berfore we get too far, we should stop and fix a major flaw that is being overlo
   Your browser does not support the video tag.
 </video>
 
-***Born-Oppenheimer approximation and the electronic Schrödinger equation.***
-
+***Hartree equation.***
 
 
 ## The Hartree-Fock equation
@@ -286,8 +285,6 @@ the term looks horrid, and it is... It does not have a classical counter part an
 Electrons in the real many-body system do only feel repulsive interactions between them. However, an average electric field would overestimate this repulsion since electrons could coordinate their movement to always stay rather far apart. We cannot describe such effects in our approach since our anzats is that our wavefunctions can be described with a construction that is only strictly valid if electrons fo not interact.   
 ```
 
-
-
 ### Self Consistent Field
 
 Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should be found by solving an equation involving $f_\textup{i}$ we are trapped in a catch 22. In order to proceed we to solve the equation iteratively. 
@@ -302,6 +299,13 @@ Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should
 ```{note}
 Self Consistent Field (SCF) is used to describe the whole approach given in list above.
 ```
+
+<video width="400" controls>
+  <source src="..\_static\HF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Hartree-Fock equation.***
 
 ### Numerical solution (Roothan-Hall equations)
 
@@ -509,6 +513,6 @@ where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is th
 
 ### Further reading:
 
-[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* ](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
 
 [Chapter 8 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)
