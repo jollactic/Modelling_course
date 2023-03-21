@@ -1,1 +1,2 @@
-jupyter-book
+myst-nb
+jupyter-book==0.14.0
