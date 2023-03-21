@@ -30,7 +30,8 @@ html:
   #google_analytics_id       : XXX
   comments:
     hypothesis              : false
-
+  video_formats: ["mp4", "ogv", "webm"]
+  video_width: "800"
 
 
 #######################################################################################
@@ -80,6 +81,11 @@ latex:
 bibtex_bibfiles             : ["references.bib"]
 bibtex_reference_style      : author_year    # requires sphinxcontrib-bibtex 2.2.0
 
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.video
+  html_video_format: ["mp4", "ogv", "webm"]
+  html_video_width: 800
 
 
 #######################################################################################

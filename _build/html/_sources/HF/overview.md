@@ -1,5 +1,4 @@
 # ELECTRONIC STRUCTURE - Hartee-Fock (HF)
-
 The Hartree-Fock method (HF) is a brute force way of solving the many-body electronic Schrödinger equation:
 
 $$
@@ -9,6 +8,10 @@ $$
 $$
 
 by performing a number of approximations/simplifications. In the following we will go through all steps in this simplification process. But first we have a look at the Schrödinger equation (SE) itself in a bit more detail.   
+
+## The Born-Oppenheimer approximation
+The Born-Oppenheimer approximation allows for the separation of the motion of atomic nuclei and electrons in a molecule.
+The Born-Oppenheimer approximation is based on the observation that the mass of atomic nuclei is so much greater than that of the electrons, that the nuclei therefore much so slow compared than the electrons that it can be considered as being fixed in comparison. This allows for the separation of the electronic and nuclear motion, and the electronic energy can be calculated while treating the nuclear positions as fixed. This approximation is justified by the adiabatic theorem, which states that if a system evolves slowly enough, its wave function will remain in the instantaneous eigenstate of the Hamiltonian. In the case of the Born-Oppenheimer approximation, the electronic motion is assumed to be fast enough that the wave function remains in the electronic ground state while the nuclear positions change slowly. Therefore, the electronic energy can be calculated independently of the nuclear positions, and the nuclear motion can be treated separately.
 
 ## The Schrödinger equation and the Hamiltonian
 
@@ -40,13 +43,23 @@ $$
 
 M and N above refer to the number of nuclei and electrons, respectively. Although the equation is relatively easy to write down for a general system, it is very difficult or impossible to find the solution to the equation and obtain the wavefunction. The Hartree-Fock method is one way forward.
 
+
+<video width="400" controls>
+  <source src="..\_static\BO_SE.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Born-Oppenheimer approximation and the electronic Schrödinger equation.***
+
+
+
 ## The Hartree (without Fock) method and simplified notation
 
 A major problem of the SE is the fact that the wavefunction (in general) have too many variable (we have three spacial variable per electron) and there is no simple way of separating them. In the Hartree (without Fock) method we allow for some separation of variables by restricting our wavefunction to be described as a product (Hartree-product) of one-electron wavefunctions (orbitals):
 
 $$
 \\
-\Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}_{el}})=\chi_1(\mathbf{r}_\textup{1})\chi_2(\mathbf{r}_\textup{2})\cdots\chi_{\textup{N}}(\mathbf{r}_{\textup{N}})
+\Psi(\mathbf{r}_\textup{1},\mathbf{r}_\textup{1},\cdots,\mathbf{r}_{\textup{N}})=\chi_1(\mathbf{r}_\textup{1})\chi_2(\mathbf{r}_\textup{2})\cdots\chi_{\textup{N}}(\mathbf{r}_{\textup{N}})
 \\
 $$
 
@@ -199,7 +212,7 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1;j\ne i}^{N} \textbf{J}_j(\textbf{r}_\tex
 \\
 $$
 
-where $h_\textup{i}$ is the same as before and $\textbf{J}_j(\textbf{r}_\textup{i})$ is called a Coulomb operator and describes the average electrostatic field that electron $i $ experience from a second electron $j$. 
+where $h_\textup{i}$ is the same as before and $\textbf{J}_j(\textbf{r}_\textup{i})$ is called a Coulomb operator and describes the average electrostatic field that electron $i$ experience from a second electron $j$. 
 
 $$
 \\
@@ -211,11 +224,21 @@ The Coulomb operator $\textbf{J}_j(\textbf{r}_\textup{i})$ is often written in a
 
 $$
 \\
-\textbf{J}_j(1) = \int \chi_\textup{j}^*(2)r_{12}^{-1} \chi_\textup{j}(2) d\textbf{r}_\textup{2}
+\textbf{J}_j(1) = \int \overline{\chi}_\textup{j}(2)r_{12}^{-1} \chi_\textup{j}(2) d\textbf{r}_\textup{2}
 \\
 $$
 
+Note that $\overline{\chi}_\textup{j}(2)\chi_\textup{j}(2)$ correspond the probablity (electron) densisty of an electron.
+
 Berfore we get too far, we should stop and fix a major flaw that is being overlooked in the Hartree (without Fock) approach. We therfore turn to the Hartree-Fock approach which deals with this flaw.
+
+<video width="400" controls>
+  <source src="..\_static\HwoF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Hartree equation.***
+
 
 ## The Hartree-Fock equation
 
@@ -262,8 +285,6 @@ the term looks horrid, and it is... It does not have a classical counter part an
 Electrons in the real many-body system do only feel repulsive interactions between them. However, an average electric field would overestimate this repulsion since electrons could coordinate their movement to always stay rather far apart. We cannot describe such effects in our approach since our anzats is that our wavefunctions can be described with a construction that is only strictly valid if electrons fo not interact.   
 ```
 
-
-
 ### Self Consistent Field
 
 Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should be found by solving an equation involving $f_\textup{i}$ we are trapped in a catch 22. In order to proceed we to solve the equation iteratively. 
@@ -278,6 +299,13 @@ Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should
 ```{note}
 Self Consistent Field (SCF) is used to describe the whole approach given in list above.
 ```
+
+<video width="400" controls>
+  <source src="..\_static\HF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Hartree-Fock equation.***
 
 ### Numerical solution (Roothan-Hall equations)
 
@@ -485,4 +513,6 @@ where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is th
 
 ### Further reading:
 
-[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* ](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+
+[Chapter 8 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

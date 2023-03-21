@@ -372,8 +372,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-book">
-     Note-book
+    <a class="reference internal nav-link" href="#tutorial">
+     Tutorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -428,8 +428,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-book">
-     Note-book
+    <a class="reference internal nav-link" href="#tutorial">
+     Tutorial
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -472,9 +472,9 @@ E_n = \sum_{i} c_{i,n}\Delta E_{i}
 \\
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(E_n\)</span> is the total energy of the alloy configuration, <span class="math notranslate nohighlight">\(\Delta E_{i}\)</span> is the energy of the <span class="math notranslate nohighlight">\(i\)</span>th cluster (the cluster coefficient), and <span class="math notranslate nohighlight">\(c_{i,n}\)</span> is the concentration of the <span class="math notranslate nohighlight">\(i\)</span>th cluster within the alloy configuration.</p>
-<p>As an example we can consider a 2-dimensional alloy where each lattice point is occupied with either a black or white atom (These could be two metals e.g. Ag and Pt). If we use a 5<span class="math notranslate nohighlight">\(\times\)</span>5 lattice to represent our system we have 25 lattice site and the possiblity of forming 2<span class="math notranslate nohighlight">\(^25=33'554'432\)</span> unique alloy configurations. The figure below show one example of such configuration and illustrates how the CE approach can be use to determine it’s energy.</p>
+<p>As an example we can consider a 2-dimensional alloy where each lattice point is occupied with either a black or white atom (These could be two metals e.g. Ag and Pt). If we use a 5<span class="math notranslate nohighlight">\(\times\)</span>5 lattice to represent our system we have 25 lattice site and the possiblity of forming 2<span class="math notranslate nohighlight">\(^{25}=33'554'432\)</span> unique alloy configurations. The figure below show one example of such configuration and illustrates how the CE approach can be use to determine it’s energy.</p>
 <p><img alt="PBC" src="../_images/CE.gif" />
-<em><strong>Figure.</strong></em> <em>Example showing how the energy of a 2-dimensional alloy is computed using a cluster expansion model including. The model has three clusters, 1) a horizontal dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{1}=0.1\)</span>, 2) a vertical dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{2}=0.2\)</span>, and trimer with energy <span class="math notranslate nohighlight">\(\Delta E_{3}=-0.1\)</span>. In the animation cluster blue when they can be fitted at a certain position in the lattice.</em></p>
+<em><strong>Figure.</strong></em> <em>Example showing how the energy of a 2-dimensional alloy is computed using a cluster expansion model. The model has three clusters, a horizontal dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{1}=0.1\)</span>, a vertical dimer with energy <span class="math notranslate nohighlight">\(\Delta E_{2}=0.2\)</span>, and trimer with energy <span class="math notranslate nohighlight">\(\Delta E_{3}=-0.1\)</span>. In the animation cluster blue when they can be fitted at a certain position in the lattice.</em></p>
 <p>A cluster expansion model is typically parametrized using Density Functional Theory (DFT) data. In order to do so we calculate the total energies for several <em>simple</em> alloy configurations (using small enough supercells that we can afford to perform the time consuming DFT calculations). We need at least as many such configurations as the number of clusters included in our expansion if we like to determine all cluster coefficients. It is straight-forward to re-write the equation above into matrix from:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -560,8 +560,8 @@ P(\Delta E) = min  \{ e^{-\Delta E/k_BT}, 1  \}
 <h2>Combining CE and MC<a class="headerlink" href="#combining-ce-and-mc" title="Permalink to this headline">#</a></h2>
 <p>The combination of cluster expansion and Monte Carlo simulations can be used to study a wide range of properties of alloys, such as phase stability, order-disorder transitions, and defects such as vacancies or interstitials. It also a very powerful technique to simulate Li intercalation on cathode and anonde materials in the context of batteries (see e.g. <a class="reference external" href="https://iopscience.iop.org/article/10.1088/1361-648X/ab1bbc">Ref.</a>)</p>
 <p>The method can also be used to construct a phase diagram that shows the stable phases of the alloy as a function of temperature and composition.</p>
-<section id="note-book">
-<h3>Note-book<a class="headerlink" href="#note-book" title="Permalink to this headline">#</a></h3>
+<section id="tutorial">
+<h3>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h3>
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/CE_MC/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -579,6 +579,7 @@ P(\Delta E) = min  \{ e^{-\Delta E/k_BT}, 1  \}
 <li><p><a class="reference external" href="https://iopscience.iop.org/article/10.1088/1361-648X/ab1bbc">A pedagocially written article on the subject</a></p></li>
 <li><p><a class="reference external" href="http://manuscript.elsevier.com/S1359645416308205/pdf/S1359645416308205.pdf">An extensive DFT based study of the Ag-Pt system</a></p></li>
 <li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221">Chapter 3 in <em>Understanding Molecular Simulation : From Algorithms to Applications</em> by Daan Frenkel &amp; Berend Smit</a></p></li>
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544">Chapter 6 in <em>Atomistic Computer Simulations : A Practical Guide</em> by Veronika Brázdová and David R. Bowler</a></p></li>
 </ol>
 </section>
 </section>

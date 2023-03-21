@@ -1,5 +1,4 @@
 # Introduction
-COME ON!
 
 ## Background
 Multi-scale modeling is a powerful approach to investigate materials at different length and time scales, from the atomic and molecular level up to the mesoscale and macroscale. It is used to understand the complex behavior of materials and predict their properties and performance, as well as to guide the design and optimization of new materials with tailored properties. Within material science, multi-scale modeling encompasses a variety of methods and techniques, including electronic and atomistic simulations.

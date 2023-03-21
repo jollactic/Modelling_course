@@ -101,20 +101,20 @@ where $\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r}))$ is th
 The PBE functional takes into account both local and non-local contributions to the exchange-correlation energy, which makes it more accurate than the Local Density Approximation (LDA) for a wider range of electronic properties. The inclusion of the reduced density gradient in the PBE functional further improves its accuracy by capturing the non-local behavior of electrons in a system.
 
 
-## Further reading and tutorial
+## Tutorial
 
-Tutorial 1:
-
-In this tutorial we follow closely the presentation in Chapter 2 in the thesis entitled [Transition metal and alloy catalysts
-in the light of computational materials modelling](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf) by Ageo Meier De Andrade. The thesis (Chapter 2 in particular) give an excellent overview of DFT in the cotext of materials science, it is must-read!
+Basic tutorial: 
 
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_1.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
-Tutorial 2:
-
 In this tutorial orginally written by Ask Hjorth Larsen and Keenan Lyon at DTU we consider a simple DFT code for a 1D system. The example represent a grid-based approach were we do not use analytical basis-functions.
+
+Advanced tutorial:
+
+In this tutorial we follow closely the presentation in Chapter 2 in the thesis entitled [Transition metal and alloy catalysts
+in the light of computational materials modelling](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf) by Ageo Meier De Andrade. The thesis (Chapter 2 in particular) give an excellent overview of DFT in the cotext of materials science, it is must-read!
 
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/DFT/Tutorial_2.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
@@ -126,18 +126,18 @@ In this tutorial orginally written by Ask Hjorth Larsen and Keenan Lyon at DTU w
 <p style='margin-top:1em; text-align:center'>
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
-Write a short (maximum 3-pages) summary that includes:
+Write a short (maximum 2-pages) summary that includes:
 
 <p style='margin-left:1em;'>
-1. A briefly overview of the concept of the `Jacob’s ladder of density functional approximations`.
-
-
-<p style='margin-left:1em;'>
-2. A comparison of LDA and PBE in terms of how they describe the lattice constant and cohesive energies of diamond. Relate you findings to the reduced gradient distribution of the C-atoms and diamond. Include graphics from the Jupyter note-book to support your argumentaion. (You will also have to do some additional plots of your own here!)
+1. A brief overview of the concept of the `Jacob’s ladder of density functional approximations`.
 
 
 <p style='margin-left:1em;'>
-Note that parameters like basis-set quallity and k-point sampling have not been fully optimized in the example. Results could therefore be at variance with reference values in the literature. The general behvaiour in terms of the LDA and PBE behaviour is still well captured. 
+2. A case study comparing LDA and PBE in terms of how they describe the lattice constant and cohesive energies of simple monatomic solids. Relate you findings to the reduced gradient distribution of the atom and the solid. The advanced tutorial includes a comparison of LDA and PBE for diamond. 
+
+
+<p style='margin-left:1em;'>
+Note that parameters like basis-set quality and k-point sampling in the tutorial have not been fully optimized in the example. Results could therefore be at variance with reference values in the literature. The general behvaiour in terms of the LDA and PBE behaviour is still well captured. 
 
 
 </p></span>
@@ -145,4 +145,10 @@ Note that parameters like basis-set quallity and k-point sampling have not been 
 
 ### Further reading:
 
-[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+1. [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+
+2. [*Nobel Lecture: Electronic structure of matter—wave functions and density functionals* by Walter Kohn](https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.71.1253)
+
+3. [*Transition metal and alloy catalysts in the light of computational materials modelling* Ageo Meier De Andrade](https://www.diva-portal.org/smash/get/diva2:1598427/FULLTEXT01.pdf)
+
+4. [Chapter 9 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

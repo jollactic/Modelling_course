@@ -414,7 +414,7 @@ title="Print to PDF"
 <p>In order to use electronic or atomistic simulations techniques we need a way to represnt the system we would like to study. In the case of molecules this task i trivial, we simply need to specify the positions of all atoms in the molecule (or nuclii in the case of an electronic simulation). When dealing with a materials with an almost ininite number of atoms this becomes untracktable. Here we make use of simulation cells and periodic boundary conditions.</p>
 <section id="periodic-boundary-conditions-pbc">
 <h2>Periodic Boundary Conditions (PBC)<a class="headerlink" href="#periodic-boundary-conditions-pbc" title="Permalink to this headline">#</a></h2>
-<p>Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry, including molecular dynamics simulations and condensed matter physics.</p>
+<p>Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry.</p>
 <p>In PBCs, the edges of the simulation cell are identified with each other, meaning that when a particle exits the simulation cell on one edge, it reenters the cell from the opposite edge as shown in figure below:</p>
 <p><img alt="PBC" src="../_images/PBC.gif" /></p>
 <p>Mathematically, this can be represented by the following equations:</p>
@@ -428,7 +428,6 @@ z_i + L_z &amp;= z_i
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span>, and <span class="math notranslate nohighlight">\(z_i\)</span> are the coordinates of particle <span class="math notranslate nohighlight">\(i\)</span> in the simulation cell, and <span class="math notranslate nohighlight">\(L_x\)</span>, <span class="math notranslate nohighlight">\(L_y\)</span>, and <span class="math notranslate nohighlight">\(L_z\)</span> are the lengths of the simulation cell in each direction. These equations state that a particle’s position plus the length of the simulation cell in a given direction is equivalent to its position in that direction.</p>
 <p>PBCs are particularly useful when studying systems that exhibit periodicity, such as crystals or periodic arrays of particles. By using PBCs, researchers can simulate a small part of the system and extrapolate its behavior to the entire system. However, PBCs do have limitations, such as the inability to accurately model surface effects and other non-periodic phenomena.</p>
-<p>Further reading: <a class="reference external" href="https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294">PBC at python in plain english</a></p>
 </section>
 <section id="supercells">
 <h2>Supercells<a class="headerlink" href="#supercells" title="Permalink to this headline">#</a></h2>
@@ -438,6 +437,7 @@ z_i + L_z &amp;= z_i
 <section id="further-reading">
 <h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
+<li><p><a class="reference external" href="https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294">PBC at python in plain english</a></p></li>
 <li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Periodic_boundary_conditions">Periodic boundary conditions at Wikipedia</a></p></li>
 <li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221">Chapter 3.2.2 in <em>Understanding Molecular Simulation : From Algorithms to Applications</em> by Daan Frenkel &amp; Berend Smit</a></p></li>

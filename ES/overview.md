@@ -82,7 +82,8 @@ The above equation states that the density of states at an energy level $E$ is p
 
 In summary, the band structure and density of states are intimately connected, with the band structure providing information on the allowed energy levels and the density of states providing information on the number of available energy states at each energy level.
 
-### Note-book
+### Tutorial
+
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/ES/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>

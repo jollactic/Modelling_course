@@ -4,12 +4,11 @@ In order to use electronic or atomistic simulations techniques we need a way to 
 
 ## Periodic Boundary Conditions (PBC)
 
-Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry, including molecular dynamics simulations and condensed matter physics.
+Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry.
 
 In PBCs, the edges of the simulation cell are identified with each other, meaning that when a particle exits the simulation cell on one edge, it reenters the cell from the opposite edge as shown in figure below:
 
 ![PBC](PBC.gif)
-
 
  Mathematically, this can be represented by the following equations:
 
@@ -25,8 +24,6 @@ where $x_i$, $y_i$, and $z_i$ are the coordinates of particle $i$ in the simulat
 
 PBCs are particularly useful when studying systems that exhibit periodicity, such as crystals or periodic arrays of particles. By using PBCs, researchers can simulate a small part of the system and extrapolate its behavior to the entire system. However, PBCs do have limitations, such as the inability to accurately model surface effects and other non-periodic phenomena.
 
-Further reading: [PBC at python in plain english](https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294)
-
 ## Supercells
 
 Supercells are a widely used concept in materials modeling, particularly in computational solid-state physics and chemistry. A supercell is an artificial unit cell that contains multiple copies of the original unit cell, allowing for the simulation of larger systems and more complex structures. The supercell can be constructed by replicating the original unit cell along one or more of its lattice vectors, resulting in a larger cell with a new, larger lattice.
@@ -38,8 +35,10 @@ Supercells are useful in materials modeling for several reasons. First, they all
 
 ### Further reading:
 
-1. [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+1. [PBC at python in plain english](https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294)
 
-2. [Periodic boundary conditions at Wikipedia](https://en.wikipedia.org/wiki/Periodic_boundary_conditions)
+2. [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
 
-3. [Chapter 3.2.2 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)
+3. [Periodic boundary conditions at Wikipedia](https://en.wikipedia.org/wiki/Periodic_boundary_conditions)
+
+4. [Chapter 3.2.2 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)

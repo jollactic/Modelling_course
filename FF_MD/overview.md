@@ -58,18 +58,20 @@ $$
 
 In order to calculate the potential energy of each pair of atoms in the system, it is necessary to have a functional form for the pairwise potential energy function $V(r_{ij})$. 
 
+### Interactions under periodic boundary conditions
 
-### Energy of pair-potential model under periodic boundary conditions
 In a simulation using periodic boundary conditions, the interactions between atoms in adjacent unit cells are taken into account to represent an infinite system.
 
 To understand how this is done, consider a simulation cell containing a number of atoms, and imagine replicating this cell periodically in all three dimensions. This creates a three-dimensional lattice of identical cells, with each cell containing the same set of atoms as the original simulation cell. The replicated cells are called periodic images, and are arranged around the original simulation cell in a periodic manner, such that the distance between adjacent cells is equal to the length of the simulation cell in each dimension.
 
-When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This is done by including all pairwise interactions between atoms in the simulation cell and their periodic images. 
+When calculating the potential energy and forces acting on the atoms in the simulation cell, it is necessary to account for the interactions between atoms in adjacent cells. This can be done by including all pairwise interactions between atoms in the simulation cell and their periodic images.  
 
 If we have a pair of atoms in the simulation cell, and their periodic images are located in the adjacent cells, then the potential energy between these two atoms is calculated as the sum of the potential energy contributions from all pairwise interactions between the atoms in the simulation cell and their periodic images. This includes interactions between atoms in the simulation cell, between atoms in the simulation cell and their periodic images, and between periodic images of atoms in adjacent cells.
 
 To avoid double-counting of interactions, a cutoff distance is typically used to limit the range of pairwise interactions that are included in the calculation. This means that interactions between atoms that are separated by a distance greater than the cutoff distance are neglected, and only interactions between atoms within the cutoff distance and their periodic images are taken into account.
 
+![MinImage](MinImg.png)
+***Figure.*** *When using a pair potential under periodic boundary conditions atoms interact with replicas of the repeated simulation cell. To deal with the infinite number of nieghbors in the full repeating array of cell a cut-off of the potential is applied. This leads to a finite number of neigbors affecting any atom. This is illustrated for the highlighted atom in cell.*
 
 ## Molecular dynamics
 Molecular dynamics (MD) is a powerful computational technique used in materials science, chemistry, physics, and biology to simulate the behavior of complex systems at the atomic or molecular level. It involves the numerical integration of Newton's equations of motion to track the positions and velocities of individual atoms or molecules in a system over time, allowing researchers to study the behavior of the system under different conditions.
@@ -135,6 +137,11 @@ where $\rho$ is the number density of particles, $N$ is the total number of part
 
 The RDF is a useful tool for analyzing the structure and ordering of particles in a system. Peaks in the RDF correspond to characteristic distances between particles in different types of ordered structures. The RDF can also be used to estimate the coordination number, which is the average number of nearest neighbors of a particle in the system.
 
+![MinImage](RDF.png)
+***Figure.*** *The radial distribution measures the local denisity in a spherical shell around a reference particle and compares it to the average denisty of the system. For large $r$ the shell is a perfect representation of the system as a whole in terms of denisty and the function therefore approaches 1 at large $r$.*
+
+
+
 ### Diffusion
 The diffusion constant is a measure of how fast particles move through a medium. In molecular dynamics (MD) simulations, the diffusion constant can be calculated from the mean squared displacement (MSD) of particles using the Einstein equation.
 
@@ -160,6 +167,8 @@ To calculate the diffusion constant from an MD trajectory, one typically follows
 
 The diffusion constant can be used to characterize the mobility of particles in a system, and can be used to predict the transport properties of materials.
 
+### Tutorial
+
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/FF_MD/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -180,3 +189,5 @@ The diffusion constant can be used to characterize the mobility of particles in 
 ### Further reading:
 
 1. [Chapter 4 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)
+
+2. [Chapter 6 and 7 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)

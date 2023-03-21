@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ELECTRONIC STRUCTURE - Hartee-Fock (HF)" href="../HF/overview.html" />
-    <link rel="prev" title="Periodic Boundary Conditions (PBC)" href="../SYSTEMS/overview.html" />
+    <link rel="prev" title="REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS" href="../SYSTEMS/overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,7 +114,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   Periodic Boundary Conditions (PBC)
+   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -367,8 +367,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-book">
-     Note-book
+    <a class="reference internal nav-link" href="#tutorial">
+     Tutorial
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-readin">
+     Further readin
     </a>
    </li>
   </ul>
@@ -413,8 +418,13 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#note-book">
-     Note-book
+    <a class="reference internal nav-link" href="#tutorial">
+     Tutorial
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-readin">
+     Further readin
     </a>
    </li>
   </ul>
@@ -432,6 +442,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="mechanical-properties">
 <h1>MECHANICAL PROPERTIES<a class="headerlink" href="#mechanical-properties" title="Permalink to this headline">#</a></h1>
 <p>Computation of mechanical properties does not require explicit description of electrons. All methods on the electronic-atomistic ladder can therefore be used here.</p>
+<p>The only thing we need to know at this stage, regarding electronic and atomistic simulation tools are that they will allow us to i) calculate the total energy of system, and ii) calculate the forces acting on each atom (or nuclii) in the system.</p>
 <section id="geometry-optimization">
 <h2>Geometry optimization<a class="headerlink" href="#geometry-optimization" title="Permalink to this headline">#</a></h2>
 <p>A central concept in chemistry and physics is the so-called potential energy surface (PES). The PES is the continuous surface that specifies the energy of system as a function of the atom coordinates. THe surface typically contains a number of local minima, a single global minima, saddle points and maxima. With geometry optimization we can identify local minima. Thus, given a starting goemetry defining the positions of all atoms in our system and a computational protocol, we search for closest local minima on the potential energy surface. There are numerous techniques availble to us. Conseptually, the simplest is the steepest descent (ro gradient descent) algorithm which will be our leading example.</p>
@@ -450,7 +461,6 @@ title="Print to PDF"
 \\
 \end{split}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(F(\textbf{r}_{i}^{N})\)</span> collects the force along x,y,z for ALL nucleus. Thus if we know how to compute forces we can implement a steepest descent algorithm. Forces is a standard output for most computational methods such as HF and DFT.</p>
-<p>Further reading: https://en.wikipedia.org/wiki/Gradient_descent</p>
 </section>
 <section id="equation-of-state">
 <h2>Equation of State<a class="headerlink" href="#equation-of-state" title="Permalink to this headline">#</a></h2>
@@ -493,8 +503,8 @@ P = \frac{3K_0}{2} \left[\left(\frac{V_0}{V}\right)^{7/3}-\left(\frac{V_0}{V}\ri
 <li><p>Extract the particle shape from the space encapsulated by the planes placed in step 3.</p></li>
 </ol>
 </section>
-<section id="note-book">
-<h3>Note-book<a class="headerlink" href="#note-book" title="Permalink to this headline">#</a></h3>
+<section id="tutorial">
+<h3>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h3>
 <a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/Mechanical/Tutorial.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
@@ -507,7 +517,7 @@ P = \frac{3K_0}{2} \left[\left(\frac{V_0}{V}\right)^{7/3}-\left(\frac{V_0}{V}\ri
 <li><p>Complete the code for geometry optimization in the jupyter note-book.</p></li>
 <li><p>Choose of of the metals compatible with <a href="https://wiki.fysik.dtu.dk/ase/ase/calculators/emt.html#ase.calculators.emt.EMT">EMT</a> method and find the equlibrium cell volume and bulk modulus.</p></li>
 <li><p>Use the optimized cell volume to figure out the optimum lattice constant of your metal. Use this lattice constant to calculate the surface energy for at-least one surface termination. Explore how the surface energy vary with the number of layers, at what point does the energy seem to change insignificantly when adding more layers to the slab?</p></li>
-<li><p>(Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal.</p></li>
+<li><p>(Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine with your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal.</p></li>
 </ol>
 <p style='margin-top:1em; text-align:center'>
 <b>Submission instructions:</b></p>
@@ -515,7 +525,15 @@ P = \frac{3K_0}{2} \left[\left(\frac{V_0}{V}\right)^{7/3}-\left(\frac{V_0}{V}\ri
 <p style='margin-left:1em;'>
 Upload your commented version of the note-book to the studium page. 
 </p></span>
-</div></section>
+</div>
+</section>
+<section id="further-readin">
+<h3>Further readin<a class="headerlink" href="#further-readin" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>[Gradient descent at Wikipedia](Further reading: https://en.wikipedia.org/wiki/Gradient_descent)</p></li>
+<li><p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544">Chapter 5 <em>Atomistic Computer Simulations : A Practical Guide</em> by Veronika Brázdová and David R. Bowler</a></p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -550,7 +568,7 @@ Upload your commented version of the note-book to the studium page.
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Periodic Boundary Conditions (PBC)</p>
+            <p class="prev-next-title">REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../HF/overview.html" title="next page">
