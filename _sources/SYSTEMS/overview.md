@@ -1,10 +1,10 @@
-# REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS 
+# REPRESENTING SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS 
 
-In order to use electronic or atomistic simulations techniques we need a way to represnt the system we would like to study. In the case of molecules this task i trivial, we simply need to specify the positions of all atoms in the molecule (or nuclii in the case of an electronic simulation). When dealing with a materials with an almost ininite number of atoms this becomes untracktable. Here we make use of simulation cells and periodic boundary conditions.
+In order to use electronic or atomistic simulations techniques we need a way to represent the system we would like to study. In the case of molecules this task is trivial, we simply need to specify the positions of all atoms in the molecule (or nuclei in the case of an electronic simulation). When dealing with a materials with an almost ininite number of atoms this becomes untracktable. Here we make use of simulation cells and periodic boundary conditions.
 
 ## Periodic Boundary Conditions (PBC)
 
-Periodic boundary conditions (PBCs) are a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry.
+Periodic boundary conditions (PBCs) is a mathematical tool used to simulate an infinite system by using a finite simulation cell. This technique is widely used in many areas of physics and chemistry.
 
 In PBCs, the edges of the simulation cell are identified with each other, meaning that when a particle exits the simulation cell on one edge, it reenters the cell from the opposite edge as shown in figure below:
 

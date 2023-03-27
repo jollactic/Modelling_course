@@ -2,13 +2,13 @@
 
 Computation of mechanical properties does not require explicit description of electrons. All methods on the electronic-atomistic ladder can therefore be used here.
 
-The only thing we need to know at this stage, regarding electronic and atomistic simulation tools are that they will allow us to i) calculate the total energy of system, and ii) calculate the forces acting on each atom (or nuclii) in the system.  
+The only thing we need to know at this stage, regarding electronic and atomistic simulation tools are that they will allow us to i) calculate the total energy of system, and ii) calculate the forces acting on each atom (or nuclei) in the system.  
 
 ## Geometry optimization
 
-A central concept in chemistry and physics is the so-called potential energy surface (PES). The PES is the continuous surface that specifies the energy of system as a function of the atom coordinates. THe surface typically contains a number of local minima, a single global minima, saddle points and maxima. With geometry optimization we can identify local minima. Thus, given a starting goemetry defining the positions of all atoms in our system and a computational protocol, we search for closest local minima on the potential energy surface. There are numerous techniques availble to us. Conseptually, the simplest is the steepest descent (ro gradient descent) algorithm which will be our leading example.
+A central concept in chemistry and physics is the so-called potential energy surface (PES). The PES is the continuous surface that specifies the energy of system as a function of the atom coordinates. The surface typically contains a number of local minima, a single global minima, saddle points and maxima. With geometry optimization we can identify local minima. Thus, given a starting geometry defining the positions of all atoms in our system and a computational protocol, we search for closest local minima on the potential energy surface. There are numerous techniques availble to us. Conceptually, the simplest is the steepest descent (or "gradient descent") algorithm which will be our leading example.
 
-The gradient descent algorithm describes an intertive to find local minima in a highdimesional space. Lets say we are at position $\textbf{r}_{i}^{N}$ in our high-dimesional space where $\textbf{r}_{i}^{N}$ describes the position (x,y,z coordinates) of ALL nucleous of our system. If we take a sufficiently small step $\alpha$ along the gradient $\triangledown E(\textbf{r}_{i}^{N})$ we should en up a point lower in energy. We can write the following recursive formula where we find the minima as $i\rightarrow \infty$:
+The gradient descent algorithm describes an intuitive to find local minima in a high-dimesional space. Let's say we are at position $\textbf{r}_{i}^{N}$ in our high-dimensional space where $\textbf{r}_{i}^{N}$ describes the position (x,y,z coordinates) of ALL nuclei of our system. If we take a sufficiently small step $\alpha$ along the gradient $\triangledown E(\textbf{r}_{i}^{N})$ we should end up a point lower in energy. We can write the following recursive formula where we find the minima as $i\rightarrow \infty$:
 
 $$
 \\
@@ -30,7 +30,7 @@ Note that $F(\textbf{r}_{i}^{N})$ collects the force along x,y,z for ALL nucleus
 
 In condensed matter physics, the equation of state is a mathematical expression that relates the pressure, volume, and temperature of a material. It is an essential tool for understanding the thermodynamic behavior of solids under different conditions. There are several equations of state available for solids, each with its own set of assumptions and limitations. In this answer, we will provide an overview of the Birch-Murnaghan equation of state.
 
-The Birch-Murnaghan equation of state is a widely used equation of state for solids that was first proposed by J. D. Birch in 1947 and later extended by F. D. Murnaghan in 1944. The equation relates the pressure (P) and volume (V) of a solid to its equilibrium volume (V0), bulk modulus (K0), and its derivative with respect to pressure (K'0). The equation is given by:
+The Birch-Murnaghan equation of state is a widely used equation of state for solids that was first proposed by J. D. Birch in 1947 and based on work by F. D. Murnaghan published in 1944. The equation relates the pressure (P) and volume (V) of a solid to its equilibrium volume (V0), bulk modulus (K0), and its derivative with respect to pressure (K'0). The equation is given by:
 
 $$
 \\
@@ -70,12 +70,12 @@ where $\gamma_{\rm{surf}}$ is the surface energy per unit area, $A$ is the surfa
 
 ### Particle shapes using Wulff construction
 
-From computed surface energies we can predict particle shapes using the Wulff construction. Forming a surface cost energy solids therefore strive to minimize surface area. However, since different surface terminations may have very different surface energies this area minimization has some constraints. Area should be minimized while at the same time exposing as little as possible of high energy surface terminations. For a given volume of material there is a unique shape such that this condition is met. This is called the Wulff shape and can be obtained from a rather simple algorithm.
+From computed surface energies we can predict particle shapes using the Wulff construction. Forming a surface costs energy and therefore solids strive to minimize surface area. However, since different surface terminations may have very different surface energies this area minimization has some constraints. Area should be minimized while at the same time exposing as little as possible of high energy surface terminations. For a given volume of material there is a unique shape such that this condition is met. This is called the Wulff shape and can be obtained from a rather simple algorithm.
 
 1. Calcuate the surface energy of relevant surfaces. 
-[We are getting into a bit of truble all-ready! The set should at-least include all low-index surfaces, and this often gives a very good idea of the shape. High index surfaces with conpeting surface energy can also be included. This is obviously not trivial do since we need to calculate many different termination. However, since a higher index often means higher surface energy one can systematically include more surfaces with higher and higher index until the surface energy reach a certain threshold.]
+[We are getting into a bit of truble all-ready! The set should at-least include all low-index surfaces, and this often gives a very good idea of the shape. High index surfaces with conpeting surface energy can also be included. This is obviously not trivial to do since we need to calculate many different terminations. However, since a higher index often means higher surface energy one can systematically include more surfaces with higher and higher index until the surface energy reach a certain threshold.]
 
-2. Define an origi for you particle.
+2. Define an origin for you particle.
 
 3. For each surface termination, place a plane perpendicular to its normal (pointing away from origo) at an distance that is proportional to it's surface normal.
 
@@ -95,7 +95,7 @@ From computed surface energies we can predict particle shapes using the Wulff co
 <p style='margin-left:1em;'>
 
 1. Complete the code for geometry optimization in the jupyter note-book. 
-2. Choose of of the metals compatible with <a href="https://wiki.fysik.dtu.dk/ase/ase/calculators/emt.html#ase.calculators.emt.EMT">EMT</a> method and find the equlibrium cell volume and bulk modulus.
+2. Choose one of the metals compatible with <a href="https://wiki.fysik.dtu.dk/ase/ase/calculators/emt.html#ase.calculators.emt.EMT">EMT</a> method and find the equlibrium cell volume and bulk modulus.
 3. Use the optimized cell volume to figure out the optimum lattice constant of your metal. Use this lattice constant to calculate the surface energy for at-least one surface termination. Explore how the surface energy vary with the number of layers, at what point does the energy seem to change insignificantly when adding more layers to the slab?
 4. (Optional) Use the <a href="https://wiki.fysik.dtu.dk/ase/ase/cluster/cluster.html#wulff-construction">Wulff construction</a> routine with your own calculated surface eneries as input to generate the expected equilibrium shape of a particle made from your choosen metal. 
 
