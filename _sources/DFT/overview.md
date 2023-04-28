@@ -43,13 +43,13 @@ V_{\mathrm{sphere}} = \frac{1}{8}\frac{4}{3}\pi p^3 = \frac{1}{8}\frac{4}{3}\pi\
 $$
 To count the number of states in this volume, we need to take into account the non-negativity of the quantum numbers. Specifically, we only need to count one octant of the momentum space, corresponding to the positive values of $n_x$, $n_y$, and $n_z$. 
 
-Taking into account this restriction on the quantum numbers, the number of states in the volume $V_{\mathrm{sphere}}$ is:
+Taking into account this restriction on the quantum numbers, the density of states at given energy as:
 
 $$
-g(E) = \frac{dN}{dE} = \frac{1}{8}\frac{4\pi}{(2\pi/L)^3} \left(\frac{2mE}{\hbar^2}\right)^{3/2} = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} E^{1/2},
+g(E) = \frac{dN}{dE} = \frac{1}{8}\frac{4\pi}{(2\pi/L)^3} \left(\frac{2mE}{\hbar^2}\right)^{3/2} = \frac{V_{box}}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} E^{1/2},
 $$
 
-where $V=L_x L_y L_z$ is the volume of the box.
+where $V_{box}=L_x L_y L_z$ is the volume of the box.
 
 Finally, we can use the density of states $g(E)$ to calculate the total number of states $N$ with energy less than or equal to $E$:
 
@@ -89,7 +89,7 @@ $$
 \rho(r) = \frac{m}{3\pi^2\hbar^3} (E_F - V(r))^{3/2}.
 $$
 
-This is the Thomas-Fermi equation, which relates the electron density to the local potential in the system. It can be used to calculate the electron density and potential in a wide range of systems, including atoms, molecules, and solids.
+This is the Thomas-Fermi equation, which relates the electron density to the local potential in the system. It can be used to calculate the electron density and potential in a wide range of systems, including atoms, molecules, and solids. However, the method is not very accurate.
 
 <video width="400" controls>
   <source src="..\_static\TF.mp4" type="video/mp4">
@@ -97,6 +97,7 @@ This is the Thomas-Fermi equation, which relates the electron density to the loc
 </video>
 
 ***Thomas-Fermi theory.***
+
 
 ## Kohn-Sham DFT (KS-DFT)
 
