@@ -7,18 +7,18 @@ $$
 \\
 $$
 
-by performing a number of approximations/simplifications. In the following we will go through all steps in this simplification process. But first we have a look at the Schrödinger equation (SE) itself in a bit more detail.   
+by performing a number of approximations/simplifications. In the following we will go through all steps in this simplification process, but first we will have a look at the Schrödinger equation (SE) itself in a bit more detail.   
 
 ## The Born-Oppenheimer approximation
 The Born-Oppenheimer approximation allows for the separation of the motion of atomic nuclei and electrons in a molecule.
-The Born-Oppenheimer approximation is based on the observation that the mass of atomic nuclei is so much greater than that of the electrons, that the nuclei therefore much so slow compared than the electrons that it can be considered as being fixed in comparison. This allows for the separation of the electronic and nuclear motion, and the electronic energy can be calculated while treating the nuclear positions as fixed. This approximation is justified by the adiabatic theorem, which states that if a system evolves slowly enough, its wave function will remain in the instantaneous eigenstate of the Hamiltonian. In the case of the Born-Oppenheimer approximation, the electronic motion is assumed to be fast enough that the wave function remains in the electronic ground state while the nuclear positions change slowly. Therefore, the electronic energy can be calculated independently of the nuclear positions, and the nuclear motion can be treated separately.
+The Born-Oppenheimer approximation is based on the observation that the mass of atomic nuclei is so much greater than that of the electrons, that the nuclei are so much slower compared the electrons that they can be considered as being fixed in relation to the electrons. This allows for the separation of the electronic and nuclear motion, and the electronic energy can be calculated while treating the nuclear positions as fixed. This approximation is justified by the adiabatic theorem, which states that if a system evolves slowly enough, its wave function will remain in the instantaneous eigenstate of the Hamiltonian. In the case of the Born-Oppenheimer approximation, the electronic motion is assumed to be fast enough that the wave function remains in the electronic ground state while the nuclear positions change slowly. Therefore, the electronic energy can be calculated independently of the nuclear positions, and the nuclear motion can be treated separately.
 
 ## The Schrödinger equation and the Hamiltonian
 
 There are two central objects in the Schrödinger equation. i) The Hamlitonian $\widehat{H}$, and, ii) the wavefunction $\Psi$. The Hamiltonian describes all the interactions in the system. In our case, dealing with materials and molecules, these are: 
 
 1. The kinetic energy of all the electrons, $\widehat{T}_e$
-2. The electro-static (atractive) interaction between all nuclii and electrons, $\widehat{V}_{Ne}$
+2. The electro-static (attractive) interaction between all nuclii and electrons, $\widehat{V}_{Ne}$
 3. The electro-static (repulsive) interaction between all electrons, $\widehat{V}_{ee}$ (The real trouble-maker!)
 
 Thus:
@@ -55,7 +55,7 @@ M and N above refer to the number of nuclei and electrons, respectively. Althoug
 
 ## The Hartree (without Fock) method and simplified notation
 
-A major problem of the SE is the fact that the wavefunction (in general) have too many variable (we have three spacial variable per electron) and there is no simple way of separating them. In the Hartree (without Fock) method we allow for some separation of variables by restricting our wavefunction to be described as a product (Hartree-product) of one-electron wavefunctions (orbitals):
+A major problem of the SE is the fact that the wavefunction (in general) has too many variables (we have three spacial variables per electron) and there is no simple way of separating them. In the Hartree (without Fock) method we allow for some separation of variables by restricting our wavefunction to be described as a product (Hartree-product) of one-electron wavefunctions (orbitals):
 
 $$
 \\
@@ -63,7 +63,7 @@ $$
 \\
 $$
 
- Note that this form for the wavefunction would be exact if electrons were not interaction with each other and if we dissregard the fact that a wavefunction should be anti-symmetric (the sign of the wavefunction must change sign when two electrons are exchanged). Fock will fix the anti-symmetry problem, but first lets see how we could work with the Hartree (without Fock) method. 
+ Note that this form for the wavefunction would be exact if electrons were not interacting with each other and if we disregard the fact that a wavefunction should be anti-symmetric (the sign of the wavefunction must change sign when two electrons are exchanged). Fock will fix the anti-symmetry problem, but first lets see how we could work with the Hartree (without Fock) method. 
 
 ### Energy of a Hartree product
 The energy of a system described by a Hartree-product is:
@@ -98,7 +98,7 @@ $$
 \\
 $$
 
-if we plugg it all in we can write:
+if we plug it all in we can write:
 
 $$
 \\
@@ -151,7 +151,7 @@ the simplification comes about.
 When integrating over many variables, we can collect all functions that depend on the same variable and 'package' them togheter into many small integrals. Many of these integrals are equal to 1 which allow us to simplify intimidating expression emerging in the derivation of the HF method. 
 ```
 
-We can also simply the expressions inside the double sum as follows:
+We can also simplify the expressions inside the double sum as follows:
 
 $$
 \\
@@ -161,7 +161,7 @@ $$
 \\
 $$
 
-The reason that we are left with a double integral is becuase we can not factorize the term $r_{ij}^{-1}$. 
+The reason that we are left with a double integral is because we can not factorize the term $r_{ij}^{-1}$. 
 
 
 ```{note}
@@ -230,7 +230,7 @@ $$
 
 Note that $\overline{\chi}_\textup{j}(2)\chi_\textup{j}(2)$ correspond the probablity (electron) densisty of an electron.
 
-Berfore we get too far, we should stop and fix a major flaw that is being overlooked in the Hartree (without Fock) approach. We therfore turn to the Hartree-Fock approach which deals with this flaw.
+Before we get too far, we should stop and fix a major flaw that is being overlooked in the Hartree (without Fock) approach. We therefore turn to the Hartree-Fock approach which deals with this flaw.
 
 <video width="400" controls>
   <source src="..\_static\HwoF.mp4" type="video/mp4">
@@ -279,15 +279,15 @@ $$
 \\
 $$
 
-the term looks horrid, and it is... It does not have a classical counter part and emerges as a result of the many permuation of orbital products in the Slater deterimant. We can note that $\mathbf{K}$ descirbe some an attractive electric field, a field that reduce the Coulomb repulsion between the electrons in our orbitals.
+the term looks horrid, and it is... It does not have a classical counter part and emerges as a result of the many permuation of orbital products in the Slater deterimant. We can note that $\mathbf{K}$ describe some an attractive electric field, a field that reduces the Coulomb repulsion between the electrons in our orbitals.
 
 ```{note}
-Electrons in the real many-body system do only feel repulsive interactions between them. However, an average electric field would overestimate this repulsion since electrons could coordinate their movement to always stay rather far apart. We cannot describe such effects in our approach since our anzats is that our wavefunctions can be described with a construction that is only strictly valid if electrons fo not interact.   
+Electrons in the real many-body system do only feel repulsive interactions between them. However, an average electric field would overestimate this repulsion since electrons could coordinate their movement to always stay rather far apart. We cannot describe such effects in our approach since our anzats is that our wavefunctions can be described with a construction that is only strictly valid if electrons do not interact.   
 ```
 
 ### Self Consistent Field
 
-Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should be found by solving an equation involving $f_\textup{i}$ we are trapped in a catch 22. In order to proceed we to solve the equation iteratively. 
+Since the Hartree operators $f_\textup{i}$ depend on $\chi$ which in turn should be found by solving an equation involving $f_\textup{i}$ we are trapped in a catch 22. In order to proceed we need to solve the equation iteratively. 
 
 1. We start with an initial guesss for set of $\chi$
 2. We calculate $f_i$ using the current set of $\chi$
@@ -309,7 +309,7 @@ Self Consistent Field (SCF) is used to describe the whole approach given in list
 
 ### Numerical solution (Roothan-Hall equations)
 
-The SCF approach is a large step on the way of finding an approximatio to the many electron wavefunction. However, solving equation involving both integrals and gradients it too though to be genreally applicable. We therefor proceed with a numerical approach. We limite our chioce for the unknown $\chi$ to functions that can be described as linear combinations of known functions. A reasonable choice is to use atomic orbitals (solutions to the Schrödinger equation where we only have of electron and a single nuclie). This approach is very intutive to a chemist and is the basis for molecular orbital theory. Thus we make the anzats:
+The SCF approach is a large step on the way to finding an approximation to the many electron wavefunction. However, solving equation involving both integrals and gradients it too though to be generally applicable. We therefore proceed with a numerical approach. We limit our choice for the unknown $\chi$ to functions that can be described as linear combinations of known functions. A reasonable choice is to use atomic orbitals (solutions to the Schrödinger equation where we only have one electron and a single nuclei). This approach is very intutive to a chemist and is the basis for molecular orbital theory. Thus we make the anzats:
 
 $$
 \\
@@ -330,7 +330,7 @@ $$
 \\
 $$
 
-where the 'Constant' can be computed analyically or with numerical techniques. Before proceeding further we will stop for a little while and make another simplification. Electrons comes in two "flavours" spin up and spin down. If we assume that we can pair them up two have each orbital occupying we can "slash the problem in half". This is called restricted Hartree-Fock.
+where the 'Constant' can be computed analytically or with numerical techniques. Before proceeding further we will stop for a little while and make another simplification. Electrons comes in two "flavours" spin up and spin down. If we assume that we can pair them up two have each orbital occupying we can "slash the problem in half". This is called restricted Hartree-Fock.
 
 ```{note}
 In the restricted HF we only need to consider N/2 electrons. The other half is simply a mirror image but with spin down instead of spin up.
@@ -346,7 +346,7 @@ $$
 $$
 
 ```{note}
-A more complete derivation of the steps that takes us to the linear algebra equation can be found for example in Andrew R Leach book "Molecualar modelling" or in the book by Szabo and Östlund called "Modern Quantum Chemistry". 
+A more complete derivation of the steps that takes us to the linear algebra equation can be found for example in Andrew R Leach book "Molecular modelling" or in the book by Szabo and Östlund called "Modern Quantum Chemistry". 
 ```
 
 We will now look at the matrices one by one.
@@ -381,7 +381,7 @@ $$
 \\
 $$
 
-The second term i related to electron-nuclii interaction and is given by:
+The second term i related to electron-nuclei interaction and is given by:
 
 $$
 \\
@@ -400,7 +400,7 @@ $$
 \\
 $$
 
-these integrals are condensly written: $\left ( ab|cd \right )$. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry and used in our notebook example. Physisist prefer plane-waves which are more suited for periodic systems such a metals. 
+these integrals are condensly written: $\left ( ab|cd \right )$. If we use a suitible choice of basis-functions, all of the intergrals above have analytical solutions. This is the case for Gaussians which are a popular choice in chemistry and used in our notebook example. Physicist prefer plane-waves which are more suited for periodic systems such a metals. 
 
 We can simply a our exression by defining a new matrix $\mathbf{K}$ called density matrix which is defined as:
 
@@ -416,8 +416,8 @@ $$
 \\
 $$
 
-There are two small complication allowing us to readily solve the linear equation system. (i) the equation is not a proper eigenvalue problem $\mathbf{A}\mathbf{x}=\lambda\mathbf{x}$, and (ii) \mathbf{F}
-depend on the unknown coeffecients $\mathbf{C}$. The first of these problem can be tackeled using pure mathematics (a linear transormation) and second problem can be addessed using the SCF approach, i.e. guess $\mathbf{C}$ calculate $\mathbf{C}$ find new $\mathbf{C}$ calculate new $\mathbf{F}$ repeat.  
+There are two small complications allowing us to readily solve the linear equation system. (i) the equation is not a proper eigenvalue problem $\mathbf{A}\mathbf{x}=\lambda\mathbf{x}$, and (ii) \mathbf{F}
+depend on the unknown coeffecients $\mathbf{C}$. The first of these problem can be tackled using pure mathematics (a linear transformation) and second problem can be addessed using the SCF approach, i.e. guess $\mathbf{C}$ calculate $\mathbf{C}$ find new $\mathbf{C}$ calculate new $\mathbf{F}$ repeat.  
 
 How do we make the transformation? 
 
@@ -516,3 +516,12 @@ where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is th
 [Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* ](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
 
 [Chapter 8 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)
+
+
+
+
+What is the role of the Slater determinant in this method?
+
+What is the self-consistent field (SCF) procedure in the context of Hartree-Fock theory? How does it work and why is it necessary?
+
+How does the choice of basis set affect the accuracy and efficiency of Hartree-Fock calculations? What are some common types of basis sets used in quantum chemistry?

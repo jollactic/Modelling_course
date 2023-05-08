@@ -7,6 +7,98 @@ The main idea behind DFT is to approximate the unknown functional dependence of 
 
 DFT has become an essential tool in materials science, chemistry, and physics, and has been used to study a wide range of systems, including atoms, molecules, surfaces, and bulk materials.
 
+## Thomas-Fermi theory
+Consider a system of electrons in a uniform, positively charged background potential $V(r)$. We assume that the electrons are free to move in three dimensions but are confined to a box of volume $V$. The wavefunction of the particle is given by:
+
+\begin{equation}
+\psi_{n_x,n_y,n_z}(x,y,z) = \sqrt{\frac{8}{L_x L_y L_z}} \sin\left(\frac{n_x \pi x}{L_x}\right) \sin\left(\frac{n_y \pi y}{L_y}\right) \sin\left(\frac{n_z \pi z}{L_z}\right),
+\end{equation}
+
+where $n_x$, $n_y$, and $n_z$ are non-negative integers associated with the three dimensions of the box.
+
+The allowed energies of the particle are given by:
+
+\begin{equation}
+E_{n_x,n_y,n_z} = \frac{\hbar^2\pi^2}{2m}\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right),
+\end{equation}
+
+where $m$ is the mass of the particle.
+
+We can count the number of states with energy less than or equal to $E$ by considering the volume of momentum space that corresponds to those states. Specifically, the volume of momentum space corresponding to energies less than or equal to $E$ is the volume of a sphere of radius $p$ in momentum space, where $p$ is related to $E$ through:
+
+\begin{equation}
+E_{n_x,n_y,n_z} = \frac{p^2}{2m}.
+\end{equation}
+
+Solving for $p$ in terms of $E$ yields:
+
+\begin{equation}
+p = \sqrt{2mE}.
+\end{equation}
+
+The volume (in the first octant) of the sphere in momentum space is then given by:
+
+$$
+V_{\mathrm{sphere}} = \frac{1}{8}\frac{4}{3}\pi p^3 = \frac{1}{8}\frac{4}{3}\pi\left(\frac{2mE}{\hbar^2}\right)^{3/2}.
+$$
+To count the number of states in this volume, we need to take into account the non-negativity of the quantum numbers. Specifically, we only need to count one octant of the momentum space, corresponding to the positive values of $n_x$, $n_y$, and $n_z$. 
+
+Taking into account this restriction on the quantum numbers, the density of states at given energy as:
+
+$$
+g(E) = \frac{dN}{dE} = \frac{1}{8}\frac{4\pi}{(2\pi/L)^3} \left(\frac{2mE}{\hbar^2}\right)^{3/2} = \frac{V_{box}}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} E^{1/2},
+$$
+
+where $V_{box}=L_x L_y L_z$ is the volume of the box.
+
+Finally, we can use the density of states $g(E)$ to calculate the total number of states $N$ with energy less than or equal to $E$:
+
+$$
+N(E) = \int_0^E g(E') dE' = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} \int_0^E E'^{1/2} dE' = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} \frac{2}{5}E^{5/2}.
+$$
+
+![DOS](dos_animation.gif)
+***Figure.*** *Illustration showing the relation between quantum numbers and denisty of states.*
+
+
+The total number of electrons in the system is given by:
+
+$$
+N = \int_{0}^{E_F} g(E) f(E) dE,
+$$
+
+where $f(E)$ is the Fermi-Dirac distribution function, which gives the probability that an electron will occupy a state with energy $E$:
+
+$$
+f(E) = \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
+$$
+
+where $\mu$ is the chemical potential, $k_B$ is the Boltzmann constant, and $T$ is the temperature.
+
+Using the density of states formula and the Fermi-Dirac distribution function, we can write:
+
+$$
+N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2} \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)} dE.
+$$
+
+This integral is difficult to evaluate analytically, but we can make some simplifying assumptions. First, we assume that the temperature is low enough that $k_B T \ll E_F$. This is known as the zero-temperature limit, and it allows us to neglect the thermal contribution to the electron distribution. Second, we assume that the chemical potential is constant throughout the system, so we can set $\mu = V(r)$.
+
+With these assumptions, we can evaluate the integral and find an expression for the electron density $\rho(r)$ as a function of the local potential $V(r)$:
+
+$$
+\rho(r) = \frac{m}{3\pi^2\hbar^3} (E_F - V(r))^{3/2}.
+$$
+
+This is the Thomas-Fermi equation, which relates the electron density to the local potential in the system. It can be used to calculate the electron density and potential in a wide range of systems, including atoms, molecules, and solids. However, the method is not very accurate.
+
+<video width="400" controls>
+  <source src="..\_static\TF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Thomas-Fermi theory.***
+
+
 ## Kohn-Sham DFT (KS-DFT)
 
 Kohn-Sham Density Functional Theory (KS-DFT) is a variant of Density Functional Theory that was developed by Walter Kohn and Pierre Hohenberg in 1964. It is based on the idea of mapping the many-body Schrödinger equation for a system of interacting electrons onto a set of non-interacting electrons in a self-consistent potential.
@@ -100,6 +192,13 @@ where $\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r}))$ is th
 
 The PBE functional takes into account both local and non-local contributions to the exchange-correlation energy, which makes it more accurate than the Local Density Approximation (LDA) for a wider range of electronic properties. The inclusion of the reduced density gradient in the PBE functional further improves its accuracy by capturing the non-local behavior of electrons in a system.
 
+
+<video width="400" controls>
+  <source src="..\_static\DFT.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+***Density Functional Theory***
 
 ## Tutorial
 

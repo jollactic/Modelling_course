@@ -9,3 +9,10 @@ chapters:
 - file: FF_MD/overview
 - file: CE_MC/overview
 - file: ML/overview
+- file: PythonBasics/Readme
+  sections: 
+  - file: PythonBasics/python-basics_1.ipynb
+  - file: PythonBasics/numpy.ipynb
+  - file: PythonBasics/numpy-matrix-linalg.ipynb
+  - file: PythonBasics/matplotlib.ipynb
+  - file: PythonBasics/python-errors.ipynb 

@@ -114,7 +114,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
+   REPRESENTING SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
@@ -151,6 +151,43 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ML/overview.html">
    Machine learning models
   </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../PythonBasics/Readme.html">
+   Programming in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/python-basics_1.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/numpy.html">
+     Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/numpy-matrix-linalg.html">
+     Numpy Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/python-errors.html">
+     Python Errors
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -519,9 +556,10 @@ title="Print to PDF"
 <section id="denisty-of-states">
 <h2>Denisty of states<a class="headerlink" href="#denisty-of-states" title="Permalink to this headline">#</a></h2>
 <p>The density of states (DOS) is a function that describes the number of states available at each energy level in a solid. It is closely related to the band structure of the solid, which is a graph of the allowed energy levels for electrons in the solid. The band structure and DOS are related through the following equation:</p>
-<p>\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d6b2f01e-69ba-4814-b38c-dcc815d9f9da">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d6b2f01e-69ba-4814-b38c-dcc815d9f9da" title="Permalink to this equation">#</a></span>\[\begin{equation}
 D(E) = \frac{1}{V}\sum_{i=1}^{N}\delta(E - E_i)
-\end{equation}</p>
+\end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(D(E)\)</span> is the density of states at energy <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(V\)</span> is the volume of the solid, <span class="math notranslate nohighlight">\(N\)</span> is the total number of energy levels in the solid, and <span class="math notranslate nohighlight">\(\delta\)</span> is the Dirac delta function. The energy levels <span class="math notranslate nohighlight">\(E_i\)</span> are obtained from the band structure calculation.</p>
 <p>The above equation states that the density of states at an energy level <span class="math notranslate nohighlight">\(E\)</span> is proportional to the number of energy levels that have an energy equal to <span class="math notranslate nohighlight">\(E\)</span>. In other words, the DOS gives the number of available energy states at a given energy level. The band structure, on the other hand, provides information about the allowed energy levels in the solid, and the corresponding energy ranges where electrons can exist.</p>
 <p>In summary, the band structure and density of states are intimately connected, with the band structure providing information on the allowed energy levels and the density of states providing information on the number of available energy states at each energy level.</p>

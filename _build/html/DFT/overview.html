@@ -114,7 +114,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../SYSTEMS/overview.html">
-   REPRESENITNG SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
+   REPRESENTING SYSTEMS IN ELECTRONIC AND ATOMISTIC SIMULATIONS
   </a>
  </li>
  <li class="toctree-l1">
@@ -151,6 +151,43 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ML/overview.html">
    Machine learning models
   </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../PythonBasics/Readme.html">
+   Programming in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/python-basics_1.html">
+     Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/numpy.html">
+     Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/numpy-matrix-linalg.html">
+     Numpy Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/matplotlib.html">
+     Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PythonBasics/python-errors.html">
+     Python Errors
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -347,6 +384,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thomas-fermi-theory">
+   Thomas-Fermi theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kohn-sham-dft-ks-dft">
    Kohn-Sham DFT (KS-DFT)
   </a>
@@ -407,6 +449,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thomas-fermi-theory">
+   Thomas-Fermi theory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#kohn-sham-dft-ks-dft">
    Kohn-Sham DFT (KS-DFT)
   </a>
@@ -463,6 +510,78 @@ title="Print to PDF"
 <p>DFT allows for the calculation of a material’s electronic properties by solving the Schrödinger equation using the electron density instead of the wave function. This greatly simplifies the calculation, making it more computationally efficient than other methods.</p>
 <p>The main idea behind DFT is to approximate the unknown functional dependence of the electron density on the external potential, by using an approximate exchange-correlation functional. This functional accounts for the repulsive interactions between electrons and the attractive interactions between electrons and the positively charged atomic nuclei.</p>
 <p>DFT has become an essential tool in materials science, chemistry, and physics, and has been used to study a wide range of systems, including atoms, molecules, surfaces, and bulk materials.</p>
+<section id="thomas-fermi-theory">
+<h2>Thomas-Fermi theory<a class="headerlink" href="#thomas-fermi-theory" title="Permalink to this headline">#</a></h2>
+<p>Consider a system of electrons in a uniform, positively charged background potential <span class="math notranslate nohighlight">\(V(r)\)</span>. We assume that the electrons are free to move in three dimensions but are confined to a box of volume <span class="math notranslate nohighlight">\(V\)</span>. The wavefunction of the particle is given by:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-23702d78-ad26-4280-9315-1e70d4efca17">
+<span class="eqno">(1)<a class="headerlink" href="#equation-23702d78-ad26-4280-9315-1e70d4efca17" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\psi_{n_x,n_y,n_z}(x,y,z) = \sqrt{\frac{8}{L_x L_y L_z}} \sin\left(\frac{n_x \pi x}{L_x}\right) \sin\left(\frac{n_y \pi y}{L_y}\right) \sin\left(\frac{n_z \pi z}{L_z}\right),
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_x\)</span>, <span class="math notranslate nohighlight">\(n_y\)</span>, and <span class="math notranslate nohighlight">\(n_z\)</span> are non-negative integers associated with the three dimensions of the box.</p>
+<p>The allowed energies of the particle are given by:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-588c781c-aee1-48f8-ad40-384f0366e914">
+<span class="eqno">(2)<a class="headerlink" href="#equation-588c781c-aee1-48f8-ad40-384f0366e914" title="Permalink to this equation">#</a></span>\[\begin{equation}
+E_{n_x,n_y,n_z} = \frac{\hbar^2\pi^2}{2m}\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right),
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the mass of the particle.</p>
+<p>We can count the number of states with energy less than or equal to <span class="math notranslate nohighlight">\(E\)</span> by considering the volume of momentum space that corresponds to those states. Specifically, the volume of momentum space corresponding to energies less than or equal to <span class="math notranslate nohighlight">\(E\)</span> is the volume of a sphere of radius <span class="math notranslate nohighlight">\(p\)</span> in momentum space, where <span class="math notranslate nohighlight">\(p\)</span> is related to <span class="math notranslate nohighlight">\(E\)</span> through:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c70b2fa6-3168-4781-9cea-187c1f6ca70f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-c70b2fa6-3168-4781-9cea-187c1f6ca70f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+E_{n_x,n_y,n_z} = \frac{p^2}{2m}.
+\end{equation}\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(p\)</span> in terms of <span class="math notranslate nohighlight">\(E\)</span> yields:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5c6c276d-5452-4a51-8918-54811f59374b">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5c6c276d-5452-4a51-8918-54811f59374b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p = \sqrt{2mE}.
+\end{equation}\]</div>
+<p>The volume (in the first octant) of the sphere in momentum space is then given by:</p>
+<div class="math notranslate nohighlight">
+\[
+V_{\mathrm{sphere}} = \frac{1}{8}\frac{4}{3}\pi p^3 = \frac{1}{8}\frac{4}{3}\pi\left(\frac{2mE}{\hbar^2}\right)^{3/2}.
+\]</div>
+<p>To count the number of states in this volume, we need to take into account the non-negativity of the quantum numbers. Specifically, we only need to count one octant of the momentum space, corresponding to the positive values of <span class="math notranslate nohighlight">\(n_x\)</span>, <span class="math notranslate nohighlight">\(n_y\)</span>, and <span class="math notranslate nohighlight">\(n_z\)</span>.</p>
+<p>Taking into account this restriction on the quantum numbers, the density of states at given energy as:</p>
+<div class="math notranslate nohighlight">
+\[
+g(E) = \frac{dN}{dE} = \frac{1}{8}\frac{4\pi}{(2\pi/L)^3} \left(\frac{2mE}{\hbar^2}\right)^{3/2} = \frac{V_{box}}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} E^{1/2},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_{box}=L_x L_y L_z\)</span> is the volume of the box.</p>
+<p>Finally, we can use the density of states <span class="math notranslate nohighlight">\(g(E)\)</span> to calculate the total number of states <span class="math notranslate nohighlight">\(N\)</span> with energy less than or equal to <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+N(E) = \int_0^E g(E') dE' = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} \int_0^E E'^{1/2} dE' = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3/2} \frac{2}{5}E^{5/2}.
+\]</div>
+<p><img alt="DOS" src="../_images/dos_animation.gif" />
+<em><strong>Figure.</strong></em> <em>Illustration showing the relation between quantum numbers and denisty of states.</em></p>
+<p>The total number of electrons in the system is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+N = \int_{0}^{E_F} g(E) f(E) dE,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(E)\)</span> is the Fermi-Dirac distribution function, which gives the probability that an electron will occupy a state with energy <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f(E) = \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the chemical potential, <span class="math notranslate nohighlight">\(k_B\)</span> is the Boltzmann constant, and <span class="math notranslate nohighlight">\(T\)</span> is the temperature.</p>
+<p>Using the density of states formula and the Fermi-Dirac distribution function, we can write:</p>
+<div class="math notranslate nohighlight">
+\[
+N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2} \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)} dE.
+\]</div>
+<p>This integral is difficult to evaluate analytically, but we can make some simplifying assumptions. First, we assume that the temperature is low enough that <span class="math notranslate nohighlight">\(k_B T \ll E_F\)</span>. This is known as the zero-temperature limit, and it allows us to neglect the thermal contribution to the electron distribution. Second, we assume that the chemical potential is constant throughout the system, so we can set <span class="math notranslate nohighlight">\(\mu = V(r)\)</span>.</p>
+<p>With these assumptions, we can evaluate the integral and find an expression for the electron density <span class="math notranslate nohighlight">\(\rho(r)\)</span> as a function of the local potential <span class="math notranslate nohighlight">\(V(r)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(r) = \frac{m}{3\pi^2\hbar^3} (E_F - V(r))^{3/2}.
+\]</div>
+<p>This is the Thomas-Fermi equation, which relates the electron density to the local potential in the system. It can be used to calculate the electron density and potential in a wide range of systems, including atoms, molecules, and solids. However, the method is not very accurate.</p>
+<video width="400" controls>
+  <source src="..\_static\TF.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em><strong>Thomas-Fermi theory.</strong></em></p>
+</section>
 <section id="kohn-sham-dft-ks-dft">
 <h2>Kohn-Sham DFT (KS-DFT)<a class="headerlink" href="#kohn-sham-dft-ks-dft" title="Permalink to this headline">#</a></h2>
 <p>Kohn-Sham Density Functional Theory (KS-DFT) is a variant of Density Functional Theory that was developed by Walter Kohn and Pierre Hohenberg in 1964. It is based on the idea of mapping the many-body Schrödinger equation for a system of interacting electrons onto a set of non-interacting electrons in a self-consistent potential.</p>
@@ -522,6 +641,11 @@ $<span class="math notranslate nohighlight">\(
 \[E_{\text{xc}}^{\text{PBE}}[\rho(\mathbf{r})] = \int \rho(\mathbf{r}) \epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r})) d\mathbf{r}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_{\text{xc}}^{\text{PBE}}(\rho(\mathbf{r}), s(\mathbf{r}))\)</span> is the exchange-correlation energy density, which depends not only on the electron density, but also on its reduced density gradient.</p>
 <p>The PBE functional takes into account both local and non-local contributions to the exchange-correlation energy, which makes it more accurate than the Local Density Approximation (LDA) for a wider range of electronic properties. The inclusion of the reduced density gradient in the PBE functional further improves its accuracy by capturing the non-local behavior of electrons in a system.</p>
+<video width="400" controls>
+  <source src="..\_static\DFT.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em><strong>Density Functional Theory</strong></em></p>
 </section>
 </section>
 <section id="tutorial">
