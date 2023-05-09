@@ -313,20 +313,20 @@ The SCF approach is a large step on the way to finding an approximation to the m
 
 $$
 \\
-\chi_\textup{i}= \sum_{a=1}^{N_{basis}}c_{ai}\phi_k 
+\chi_\textup{i}= \sum_{a=1}^{N_{basis}}c_{ai}\phi_a 
 \\
 $$
 
 if $\phi$ whould be atomic orbitals, this is a linear combination of atomic orbitals (LCAO). In practice we often use a simpler set of mathematical functions that are easier to work with. However, the functions are typically similar to real atomic orbitals and centered around the atoms.
 
 
-We can re-write our analytical equations in terms of a liner algebra problem by first pluging in our linear combination in our equation for $f_\textup{i}\chi_\textup{i}=\varepsilon \chi_\textup{i}$ and then performing some clever manipulation including multiplications of $\phi_k$ and integration.
+We can re-write our analytical equations in terms of a liner algebra problem by first pluging in our linear combination in our equation for $f_\textup{i}\chi_\textup{i}=\varepsilon \chi_\textup{i}$ and then performing some clever manipulation including multiplications of $\phi_a$ and integration. (Simple examples are provided a bit further down.)
 
-The key enabaler in this transformation is that integrals involving products of known functions (our basis-functions) and coeffencient $c_{ai}$ and $\phi_k$ can be written as constants time our coefficients. For example:
+The key enabaler in this transformation is that integrals involving products of known functions (our basis-functions) and coeffencient $c_{ai}$ and $\phi_a$ can be written as constants time our coefficients. For example:
 
 $$
 \\
-\int c_{ai} \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} c_{ai}\phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1} = c_{ai}c_{ai}\int  \phi_k (\textbf{r}_\textup{1})r_{12}^{-1} \phi_k(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1}=c_{ai}c_{ai} \times \textup{Constant}
+\int c_{ai} \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} c_{ai}\phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1} = c_{ai}c_{ai}\int  \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1}=c_{ai}c_{ai} \times \textup{Constant}
 \\
 $$
 
@@ -335,7 +335,6 @@ where the 'Constant' can be computed analytically or with numerical techniques. 
 ```{note}
 In the restricted HF we only need to consider N/2 electrons. The other half is simply a mirror image but with spin down instead of spin up.
 ```
-
 
  In the end we arrive at the Roothan-Hall equations:
 
@@ -348,6 +347,8 @@ $$
 ```{note}
 A more complete derivation of the steps that takes us to the linear algebra equation can be found for example in Andrew R Leach book "Molecular modelling" or in the book by Szabo and Östlund called "Modern Quantum Chemistry". 
 ```
+
+### A closer look at the matrices (Roothan-Hall equations)
 
 We will now look at the matrices one by one.
 
@@ -488,7 +489,14 @@ Upload your commented version of the note-book to the studium page.
 </div>
 
 
-## Appendix: Mulliken population
+### Further reading:
+
+[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* ](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+
+[Chapter 8 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)
+
+
+## Appendix A: Mulliken population
 
  The Mulliken population analysis is a method used to partition the electron density of a molecule into individual atomic contributions. It provides a way to determine how many electrons are associated with each atom in the molecule. The Mulliken population of an atom $i$ is defined as the sum of the electron density matrix elements between the atomic orbitals centered on atom $i$:
 
@@ -510,18 +518,235 @@ $$
 
 where $Z_i$ is the number of electrons in the isolated atom $i$, and $M_i$ is the Mulliken population of atom $i$ in the molecule. The Mulliken charge $q_i$ represents the deviation of the actual electron density around atom $i$ from that of an isolated atom with the same nuclear charge $Z_i$, and can be used to determine the charge distribution in the molecular system. If $q_i$ is positive, atom $i$ has lost electrons compared to its isolated state and has a net positive charge; if $q_i$ is negative, atom $i$ has gained electrons and has a net negative charge.
 
+## Appendix B: Deriving the Roothan-Hall equations for simple systems
 
-### Further reading:
+### 1. Deriving the Roothan-Hall equations for a system of two non-interacting electrons
 
-[Chapter 2 in *Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others* ](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650#)
+In the following example we illustrate how we can rewrite an analytical eigenvalue equation into a matrix problem with the help of a basis-set. We will assume that the basis-set consists of real-valued function. This will allow us to drop the $^*$ notation indicating the complex conjugate.
 
-[Chapter 8 in *Atomistic Computer Simulations : A Practical Guide* by Veronika Brázdová and David R. Bowler](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544)
+Let us consider the $He-H^{+}$ system and neglect all electron-electron interactions. We may write the eigenvalue equation for the one orbital of this system (assuming a closed-shell system) as:
+
+$$
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|} \right)\chi=\varepsilon \chi
+\\
+$$
+If we use a basis-set with two functions, $\phi_a$ and $\phi_b$, $\chi$ can be written as:
+
+$$
+\\
+\chi= c_{a}\phi_a+c_{b}\phi_b 
+\\
+$$
+
+The eigenvalue equation can now be written as:
+
+$$
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|} \right)(c_{a}\phi_a+c_{b}\phi_b) =\varepsilon(c_{a}\phi_a+c_{b}\phi_b) 
+\\
+$$
+
+If we multiply this equation by $\phi_a$ and integrate over the electron coordinate we can write:
 
 
+$$
+\\
+-\int \phi_a \left(\frac{1}{2}\nabla^2 \right) (c_a\phi_a+c_b\phi_b)dr_1 - \int \phi_a\frac{Z_H}{|R_H-r|}(c_a\phi_a+c_b\phi_b)dr_1 - \int \phi_a\frac{Z_{He}}{|R_{He}-r|}(c_a\phi_a+c_b\phi_b)dr_1 \\= \int \phi_a\varepsilon(c_{a}\phi_a+c_{b}\phi_b)dr_1
+\\
+$$
 
 
-What is the role of the Slater determinant in this method?
+Exanding all terms and taking the coefficients outside gives:
 
-What is the self-consistent field (SCF) procedure in the context of Hartree-Fock theory? How does it work and why is it necessary?
+$$
+\\
+-c_a\int \phi_a \left(\frac{1}{2}\nabla^2 \right) \phi_a dr_1\\
+-c_b\int \phi_a \left(\frac{1}{2}\nabla^2 \right)\phi_a dr_1\\
+- c_a\left( \int \phi_a\frac{Z_H}{|R_H-r|}\phi_a dr_1
+- \int \phi_a\frac{Z_{He}}{|R_{He}-r|}\phi_a dr_1\right )\\
+- c_b\left( \int \phi_a\frac{Z_H}{|R_H-r|}\phi_b dr_1
+- \int \phi_a\frac{Z_{He}}{|R_{He}-r|}\phi_b dr_1\right )\\
+= \varepsilon c_a \int \phi_a \phi_a dr_1 + \varepsilon c_b\int \phi_a \phi_b dr_1
+\\
+$$
 
-How does the choice of basis set affect the accuracy and efficiency of Hartree-Fock calculations? What are some common types of basis sets used in quantum chemistry?
+
+To simplify notations we now define matrix elements:
+
+$$
+\\
+\mathbf{T}_{ab}\equiv-\frac{1}{2}\int \phi_a \nabla^2 \phi_b  dr_1
+\\
+$$
+
+$$
+\\
+\mathbf{V}_{ab}\equiv-\int \phi_a \frac{Z_H}{|R_H-r|} \phi_b  dr_1 -\int \phi_a \frac{Z_{He}}{|R_{He}-r|} \phi_b  dr_1         
+\\
+$$
+
+$$
+\\
+\mathbf{S}_{ab}\equiv \int \phi_a  \phi_b  dr_1         
+\\
+$$
+
+The matrix elements for $aa$, $bb$, and $ba$ have the same structure.
+
+we can now rewrite our equation as:
+
+$$
+\\
+c_a\mathbf{T}_{aa} + c_b\mathbf{T}_{ab} + c_a\mathbf{V}_{aa} + c_b\mathbf{V}_{ab}=\varepsilon c_a\mathbf{S}_{aa} + \varepsilon c_b\mathbf{S}_{ab} 
+\\
+$$
+
+We now have one linear equation but two unknowns. To complement this equation with a second one, we repeat the process, but this time by multipiction of $\phi_b$ instead of $\phi_a$. Carrying through the corresponding steps we arrive at:
+
+$$
+\\
+c_a\mathbf{T}_{ba} + c_b\mathbf{T}_{bb} + c_a\mathbf{V}_{ba} + c_b\mathbf{V}_{bb}=\varepsilon c_a\mathbf{S}_{ba} + \varepsilon c_b\mathbf{S}_{bb} 
+\\
+$$
+
+The two linear equations, can be combined into a single matrix equation of the following form:
+
+$$
+\\
+\left( \mathbf{T+V} \right )\mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+$$
+
+Here $\mathbf{C}$ is equal to $[c_a,c_b]^T$.
+
+This is often written in a more condensed way as:
+
+$$
+\\
+\mathbf{F} \mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+$$
+
+where the matrix elements of $\mathbf{F}$ are defined as:
+
+$$
+\\
+\mathbf{F}_{ab} = \mathbf{T}_{ab}+ \mathbf{V}_{ab} 
+\\
+$$
+
+The procedure can be repeated for any number, $N_{basis}$, of basis-functions with the matrix equation adopting the very same form. In such case, the size of the matrix $\mathbf{F}$ and column vector $\mathbf{C}$ will be $(N_{basis}\times N_{basis})$ and $(N_{basis})$, respectively.
+
+### 2. Deriving the Roothan-Hall equations for system of two interacting electrons
+
+Next, let us consider the case where the electrons in the system are treated with the Hartree approximation. We now have an addtional term, $\hat{ \textbf{J}}_j$,  in our Hamiltonian. I use the "hat" notation to distinguize it from the matrix, $\mathbf{J}$, that we will derive in the following. 
+
+$$
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|}+\hat{ \textbf{J}}_j \right)(c_{a}\phi_a+c_{b}\phi_b) =\varepsilon(c_{a}\phi_a+c_{b}\phi_b) 
+\\
+$$
+
+
+Since we are adding a single term ontop of the Hamiltonian of the previous example, we may anticipate that we could write the final matrix equation in the following form:
+
+$$
+\\
+\left( \mathbf{T+V+?} \right )\mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+$$
+
+Where the expression hidden behind the '$?$' needs to be defined.
+
+For our two electron system, $\hat{ \textbf{J}}_j$ takes a simple form:
+
+$$
+\\
+\hat{ \textbf{J}}= \int \chi^*(\textbf{r}_\textup{2})r_{12}^{-1} \chi(\textbf{r}_\textup{2}) d\textbf{r}_\textup{2}\
+=\int (c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))r_{12}^{-1}(c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))dr_2
+\\
+$$
+
+Here we need to keep track of electron 1 and 2, hence the notation $\phi_a(\textbf{r}_\textup{2})$. 
+As before, we first multiply with $\phi_a(\textbf{r}_\textup{1})$ and perform integration over $\textbf{r}_\textup{1}$. Let us look separately at the new term invloving $\hat{ \textbf{J}}$ (the other terms will be the same as in example 1):
+
+$$
+\\
+\int \phi_a(\textbf{r}_\textup{1}) \hat{ \textbf{J}}(c_{a}\phi_a(\textbf{r}_\textup{1})+c_{b}\phi_b(\textbf{r}_\textup{1}))
+\\
+$$
+
+$$
+\\
+\int \int \phi_a(\textbf{r}_\textup{1}) (c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))r_{12}^{-1}(c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))(c_{a}\phi_a(\textbf{r}_\textup{1})+c_{b}\phi_b(\textbf{r}_\textup{1}))dr_1 dr_2
+\\
+$$
+
+we expand and look at the terms, there are eight (!) of them now:
+
+$$
+\\
+c_a c_a c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_a c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+$$
+
+after multiplication with $\phi_b(\textbf{r}_\textup{1})$ and integration over $\textbf{r}_\textup{1}$ we get another eight terms:
+
+$$
+\\
+c_a c_a c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_a c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+\\
+$$
+
+if we let:
+
+$$
+\\
+\textbf{J}_{abcd}=\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_c(\textbf{r}_\textup{1}) \phi_d(\textbf{r}_\textup{2}) dr_1 dr_2
+\\
+$$
+
+and:
+
+$$
+\\
+\textbf{P}_{ab}= c_a c_b
+\\
+$$
+
+We can write:
+
+$$
+\\
+\textbf{F}_{aa}=\textbf{T}_{aa}+\textbf{V}_{aa}+\textbf{P}_{aa}(\textbf{J}_{aaaa}+\textbf{J}_{aaab}+\textbf{J}_{aaba}+\textbf{J}_{aabb})\\
+\textbf{F}_{ab}=\textbf{T}_{ab}+\textbf{V}_{ab}+\textbf{P}_{ab}(\textbf{J}_{abaa}+\textbf{J}_{abab}+\textbf{J}_{abba}+\textbf{J}_{abbb})\\
+\textbf{F}_{ba}=\textbf{T}_{ba}+\textbf{V}_{ba}+\textbf{P}_{ba}(\textbf{J}_{baaa}+\textbf{J}_{baab}+\textbf{J}_{baba}+\textbf{J}_{babb})\\
+\textbf{F}_{bb}=\textbf{T}_{bb}+\textbf{V}_{bb}+\textbf{P}_{bb}(\textbf{J}_{bbaa}+\textbf{J}_{bbab}+\textbf{J}_{bbba}+\textbf{J}_{bbbb})\\
+$$
+
+The matrix equation have the same general form as before, albeit with a more complex $\textbf{F}$-matrix, and can therefore be written as:
+
+$$
+\\
+\mathbf{F} \mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+$$
+
+Since, $\mathbf{F}$ depend on $\mathbf{P}$ which depend on $\mathbf{C}$, we have to resort to an interative approach in solving the matrix problem. 
+
+The procedure outlined in this example can be generalized to an arbritary number of basis-functions and if we add the exchange contribution in an analougus way we arrive at the complete Roothan-Hall equations.
+

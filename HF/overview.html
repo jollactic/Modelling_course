@@ -425,16 +425,36 @@ title="Print to PDF"
      Numerical solution (Roothan-Hall equations)
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-mulliken-population">
-   Appendix: Mulliken population
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-closer-look-at-the-matrices-roothan-hall-equations">
+     A closer look at the matrices (Roothan-Hall equations)
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#further-reading">
      Further reading:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-a-mulliken-population">
+   Appendix A: Mulliken population
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-b-deriving-the-roothan-hall-equations-for-simple-systems">
+   Appendix B: Deriving the Roothan-Hall equations for simple systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deriving-the-roothan-hall-equations-for-a-system-of-two-non-interacting-electrons">
+     1. Deriving the Roothan-Hall equations for a system of two non-interacting electrons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deriving-the-roothan-hall-equations-for-system-of-two-interacting-electrons">
+     2. Deriving the Roothan-Hall equations for system of two interacting electrons
     </a>
    </li>
   </ul>
@@ -500,16 +520,36 @@ title="Print to PDF"
      Numerical solution (Roothan-Hall equations)
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#appendix-mulliken-population">
-   Appendix: Mulliken population
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-closer-look-at-the-matrices-roothan-hall-equations">
+     A closer look at the matrices (Roothan-Hall equations)
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#further-reading">
      Further reading:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-a-mulliken-population">
+   Appendix A: Mulliken population
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix-b-deriving-the-roothan-hall-equations-for-simple-systems">
+   Appendix B: Deriving the Roothan-Hall equations for simple systems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deriving-the-roothan-hall-equations-for-a-system-of-two-non-interacting-electrons">
+     1. Deriving the Roothan-Hall equations for a system of two non-interacting electrons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deriving-the-roothan-hall-equations-for-system-of-two-interacting-electrons">
+     2. Deriving the Roothan-Hall equations for system of two interacting electrons
     </a>
    </li>
   </ul>
@@ -802,16 +842,16 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1}^{N} \left [  \textbf{J}_j(\textbf{r}_\t
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-\chi_\textup{i}= \sum_{a=1}^{N_{basis}}c_{ai}\phi_k 
+\chi_\textup{i}= \sum_{a=1}^{N_{basis}}c_{ai}\phi_a 
 \\
 \end{split}\]</div>
 <p>if <span class="math notranslate nohighlight">\(\phi\)</span> whould be atomic orbitals, this is a linear combination of atomic orbitals (LCAO). In practice we often use a simpler set of mathematical functions that are easier to work with. However, the functions are typically similar to real atomic orbitals and centered around the atoms.</p>
-<p>We can re-write our analytical equations in terms of a liner algebra problem by first pluging in our linear combination in our equation for <span class="math notranslate nohighlight">\(f_\textup{i}\chi_\textup{i}=\varepsilon \chi_\textup{i}\)</span> and then performing some clever manipulation including multiplications of <span class="math notranslate nohighlight">\(\phi_k\)</span> and integration.</p>
-<p>The key enabaler in this transformation is that integrals involving products of known functions (our basis-functions) and coeffencient <span class="math notranslate nohighlight">\(c_{ai}\)</span> and <span class="math notranslate nohighlight">\(\phi_k\)</span> can be written as constants time our coefficients. For example:</p>
+<p>We can re-write our analytical equations in terms of a liner algebra problem by first pluging in our linear combination in our equation for <span class="math notranslate nohighlight">\(f_\textup{i}\chi_\textup{i}=\varepsilon \chi_\textup{i}\)</span> and then performing some clever manipulation including multiplications of <span class="math notranslate nohighlight">\(\phi_a\)</span> and integration. (Simple examples are provided a bit further down.)</p>
+<p>The key enabaler in this transformation is that integrals involving products of known functions (our basis-functions) and coeffencient <span class="math notranslate nohighlight">\(c_{ai}\)</span> and <span class="math notranslate nohighlight">\(\phi_a\)</span> can be written as constants time our coefficients. For example:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \\
-\int c_{ai} \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} c_{ai}\phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1} = c_{ai}c_{ai}\int  \phi_k (\textbf{r}_\textup{1})r_{12}^{-1} \phi_k(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1}=c_{ai}c_{ai} \times \textup{Constant}
+\int c_{ai} \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} c_{ai}\phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1} = c_{ai}c_{ai}\int  \phi_a (\textbf{r}_\textup{1})r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) d\textbf{r}_\textup{1}=c_{ai}c_{ai} \times \textup{Constant}
 \\
 \end{split}\]</div>
 <p>where the ‘Constant’ can be computed analytically or with numerical techniques. Before proceeding further we will stop for a little while and make another simplification. Electrons comes in two “flavours” spin up and spin down. If we assume that we can pair them up two have each orbital occupying we can “slash the problem in half”. This is called restricted Hartree-Fock.</p>
@@ -830,6 +870,9 @@ f_\textup{i} = h_\textup{i} + \sum_{j=1}^{N} \left [  \textbf{J}_j(\textbf{r}_\t
 <p class="admonition-title">Note</p>
 <p>A more complete derivation of the steps that takes us to the linear algebra equation can be found for example in Andrew R Leach book “Molecular modelling” or in the book by Szabo and Östlund called “Modern Quantum Chemistry”.</p>
 </div>
+</section>
+<section id="a-closer-look-at-the-matrices-roothan-hall-equations">
+<h3>A closer look at the matrices (Roothan-Hall equations)<a class="headerlink" href="#a-closer-look-at-the-matrices-roothan-hall-equations" title="Permalink to this headline">#</a></h3>
 <p>We will now look at the matrices one by one.</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{C}\)</span> is an <span class="math notranslate nohighlight">\((N_{basis}\times N_{basis})\)</span> matrix collecting all <span class="math notranslate nohighlight">\(c_{ij}\)</span> coeffecients. These are our unknowns that we should find in order to present an approximation to the many electron wavefunction. Each column <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> correspond to a <span class="math notranslate nohighlight">\(\chi_\textup{i}\)</span>.</p></li>
@@ -947,9 +990,14 @@ Upload your commented version of the note-book to the studium page.
 </p></span>
 </div>
 </section>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> </a></p>
+<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544">Chapter 8 in <em>Atomistic Computer Simulations : A Practical Guide</em> by Veronika Brázdová and David R. Bowler</a></p>
 </section>
-<section id="appendix-mulliken-population">
-<h2>Appendix: Mulliken population<a class="headerlink" href="#appendix-mulliken-population" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="appendix-a-mulliken-population">
+<h2>Appendix A: Mulliken population<a class="headerlink" href="#appendix-a-mulliken-population" title="Permalink to this headline">#</a></h2>
 <p>The Mulliken population analysis is a method used to partition the electron density of a molecule into individual atomic contributions. It provides a way to determine how many electrons are associated with each atom in the molecule. The Mulliken population of an atom <span class="math notranslate nohighlight">\(i\)</span> is defined as the sum of the electron density matrix elements between the atomic orbitals centered on atom <span class="math notranslate nohighlight">\(i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -966,13 +1014,209 @@ q_i = Z_i - M_i
 \\
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(Z_i\)</span> is the number of electrons in the isolated atom <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(M_i\)</span> is the Mulliken population of atom <span class="math notranslate nohighlight">\(i\)</span> in the molecule. The Mulliken charge <span class="math notranslate nohighlight">\(q_i\)</span> represents the deviation of the actual electron density around atom <span class="math notranslate nohighlight">\(i\)</span> from that of an isolated atom with the same nuclear charge <span class="math notranslate nohighlight">\(Z_i\)</span>, and can be used to determine the charge distribution in the molecular system. If <span class="math notranslate nohighlight">\(q_i\)</span> is positive, atom <span class="math notranslate nohighlight">\(i\)</span> has lost electrons compared to its isolated state and has a net positive charge; if <span class="math notranslate nohighlight">\(q_i\)</span> is negative, atom <span class="math notranslate nohighlight">\(i\)</span> has gained electrons and has a net negative charge.</p>
-<section id="further-reading">
-<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
-<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=481650">Chapter 2 in <em>Computational Chemistry of Solid State Materials : A Guide for Materials Scientists, Chemists, Physicists and Others</em> </a></p>
-<p><a class="reference external" href="https://ebookcentral.proquest.com/lib/uu/reader.action?docID=1161544">Chapter 8 in <em>Atomistic Computer Simulations : A Practical Guide</em> by Veronika Brázdová and David R. Bowler</a></p>
-<p>What is the role of the Slater determinant in this method?</p>
-<p>What is the self-consistent field (SCF) procedure in the context of Hartree-Fock theory? How does it work and why is it necessary?</p>
-<p>How does the choice of basis set affect the accuracy and efficiency of Hartree-Fock calculations? What are some common types of basis sets used in quantum chemistry?</p>
+</section>
+<section id="appendix-b-deriving-the-roothan-hall-equations-for-simple-systems">
+<h2>Appendix B: Deriving the Roothan-Hall equations for simple systems<a class="headerlink" href="#appendix-b-deriving-the-roothan-hall-equations-for-simple-systems" title="Permalink to this headline">#</a></h2>
+<section id="deriving-the-roothan-hall-equations-for-a-system-of-two-non-interacting-electrons">
+<h3>1. Deriving the Roothan-Hall equations for a system of two non-interacting electrons<a class="headerlink" href="#deriving-the-roothan-hall-equations-for-a-system-of-two-non-interacting-electrons" title="Permalink to this headline">#</a></h3>
+<p>In the following example we illustrate how we can rewrite an analytical eigenvalue equation into a matrix problem with the help of a basis-set. We will assume that the basis-set consists of real-valued function. This will allow us to drop the <span class="math notranslate nohighlight">\(^*\)</span> notation indicating the complex conjugate.</p>
+<p>Let us consider the <span class="math notranslate nohighlight">\(He-H^{+}\)</span> system and neglect all electron-electron interactions. We may write the eigenvalue equation for the one orbital of this system (assuming a closed-shell system) as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|} \right)\chi=\varepsilon \chi
+\\
+\end{split}\]</div>
+<p>If we use a basis-set with two functions, <span class="math notranslate nohighlight">\(\phi_a\)</span> and <span class="math notranslate nohighlight">\(\phi_b\)</span>, <span class="math notranslate nohighlight">\(\chi\)</span> can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\chi= c_{a}\phi_a+c_{b}\phi_b 
+\\
+\end{split}\]</div>
+<p>The eigenvalue equation can now be written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|} \right)(c_{a}\phi_a+c_{b}\phi_b) =\varepsilon(c_{a}\phi_a+c_{b}\phi_b) 
+\\
+\end{split}\]</div>
+<p>If we multiply this equation by <span class="math notranslate nohighlight">\(\phi_a\)</span> and integrate over the electron coordinate we can write:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+-\int \phi_a \left(\frac{1}{2}\nabla^2 \right) (c_a\phi_a+c_b\phi_b)dr_1 - \int \phi_a\frac{Z_H}{|R_H-r|}(c_a\phi_a+c_b\phi_b)dr_1 - \int \phi_a\frac{Z_{He}}{|R_{He}-r|}(c_a\phi_a+c_b\phi_b)dr_1 \\= \int \phi_a\varepsilon(c_{a}\phi_a+c_{b}\phi_b)dr_1
+\\
+\end{split}\]</div>
+<p>Exanding all terms and taking the coefficients outside gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+-c_a\int \phi_a \left(\frac{1}{2}\nabla^2 \right) \phi_a dr_1\\
+-c_b\int \phi_a \left(\frac{1}{2}\nabla^2 \right)\phi_a dr_1\\
+- c_a\left( \int \phi_a\frac{Z_H}{|R_H-r|}\phi_a dr_1
+- \int \phi_a\frac{Z_{He}}{|R_{He}-r|}\phi_a dr_1\right )\\
+- c_b\left( \int \phi_a\frac{Z_H}{|R_H-r|}\phi_b dr_1
+- \int \phi_a\frac{Z_{He}}{|R_{He}-r|}\phi_b dr_1\right )\\
+= \varepsilon c_a \int \phi_a \phi_a dr_1 + \varepsilon c_b\int \phi_a \phi_b dr_1
+\\
+\end{split}\]</div>
+<p>To simplify notations we now define matrix elements:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{T}_{ab}\equiv-\frac{1}{2}\int \phi_a \nabla^2 \phi_b  dr_1
+\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{V}_{ab}\equiv-\int \phi_a \frac{Z_H}{|R_H-r|} \phi_b  dr_1 -\int \phi_a \frac{Z_{He}}{|R_{He}-r|} \phi_b  dr_1         
+\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{S}_{ab}\equiv \int \phi_a  \phi_b  dr_1         
+\\
+\end{split}\]</div>
+<p>The matrix elements for <span class="math notranslate nohighlight">\(aa\)</span>, <span class="math notranslate nohighlight">\(bb\)</span>, and <span class="math notranslate nohighlight">\(ba\)</span> have the same structure.</p>
+<p>we can now rewrite our equation as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+c_a\mathbf{T}_{aa} + c_b\mathbf{T}_{ab} + c_a\mathbf{V}_{aa} + c_b\mathbf{V}_{ab}=\varepsilon c_a\mathbf{S}_{aa} + \varepsilon c_b\mathbf{S}_{ab} 
+\\
+\end{split}\]</div>
+<p>We now have one linear equation but two unknowns. To complement this equation with a second one, we repeat the process, but this time by multipiction of <span class="math notranslate nohighlight">\(\phi_b\)</span> instead of <span class="math notranslate nohighlight">\(\phi_a\)</span>. Carrying through the corresponding steps we arrive at:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+c_a\mathbf{T}_{ba} + c_b\mathbf{T}_{bb} + c_a\mathbf{V}_{ba} + c_b\mathbf{V}_{bb}=\varepsilon c_a\mathbf{S}_{ba} + \varepsilon c_b\mathbf{S}_{bb} 
+\\
+\end{split}\]</div>
+<p>The two linear equations, can be combined into a single matrix equation of the following form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\left( \mathbf{T+V} \right )\mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> is equal to <span class="math notranslate nohighlight">\([c_a,c_b]^T\)</span>.</p>
+<p>This is often written in a more condensed way as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{F} \mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+\end{split}\]</div>
+<p>where the matrix elements of <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> are defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{F}_{ab} = \mathbf{T}_{ab}+ \mathbf{V}_{ab} 
+\\
+\end{split}\]</div>
+<p>The procedure can be repeated for any number, <span class="math notranslate nohighlight">\(N_{basis}\)</span>, of basis-functions with the matrix equation adopting the very same form. In such case, the size of the matrix <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> and column vector <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> will be <span class="math notranslate nohighlight">\((N_{basis}\times N_{basis})\)</span> and <span class="math notranslate nohighlight">\((N_{basis})\)</span>, respectively.</p>
+</section>
+<section id="deriving-the-roothan-hall-equations-for-system-of-two-interacting-electrons">
+<h3>2. Deriving the Roothan-Hall equations for system of two interacting electrons<a class="headerlink" href="#deriving-the-roothan-hall-equations-for-system-of-two-interacting-electrons" title="Permalink to this headline">#</a></h3>
+<p>Next, let us consider the case where the electrons in the system are treated with the Hartree approximation. We now have an addtional term, <span class="math notranslate nohighlight">\(\hat{ \textbf{J}}_j\)</span>,  in our Hamiltonian. I use the “hat” notation to distinguize it from the matrix, <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, that we will derive in the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\left( -\frac{1}{2}\nabla^2-\frac{Z_H}{|R_H-r|}-\frac{Z_{He}}{|R_{He}-r|}+\hat{ \textbf{J}}_j \right)(c_{a}\phi_a+c_{b}\phi_b) =\varepsilon(c_{a}\phi_a+c_{b}\phi_b) 
+\\
+\end{split}\]</div>
+<p>Since we are adding a single term ontop of the Hamiltonian of the previous example, we may anticipate that we could write the final matrix equation in the following form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\left( \mathbf{T+V+?} \right )\mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+\end{split}\]</div>
+<p>Where the expression hidden behind the ‘<span class="math notranslate nohighlight">\(?\)</span>’ needs to be defined.</p>
+<p>For our two electron system, <span class="math notranslate nohighlight">\(\hat{ \textbf{J}}_j\)</span> takes a simple form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\hat{ \textbf{J}}= \int \chi^*(\textbf{r}_\textup{2})r_{12}^{-1} \chi(\textbf{r}_\textup{2}) d\textbf{r}_\textup{2}\
+=\int (c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))r_{12}^{-1}(c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))dr_2
+\\
+\end{split}\]</div>
+<p>Here we need to keep track of electron 1 and 2, hence the notation <span class="math notranslate nohighlight">\(\phi_a(\textbf{r}_\textup{2})\)</span>.
+As before, we first multiply with <span class="math notranslate nohighlight">\(\phi_a(\textbf{r}_\textup{1})\)</span> and perform integration over <span class="math notranslate nohighlight">\(\textbf{r}_\textup{1}\)</span>. Let us look separately at the new term invloving <span class="math notranslate nohighlight">\(\hat{ \textbf{J}}\)</span> (the other terms will be the same as in example 1):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\int \phi_a(\textbf{r}_\textup{1}) \hat{ \textbf{J}}(c_{a}\phi_a(\textbf{r}_\textup{1})+c_{b}\phi_b(\textbf{r}_\textup{1}))
+\\
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\int \int \phi_a(\textbf{r}_\textup{1}) (c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))r_{12}^{-1}(c_{a}\phi_a(\textbf{r}_\textup{2})+c_{b}\phi_b(\textbf{r}_\textup{2}))(c_{a}\phi_a(\textbf{r}_\textup{1})+c_{b}\phi_b(\textbf{r}_\textup{1}))dr_1 dr_2
+\\
+\end{split}\]</div>
+<p>we expand and look at the terms, there are eight (!) of them now:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+c_a c_a c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_a c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_a\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_b\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+\end{split}\]</div>
+<p>after multiplication with <span class="math notranslate nohighlight">\(\phi_b(\textbf{r}_\textup{1})\)</span> and integration over <span class="math notranslate nohighlight">\(\textbf{r}_\textup{1}\)</span> we get another eight terms:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+c_a c_a c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_a c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_a c_b c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_a c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_a\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_a(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+c_b c_b c_b\int \int \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_b(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) dr_1 dr_2\\ 
+\\
+\end{split}\]</div>
+<p>if we let:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\textbf{J}_{abcd}=\int \int \phi_a(\textbf{r}_\textup{1}) \phi_b(\textbf{r}_\textup{2}) r_{12}^{-1} \phi_c(\textbf{r}_\textup{1}) \phi_d(\textbf{r}_\textup{2}) dr_1 dr_2
+\\
+\end{split}\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\textbf{P}_{ab}= c_a c_b
+\\
+\end{split}\]</div>
+<p>We can write:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\textbf{F}_{aa}=\textbf{T}_{aa}+\textbf{V}_{aa}+\textbf{P}_{aa}(\textbf{J}_{aaaa}+\textbf{J}_{aaab}+\textbf{J}_{aaba}+\textbf{J}_{aabb})\\
+\textbf{F}_{ab}=\textbf{T}_{ab}+\textbf{V}_{ab}+\textbf{P}_{ab}(\textbf{J}_{abaa}+\textbf{J}_{abab}+\textbf{J}_{abba}+\textbf{J}_{abbb})\\
+\textbf{F}_{ba}=\textbf{T}_{ba}+\textbf{V}_{ba}+\textbf{P}_{ba}(\textbf{J}_{baaa}+\textbf{J}_{baab}+\textbf{J}_{baba}+\textbf{J}_{babb})\\
+\textbf{F}_{bb}=\textbf{T}_{bb}+\textbf{V}_{bb}+\textbf{P}_{bb}(\textbf{J}_{bbaa}+\textbf{J}_{bbab}+\textbf{J}_{bbba}+\textbf{J}_{bbbb})\\
+\end{split}\]</div>
+<p>The matrix equation have the same general form as before, albeit with a more complex <span class="math notranslate nohighlight">\(\textbf{F}\)</span>-matrix, and can therefore be written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\\
+\mathbf{F} \mathbf{C}=\varepsilon \mathbf{S}\mathbf{C}
+\\
+\end{split}\]</div>
+<p>Since, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> depend on <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> which depend on <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, we have to resort to an interative approach in solving the matrix problem.</p>
+<p>The procedure outlined in this example can be generalized to an arbritary number of basis-functions and if we add the exchange contribution in an analougus way we arrive at the complete Roothan-Hall equations.</p>
 </section>
 </section>
 </section>
