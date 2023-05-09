@@ -513,25 +513,25 @@ title="Print to PDF"
 <section id="thomas-fermi-theory">
 <h2>Thomas-Fermi theory<a class="headerlink" href="#thomas-fermi-theory" title="Permalink to this headline">#</a></h2>
 <p>Consider a system of electrons in a uniform, positively charged background potential <span class="math notranslate nohighlight">\(V(r)\)</span>. We assume that the electrons are free to move in three dimensions but are confined to a box of volume <span class="math notranslate nohighlight">\(V\)</span>. The wavefunction of the particle is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ff283eb-2496-4bad-8309-4f6ca5ed3987">
-<span class="eqno">(1)<a class="headerlink" href="#equation-4ff283eb-2496-4bad-8309-4f6ca5ed3987" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e14f9ece-d6ca-4e02-83b6-88c2cc26a81b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e14f9ece-d6ca-4e02-83b6-88c2cc26a81b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \psi_{n_x,n_y,n_z}(x,y,z) = \sqrt{\frac{8}{L_x L_y L_z}} \sin\left(\frac{n_x \pi x}{L_x}\right) \sin\left(\frac{n_y \pi y}{L_y}\right) \sin\left(\frac{n_z \pi z}{L_z}\right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n_x\)</span>, <span class="math notranslate nohighlight">\(n_y\)</span>, and <span class="math notranslate nohighlight">\(n_z\)</span> are non-negative integers associated with the three dimensions of the box.</p>
 <p>The allowed energies of the particle are given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70c258ce-494b-4dda-827f-50f218ae40ce">
-<span class="eqno">(2)<a class="headerlink" href="#equation-70c258ce-494b-4dda-827f-50f218ae40ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8c3e3ef9-c2ae-477f-a49e-23fdc45916f2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8c3e3ef9-c2ae-477f-a49e-23fdc45916f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_{n_x,n_y,n_z} = \frac{\hbar^2\pi^2}{2m}\left(\frac{n_x^2}{L_x^2} + \frac{n_y^2}{L_y^2} + \frac{n_z^2}{L_z^2}\right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> is the mass of the particle.</p>
 <p>We can count the number of states with energy less than or equal to <span class="math notranslate nohighlight">\(E\)</span> by considering the volume of momentum space that corresponds to those states. Specifically, the volume of momentum space corresponding to energies less than or equal to <span class="math notranslate nohighlight">\(E\)</span> is the volume of a sphere of radius <span class="math notranslate nohighlight">\(p\)</span> in momentum space, where <span class="math notranslate nohighlight">\(p\)</span> is related to <span class="math notranslate nohighlight">\(E\)</span> through:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5568e9b5-5ee6-41ad-94c5-1e94aeb9542f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-5568e9b5-5ee6-41ad-94c5-1e94aeb9542f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5449e39d-a3f4-44a2-bc4f-533b20f4bcd3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5449e39d-a3f4-44a2-bc4f-533b20f4bcd3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_{n_x,n_y,n_z} = \frac{p^2}{2m}.
 \end{equation}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(p\)</span> in terms of <span class="math notranslate nohighlight">\(E\)</span> yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b6a1851-37a2-4c03-be54-a602ce2203c8">
-<span class="eqno">(4)<a class="headerlink" href="#equation-4b6a1851-37a2-4c03-be54-a602ce2203c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dcc302d1-1cca-44a2-876e-f41d5fd96a83">
+<span class="eqno">(4)<a class="headerlink" href="#equation-dcc302d1-1cca-44a2-876e-f41d5fd96a83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p = \sqrt{2mE}.
 \end{equation}\]</div>
 <p>The volume (in the first octant) of the sphere in momentum space is then given by:</p>
@@ -556,20 +556,14 @@ N(E) = \int_0^E g(E') dE' = \frac{V}{16\pi^2} \left(\frac{2m}{\hbar^2}\right)^{3
 <p>The total number of electrons in the system is given by:</p>
 <div class="math notranslate nohighlight">
 \[
-N = \int_{0}^{E_F} g(E) f(E) dE,
+N = \int_{0}^{E_F} g(E) dE,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(f(E)\)</span> is the Fermi-Dirac distribution function, which gives the probability that an electron will occupy a state with energy <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<p>From which we can write:</p>
 <div class="math notranslate nohighlight">
 \[
-f(E) = \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
+N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2}  dE.
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the chemical potential, <span class="math notranslate nohighlight">\(k_B\)</span> is the Boltzmann constant, and <span class="math notranslate nohighlight">\(T\)</span> is the temperature.</p>
-<p>Using the density of states formula and the Fermi-Dirac distribution function, we can write:</p>
-<div class="math notranslate nohighlight">
-\[
-N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2} \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)} dE.
-\]</div>
-<p>This integral is difficult to evaluate analytically, but we can make some simplifying assumptions. First, we assume that the temperature is low enough that <span class="math notranslate nohighlight">\(k_B T \ll E_F\)</span>. This is known as the zero-temperature limit, and it allows us to neglect the thermal contribution to the electron distribution. Second, we assume that the chemical potential is constant throughout the system, so we can set <span class="math notranslate nohighlight">\(\mu = V(r)\)</span>.</p>
+<p>We have assumed that the termperature is small eneough that we can ignore the fact that electrons should occupied in accorande with the Fermi distribution.</p>
 <p>With these assumptions, we can evaluate the integral and find an expression for the electron density <span class="math notranslate nohighlight">\(\rho(r)\)</span> as a function of the local potential <span class="math notranslate nohighlight">\(V(r)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -600,16 +594,14 @@ N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2}
 <p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of electrons in the system.</p>
 <p>The total energy:</p>
 <div class="math notranslate nohighlight">
-\[E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + V_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]\]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{\text{s}}[\rho(\mathbf{r})]\)</span> is the kinetic energy of the non-interacting Kohn-Sham electrons, <span class="math notranslate nohighlight">\(V_{\text{ext}}[\rho(\mathbf{r})]\)</span> is the external potential energy, <span class="math notranslate nohighlight">\(E_{\text{H}}[\rho(\mathbf{r})]\)</span> is the Hartree energy due to electron-electron repulsion, and <span class="math notranslate nohighlight">\(E_{\text{xc}}[\rho(\mathbf{r})]\)</span> is the exchange-correlation energy, which accounts for the effects of electron correlation.</p>
-<p>The
-$<span class="math notranslate nohighlight">\(
-\)</span>V_{\text{Hxc}}[\rho(\mathbf{r})]<span class="math notranslate nohighlight">\(
-\)</span>$</p>
+\[E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + E_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{\text{s}}[\rho(\mathbf{r})]\)</span> is the kinetic energy of the non-interacting Kohn-Sham electrons, <span class="math notranslate nohighlight">\(E_{\text{ext}}[\rho(\mathbf{r})]\)</span> is the external potential energy, <span class="math notranslate nohighlight">\(E_{\text{H}}[\rho(\mathbf{r})]\)</span> is the Hartree energy due to electron-electron repulsion, and <span class="math notranslate nohighlight">\(E_{\text{xc}}[\rho(\mathbf{r})]\)</span> is the exchange-correlation energy, which accounts for the effects of electron correlation.</p>
 <p>The self-consistent field (SCF) procedure is used to solve the Kohn-Sham equations iteratively until the electron density and total energy converge to a self-consistent solution.</p>
 </section>
 <section id="functionals">
 <h2>Functionals<a class="headerlink" href="#functionals" title="Permalink to this headline">#</a></h2>
+<p><img alt="MinImage" src="../_images/LDA_Dens2Pot.png" />
+<em><strong>Figure.</strong></em> *The connection between electron density and exchange-correlation potential in the Local Density Approximation (LDA). For each volume element of the density we mapp from local potential to local denisty. In each mapping, we treat the system as being a homogenous system with a uniform denisty <span class="math notranslate nohighlight">\(\mathbf{\rho}(r')\)</span>. *</p>
 <p>Density Functional Theory (DFT) functionals are mathematical expressions that describe the exchange-correlation energy of a system in terms of the electron density. There are many different types of functionals, each with its own set of strengths and weaknesses.</p>
 <p>Two of the most commonly used functionals are the Local Density Approximation (LDA) and the Perdew-Burke-Ernzerhof (PBE) functional.</p>
 <p>LDA is a simple functional that assumes that the exchange-correlation energy depends only on the local electron density at each point in space. This makes LDA computationally efficient, but it can lead to inaccuracies in describing certain electronic properties, such as band gaps and magnetic properties.</p>

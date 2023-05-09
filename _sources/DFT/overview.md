@@ -64,24 +64,16 @@ $$
 The total number of electrons in the system is given by:
 
 $$
-N = \int_{0}^{E_F} g(E) f(E) dE,
+N = \int_{0}^{E_F} g(E) dE,
 $$
 
-where $f(E)$ is the Fermi-Dirac distribution function, which gives the probability that an electron will occupy a state with energy $E$:
+From which we can write:
 
 $$
-f(E) = \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
+N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2}  dE.
 $$
 
-where $\mu$ is the chemical potential, $k_B$ is the Boltzmann constant, and $T$ is the temperature.
-
-Using the density of states formula and the Fermi-Dirac distribution function, we can write:
-
-$$
-N = \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{1/2} \int_{0}^{E_F} E^{1/2} \frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)} dE.
-$$
-
-This integral is difficult to evaluate analytically, but we can make some simplifying assumptions. First, we assume that the temperature is low enough that $k_B T \ll E_F$. This is known as the zero-temperature limit, and it allows us to neglect the thermal contribution to the electron distribution. Second, we assume that the chemical potential is constant throughout the system, so we can set $\mu = V(r)$.
+We have assumed that the termperature is small eneough that we can ignore the fact that electrons should occupied in accorande with the Fermi distribution.
 
 With these assumptions, we can evaluate the integral and find an expression for the electron density $\rho(r)$ as a function of the local potential $V(r)$:
 
@@ -128,19 +120,18 @@ where $N$ is the number of electrons in the system.
 
 The total energy:
 
-$$E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + V_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]$$
+$$E_{\text{KS}}[\rho(\mathbf{r})] = T_{\text{s}}[\rho(\mathbf{r})] + E_{\text{ext}}[\rho(\mathbf{r})] + E_{\text{H}}[\rho(\mathbf{r})] + E_{\text{xc}}[\rho(\mathbf{r})]$$
 
-where $T_{\text{s}}[\rho(\mathbf{r})]$ is the kinetic energy of the non-interacting Kohn-Sham electrons, $V_{\text{ext}}[\rho(\mathbf{r})]$ is the external potential energy, $E_{\text{H}}[\rho(\mathbf{r})]$ is the Hartree energy due to electron-electron repulsion, and $E_{\text{xc}}[\rho(\mathbf{r})]$ is the exchange-correlation energy, which accounts for the effects of electron correlation.
+where $T_{\text{s}}[\rho(\mathbf{r})]$ is the kinetic energy of the non-interacting Kohn-Sham electrons, $E_{\text{ext}}[\rho(\mathbf{r})]$ is the external potential energy, $E_{\text{H}}[\rho(\mathbf{r})]$ is the Hartree energy due to electron-electron repulsion, and $E_{\text{xc}}[\rho(\mathbf{r})]$ is the exchange-correlation energy, which accounts for the effects of electron correlation.
 
-The 
-$$
-$V_{\text{Hxc}}[\rho(\mathbf{r})]$
-$$
 
 The self-consistent field (SCF) procedure is used to solve the Kohn-Sham equations iteratively until the electron density and total energy converge to a self-consistent solution.
 
 
 ## Functionals 
+
+![MinImage](LDA_Dens2Pot.png)
+***Figure.*** *The connection between electron density and exchange-correlation potential in the Local Density Approximation (LDA). For each volume element of the density we mapp from local potential to local denisty. In each mapping, we treat the system as being a homogenous system with a uniform denisty $\mathbf{\rho}(r')$. *
 
 Density Functional Theory (DFT) functionals are mathematical expressions that describe the exchange-correlation energy of a system in terms of the electron density. There are many different types of functionals, each with its own set of strengths and weaknesses.
 
@@ -180,7 +171,6 @@ where $\rho$ is the electron density and $\left| \nabla \rho \right|$ is the mag
 The reduced density gradient has been shown to be useful in predicting various molecular properties, including reactivity, aromaticity, and stability. It is often used in conjunction with DFT functionals, such as the Perdew-Burke-Ernzerhof (PBE) functional, to improve the accuracy of calculations.
 
 Overall, the reduced density gradient is a powerful tool for analyzing and predicting the behavior of electrons in molecular systems, and it is an important concept in the field of computational chemistry.
-
 
 ### Expressing the PBE functional using $s$
 
