@@ -146,7 +146,7 @@ The combination of cluster expansion and Monte Carlo simulations can be used to 
 
 ### Tutorial
 
-<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/CE_MC/Tutorial.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/jollactic/Modelling_course/blob/main/CE_MC/Tutorial_LMO.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -157,7 +157,14 @@ The combination of cluster expansion and Monte Carlo simulations can be used to 
 <b>Assignment:</b></p>
 <p style='margin-left:1em;'>
 
+Use the tutorial to predict the voltage profile (at various levels of approximation) for a cathode material where a spinel structured $LiMn_2O_4$ consists the intercalation material.
 
+<p style='margin-top:1em; text-align:center'>
+<b>Submission instructions:</b></p>
+<p style='margin-left:1em;'>
+
+<p style='margin-left:1em;'>
+Upload your commented version of the note-book to the studium page. 
 
 </p></span>
 </div>
