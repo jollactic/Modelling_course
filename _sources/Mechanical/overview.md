@@ -26,25 +26,36 @@ $$
 
 Note that $F(\textbf{r}_{i}^{N})$ collects the force along x,y,z for ALL nucleus. Thus if we know how to compute forces we can implement a steepest descent algorithm. Forces is a standard output for most computational methods such as HF and DFT. 
 
+<video width="400" controls>
+  <source src="..\_static\Geometry_optimization.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## Equation of State
 
-In condensed matter physics, the equation of state is a mathematical expression that relates the pressure, volume, and temperature of a material. It is an essential tool for understanding the thermodynamic behavior of solids under different conditions. There are several equations of state available for solids, each with its own set of assumptions and limitations. In this answer, we will provide an overview of the Birch-Murnaghan equation of state.
+he equation of state is a mathematical expression that relates the pressure, volume, and temperature of a material. It is an essential tool for understanding the thermodynamic behavior of solids under different conditions. There are several equations of state available for solids, each with its own set of assumptions and limitations. The most popular is probably tje Birch-Murnaghan equation of state.
 
-The Birch-Murnaghan equation of state is a widely used equation of state for solids that was first proposed by J. D. Birch in 1947 and based on work by F. D. Murnaghan published in 1944. The equation relates the pressure (P) and volume (V) of a solid to its equilibrium volume (V0), bulk modulus (K0), and its derivative with respect to pressure (K'0). The equation is given by:
+The Birch-Murnaghan equation of state was first proposed by J. D. Birch in 1947 and based on work by F. D. Murnaghan published in 1944. The equation relates the pressure (P) and volume (V) of a solid to its equilibrium volume ($V_0$), bulk modulus ($B_0$), and its derivative with respect to pressure ($B_0$). The equation is given by:
 
 $$
 \\
-P = \frac{3K_0}{2} \left[\left(\frac{V_0}{V}\right)^{7/3}-\left(\frac{V_0}{V}\right)^{5/3}\right]\left[1+\frac{3}{4}(K_0^{'}-4)\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right]\right]
+P(V)={\frac {3B_{0}}{2}}\left[\left({\frac {V_{0}}{V}}\right)^{7/3}-\left({\frac {V_{0}}{V}}\right)^{5/3}\right]\left\{1+{\frac {3}{4}}\left(B_{0}^{\prime }-4\right)\left[\left({\frac {V_{0}}{V}}\right)^{2/3}-1\right]\right\}
 \\
 $$
 
-where K0 is the bulk modulus at equilibrium volume V0, and K'0 is the first derivative of the bulk modulus with respect to pressure. The equation has two parameters, K0 and K'0, which can be determined experimentally or theoretically.
+where $B_0$ is the bulk modulus at equilibrium volume $V_0$, and $B_0'$ is the first derivative of the bulk modulus with respect to pressure. At zero absolute temperature, the expression can expressed in terms of the total energy and volume which is more convinient in an atomistic simulation.
 
-The Birch-Murnaghan equation of state has some advantages over other equations of state, such as its ability to accurately describe the behavior of solids over a wide range of pressures and volumes. However, it has some limitations, such as its inability to accurately describe the behavior of solids at extreme pressures and temperatures.
+$$
+\\
+E(V)=E_{0}+{\frac {9V_{0}B_{0}}{16}}\left\{\left[\left({\frac {V_{0}}{V}}\right)^{2/3}-1\right]^{3}B_{0}^{\prime }+\left[\left({\frac {V_{0}}{V}}\right)^{2/3}-1\right]^{2}\left[6-4\left({\frac {V_{0}}{V}}\right)^{2/3}\right]\right\}
+\\
+$$
 
-In summary, the equation of state is an important tool for understanding the thermodynamic behavior of solids. The Birch-Murnaghan equation of state is a widely used equation of state for solids that relates the pressure and volume of a solid to its equilibrium volume, bulk modulus, and its derivative with respect to pressure. The equation has some advantages over other equations of state, but also has some limitations.
+By running several calculations with varying volume we can find the parameters by fitting the E-V data to the expression above. In general, the equilibrium volume ($V_0$) will differ slightly between simulations and experiments. Best practice in simulations when computing materials properties is to first determine the equilibrium volume ($V_0$) before determining e.g. cohesive energy, surface energies or electronic properties of the solid like its band-structure. 
 
-These relations are ideal to explore using computional techniques.
+![MinImage](EOS.png)
+***Figure.*** A energy-volume plot showing computed energies as points and an equation of state expression fitted to them shown with red line. 
+
 
 ## Surface energies
 

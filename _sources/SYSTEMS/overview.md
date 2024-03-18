@@ -33,6 +33,11 @@ Suppose we have an original unit cell with lattice vectors $\mathbf{a}_1$, $\mat
 Supercells are useful in materials modeling for several reasons. First, they allow for the simulation of larger systems, which can be important for understanding the behavior of materials under different conditions or for predicting the properties of materials that are difficult to synthesize or characterize experimentally. Second, they can be used to model defects or impurities in a crystal lattice, by introducing an additional atom or group of atoms into the supercell. Third, they can be used to study the effects of lattice vibrations or thermal fluctuations on the properties of materials.
 
 
+<video width="400" controls>
+  <source src="..\_static\PBC.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ### Further reading:
 
 1. [PBC at python in plain english](https://python.plainenglish.io/molecular-dynamics-periodic-boundary-conditions-21f957bbb294)
@@ -42,3 +47,5 @@ Supercells are useful in materials modeling for several reasons. First, they all
 3. [Periodic boundary conditions at Wikipedia](https://en.wikipedia.org/wiki/Periodic_boundary_conditions)
 
 4. [Chapter 3.2.2 in *Understanding Molecular Simulation : From Algorithms to Applications* by Daan Frenkel & Berend Smit](https://ebookcentral.proquest.com/lib/uu/reader.action?docID=307221)
+
+5. [A nice video lecture by Erik Lindalh](https://www.youtube.com/watch?v=gVVqjmTAJGI)
