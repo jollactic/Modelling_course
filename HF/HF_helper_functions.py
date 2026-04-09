@@ -1,10 +1,16 @@
 import numpy as np
-from scipy.special import factorial2 as fact2
+from scipy.special import factorial2
 from scipy.special import hyp1f1
+
 
 # BSD 3-Clause License
 # Copyright (c) 2021, Joshua Goings
 # All rights reserved.
+
+def fact2(n):
+    if n == -1:
+        return 1.0
+    return factorial2(n)
 
 def E(i,j,t,Qx,a,b):
     ''' Recursive definition of Hermite Gaussian coefficients.
@@ -68,53 +74,79 @@ def S_ab(a,b):
                      b.exps[ib],b.shell,b.origin)
     return s
 
-class BasisFunction(object):
-    ''' A class that contains all our basis function data
-        Attributes:
-        origin: array/list containing the coordinates of the Gaussian origin
-        shell:  tuple of angular momentum
-        exps:   list of primitive Gaussian exponents
-        coefs:  list of primitive Gaussian coefficients
-        norm:   list of normalization factors for Gaussian primitives
-    '''
-    def __init__(self,origin=[0.0,0.0,0.0],shell=(0,0,0),num_exps=None,exps=[],coefs=[]):
-        self.origin = np.asarray(origin)
-        self.shell = shell
-        self.exps  = exps
-        self.coefs = coefs
+import numpy as np
+from scipy.special import factorial2, hyp1f1
+
+def fact2(n):
+    n = int(n)
+    if n == -1:
+        return 1.0
+    return float(factorial2(n))
+
+class BasisFunction:
+    def __init__(self, origin=None, shell=(0,0,0), num_exps=None, exps=None, coefs=None):
+        if origin is None:
+            origin = [0.0, 0.0, 0.0]
+        if exps is None:
+            exps = []
+        if coefs is None:
+            coefs = []
+
+        self.origin = np.asarray(origin, dtype=float)
+        self.shell = tuple(shell)
+        self.exps = np.asarray(exps, dtype=float).copy()
+        self.coefs = np.asarray(coefs, dtype=float).copy()
         self.num_exps = len(self.exps)
         self.norm = None
         self.normalize()
 
     def normalize(self):
-        ''' Routine to normalize the basis functions, in case they
-            do not integrate to unity.
-        '''
-        l,m,n = self.shell
-        L = l+m+n
-        # self.norm is a list of length equal to number primitives
-        # normalize primitives first (PGBFs)
-        self.norm = np.sqrt(np.power(2,2*(l+m+n)+1.5)*
-                        np.power(self.exps,l+m+n+1.5)/
-                        fact2(2*l-1)/fact2(2*m-1)/
-                        fact2(2*n-1)/np.power(np.pi,1.5))
+        l, m, n = self.shell
+        L = l + m + n
 
-        # now normalize the contracted basis functions (CGBFs)
-        # Eq. 1.44 of Valeev integral whitepaper
-        prefactor = np.power(np.pi,1.5)*\
-            fact2(2*l - 1)*fact2(2*m - 1)*fact2(2*n - 1)/np.power(2.0,L)
+        if np.any(self.exps <= 0):
+            raise ValueError(f"All Gaussian exponents must be positive, got {self.exps}")
+
+        f_l = fact2(2*l - 1)
+        f_m = fact2(2*m - 1)
+        f_n = fact2(2*n - 1)
+
+        if f_l == 0 or f_m == 0 or f_n == 0:
+            raise ValueError(
+                f"Bad factorial2 values: "
+                f"fact2(2l-1)={f_l}, fact2(2m-1)={f_m}, fact2(2n-1)={f_n}"
+            )
+
+        # primitive normalization
+        self.norm = np.sqrt(
+            np.power(2.0, 2*L + 1.5) *
+            np.power(self.exps, L + 1.5) /
+            (f_l * f_m * f_n * np.power(np.pi, 1.5))
+        )
+
+        # contracted normalization
+        prefactor = (
+            np.power(np.pi, 1.5) *
+            f_l * f_m * f_n /
+            np.power(2.0, L)
+        )
 
         N = 0.0
-        num_exps = len(self.exps)
-        for ia in range(num_exps):
-            for ib in range(num_exps):
-                N += self.norm[ia]*self.norm[ib]*self.coefs[ia]*self.coefs[ib]/\
-                         np.power(self.exps[ia] + self.exps[ib],L+1.5)
+        for ia in range(self.num_exps):
+            for ib in range(self.num_exps):
+                N += (
+                    self.norm[ia] * self.norm[ib] *
+                    self.coefs[ia] * self.coefs[ib] /
+                    np.power(self.exps[ia] + self.exps[ib], L + 1.5)
+                )
 
         N *= prefactor
-        N = np.power(N,-0.5)
-        for ia in range(num_exps):
-            self.coefs[ia] *= N
+
+        if not np.isfinite(N) or N <= 0:
+            raise ValueError(f"Normalization constant is invalid: N={N}")
+
+        N = N**(-0.5)
+        self.coefs = self.coefs * N
 
 def kinetic(a,lmn1,A,b,lmn2,B):
     ''' Evaluates kinetic energy integral between two Gaussians
